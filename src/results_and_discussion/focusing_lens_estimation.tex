@@ -1,0 +1,345 @@
+\subsection{Focal length of exciting laser focusing lens estimation}
+
+For the design of the spectrometer, it is necessary to optimize the focal
+length of a laser focusing lens to deliver the most signal through the
+scattered-light-imaging system onto the detector. Suppose that the focused
+beam is cylindrically symmetric about the $z$ axis. Let consider focusing
+angle of the beam $\vartheta$ as the full angle between the $1/e^2$ intensity
+points in the far-field limit. In practice, the small angle approximation can
+be used:
+\begin{equation}
+	\vartheta = \frac{d}{f},
+	\label{\eqnlabel{focus_optimization:theta}}
+\end{equation}
+where $d$ is the diameter (between the $1/e^2$ intensity points) of laser
+beam at the focusing lens and $f$ is the focal length of this lens.
+
+According to theory~\parencite{Boyd1961,Boyd1962}, the radius of the minimum
+spot $\omega_0$ may be expressed in terms of $\vartheta$ and focused laser
+beam wavelength $\lambda$ as
+\begin{equation*}
+	\omega_0 = \frac{2\lambda}{\text{\g{p}}\vartheta}
+	\label{\eqnlabel{focus_optimization:min_spot_diameter}}
+\end{equation*}
+and the confocal parameter $b$ (the distance between perpendicular sections
+of beam with diameter $\sqrt{2}\omega_0$, see \figref{GaussianBeamWaist_wiki})
+may be written as
+\begin{equation*}
+	b = \frac{2\pi\omega_0^2}{\lambda} =
+		\frac{8\lambda}{\text{\g{p}}\vartheta^2}.
+	\label{\eqnlabel{focus_optimization:confocal_parameter}}
+\end{equation*}
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/GaussianBeamWaist_wiki}
+	\caption{The geometry of a focal region of a laser beam. The beam is
+	considered to be cylindrically symmetric about the $z$ axis, the effective
+	volume of the Raman sample was taken to be the volume of a cylinder of
+	diameter $2\omega_0$ and length $2b$. Adopted from
+	\textcite{GaussianBeamWaist}.}
+	\label{\figlabel{GaussianBeamWaist_wiki}}
+\end{figure}
+
+The beam radius $\omega(z)$ can be described as the function of $z$
+coordinate by equation
+\begin{equation}
+	\omega(z) = \omega_0\sqrt{1+\left(\frac{2z}{b}\right)^2}.
+	\label{\eqnlabel{focus_optimization:beam_radius}}
+\end{equation}
+
+As a first estimation, consider non-resonance Raman scattering produced from
+homogenous infinite medium and arising only from the region with the highest
+illumination intensity. Furthermore, assume the loss of the illumination beam
+intensity due to the Raman scattered light as negligible and that the Raman
+medium is fully transparent to excitation and scattered light, it means that
+there is negligible absorption and stimulated emission. The amount of Raman
+scattered light from the thin transverse slice of the excitation beam is
+independent of the distribution of the energy in the slice and therefore is
+proportional to the total illuminating laser-beam power under these
+assumptions. Then, view the Raman emission from the particular direction in
+the plane of the slice. The emitted flux would be the integrated flux from
+all elements on the line intersecting the slice so there would be a linear
+increase of the number of elements with the increasing diameter, but each
+element illumination power decreases with the square of the diameter of the
+illuminating beam.
+
+Considering the \eqnref{focus_optimization:beam_radius} derive the
+approximate dependence of irradiance of that point by the Raman-scattered
+light on the $z$ coordinate
+\begin{equation*}
+	I \propto \frac{1}{\omega(z)} \propto \frac{1}{\sqrt{1 + (2z/b)^2}}.
+	\label{\eqnlabel{focus_optimization:slice_irradiance}}
+\end{equation*}
+
+So, the irradiance at $z = b$ will be reduced from the $z = 0$ by a factor of
+$1/\sqrt{5} \doteq 0.447 \doteq 1/2$. For the next calculation, the brightest
+region of excitation beam was approximated by the “source cylinder” of length
+$2b$ and diameter $2\omega_0$ and therefore included only the brightest
+region of Raman emission and neglect the emission from less-bright regions.
+The source parameters are then \parencite{Barrett1968}:
+\begin{align}
+	\text{length:}&
+		& L_\text{E}& = 16\lambda/(\text{\g{p}}\vartheta^2)
+	\label{\eqnlabel{focus_optimization:L_E}}\\
+	\text{diameter (width of scattering area):}&
+		& W_\text{E}& = 4\lambda/(\text{\g{p}}\vartheta)
+	\label{\eqnlabel{focus_optimization:W_E}}\\
+	\text{volume:}&
+		& V_\text{E}& = 64 \lambda^3/(\text{\g{p}}^2\vartheta^4)
+	\label{\eqnlabel{focus_optimization:V_E}}\\
+	\text{length-to-diameter ratio:}&
+		& L_\text{E}/W_\text{E}& = 4/\vartheta.
+	\label{\eqnlabel{focus_optimization:LW_E}}
+\end{align}
+
+These approximations apply to diffraction-limited Gaussian beams (
+TEM\textsubscript{00}), for low-order transverse modes or combination of such
+modes, the calculations based on these equations can be considered accurate
+within an order of magnitude.
+
+Many simple arguments \parencite{Atwood1963,Barrett1968} were used to propose
+that the Raman spectrometer using right angle geometry scattering geometry
+will gain higher signal if the laser beam is more focused. None of these
+arguments, however, do not establish if there is an optimum degree of
+focusing less then the largest practical value. \textcite{Barrett1968} showed
+that such an optimum exists theoretically; they calculated its approximate
+value, and they compared the Raman power that can be usefully collected at
+that optimum degree of focusing with the total emitted Raman power.
+
+It is known that the light is scattered to all directions by the Raman effect
+and within the assumptions stated above, the Raman intensity is linearly
+proportional to the excitation laser beam power. Therefore, if the amount of
+Raman scattered light gathered by the spectrometer should be maximized, the
+light needs to be collected from the largest solid angle and the largest
+possible illuminated volume. Typical Raman spectrometer light collecting path
+has two optical parts, spectrograph, and light collecting optics. Let
+consider their parameters as given even though similar considerations as
+bellow can also be applied to the light collecting optics optimization. Lets
+further consider that the spectrograph consists of an entrance slit, imaging
+optics, dispersing element, and CCD camera.
+
+For simplicity approximate the source as flat ribbon with the same length and
+width as specified above for the “source cylinder” which radiates uniformly
+to all collected angles from all parts of its surface. Then, consider that
+the light collecting optic displays the entrance slit of the spectrograph to
+the center of the focal region of the illuminating beam. The width of the
+slit $W_\mathrm{s}$ is determined by the spectrograph settings, particularly
+by the desired spectral resolution, and its length $L_\mathrm{s}$ could be
+estimated as an image of the CCD chip through the spectrograph. Moreover,
+suppose that the aperture of light collecting optic is large enough further
+not to constrain the collected Raman light over the spectrograph aperture.
+
+Then there are two competing processes. The assumptions above that the amount
+of the Raman scattered light from all thin transverse slices of the
+excitation beam is the same implies that the total amount of Raman scattered
+light from the source ribbon is dependent only on its length. As the focal
+length of the excitation beam focusing lens is decreased, the source ribbon
+is getting narrower, which results in more intensive emission of the
+scattered light per unit area. So if we start with the source ribbon width
+larger than the image of the spectrograph entrance slit width, the amount of
+collected light increases with the narrower source ribbon. In the opposite,
+the length (and therefore the total Raman scattered light intensity) of the
+source ribbon decreases with the decreasing focal length of the excitation
+beam focusing lens and so when the source ribbon gets shorter than the image
+of the spectrograph entrance slit length, the amount of collected light
+decreases with the shorter source ribbon.
+
+So, lets split further analysis of the dependence of the Raman flux
+transmitted through the spectrometer on the focusing angle of the excitation
+beam $\vartheta$ (\eqnref{focus_optimization:theta}) to regions divided by
+two focusing angles $\vartheta_\mathrm{W}$ and $\vartheta_\mathrm{L}$. The
+$\vartheta_\mathrm{W}$ defines focusing angle at which the width of the
+focusing ribbon $W_\text{E}$ is the same as the width $W$ of image of the
+spectrograph entrance slit width $W_\text{S}$, and $\vartheta_\mathrm{L}$ is
+angle which causes equality of the source ribbon length $L_\text{E}$ and
+length $L$ of the spectrograph entrance slit image length $L_\text{S}$ on the
+source. Further, define magnification of the scattered light collecting
+optics as $M$. Then
+\begin{align}
+	L& = \frac{L_\mathrm{S}}{M}
+	\label{\eqnlabel{focus_optimization:slit_length_magnification}}\\
+	W& = \frac{W_\mathrm{S}}{M}
+	\label{\eqnlabel{focus_optimization:slit_width_magnification}}
+\end{align}
+and using \eqnref{focus_optimization:L_E} and
+\labelcref{\eqnlabel{focus_optimization:W_E}} and putting $L = L_\mathrm{E}$
+and $W = W_\mathrm{E}$ respectively we get
+\begin{align}
+	\vartheta_\mathrm{W} = \frac{4\lambda}{\text{\g{p}}W}
+		= \frac{4\lambda M}{\text{\g{p}}W_\mathrm{S}}
+	\label{\eqnlabel{focus_optimization:theta_W}}\\
+	\vartheta_\mathrm{L} = \sqrt{\frac{16\lambda}{\text{\g{p}}L}}
+		= \sqrt{\frac{16\lambda M}{\text{\g{p}}L_\mathrm{S}}}.
+	\label{\eqnlabel{focus_optimization:theta_L}}
+\end{align}
+
+For our spectrometer, we have $W_\mathrm{S} = 50$\,\g{m}m and beam diameter
+$d = 0.9$\,mm. The wavelength can be calculated from the wavelength in vacuum
+$\lambda_0 = 257.2$\,nm divided by the refractive index of water
+$n_{257} = 1.3598$ \parencite{Hale1973} $\lambda = 189.1$\.nm The
+$L_\mathrm{S}$ can be calculated from the height of the CCD chip
+$L_\text{CCD} = 6.9$\,mm and magnification of spectrograph
+$M_\text{spc} = 1.1$ as
+$L_\text{S} = L_\text{CCD}/M_\text{spc} \doteq 6.3$\,mm, the magnification $M$
+may be computed from focal length of objective $f_\text{o} = 13$\,mm and
+focusing lens before monochromator $f \text{c} = 101.6$\,mm as
+$M = f_\text{c}/f_\text{o} \doteq 7.82$. Then, from the above equations, we
+calculate
+\begin{align}
+	\vartheta_\mathrm{W} \doteq 0.0376
+	\label{\eqnlabel{focus_optimization:theta_W_calc}}\\
+	\vartheta_\mathrm{L} \doteq 0.0346,
+	\label{\eqnlabel{focus_optimization:theta_L_calc}}
+\end{align}
+which correspond regarding \eqnref{focus_optimization:theta} to
+\begin{align}
+	f_\mathrm{W} \doteq 24\,\text{mm}
+	\label{\eqnlabel{focus_optimization:f_W_calc}}\\
+	f_\mathrm{L} \doteq 26\,\text{mm}
+	\label{\eqnlabel{focus_optimization:f_L_calc}}
+\end{align}
+respectively.
+
+We can note, that $\vartheta_\mathrm{W}$ is greater then
+$\vartheta_\mathrm{L}$, which is according to \textcite{Barrett1968} common
+for the tabletop spectrometer with moderate resolution and with fairly fast
+focal ration. So we can divide further analysis into three regions according
+to excitation beam focusing angle
+$\vartheta$: $0 \leq \vartheta < \vartheta_\text{L}$;
+$\vartheta_\text{L} < \vartheta < \vartheta_\text{W}$;
+$\vartheta_\text{W} < \vartheta$.
+
+Under the approximations above the Raman flux fraction $F$, collected by the
+spectrometer of the total Raman flux emitted by the source ribbon into all
+angles (i.e. full solid angle of $4\text{\g{p}}$), can be estimated now. For
+the simplicity, polarization effects of input and output are further ignored
+and the Raman emission is assumed isotropic over all angles of collection.
+Define the solid angle subtended by the spectrometer pupil as
+$\Omega_\mathrm{S}$ and corresponding scattered light collecting solid angle
+at the source ribbon as $\Omega$. Then
+\begin{equation}
+	\Omega = \Omega_\mathrm{S}M^2.
+	\label{\eqnlabel{focus_optimization:omega_magnification}}
+\end{equation}
+For our spectrometer the solid angle of acceptance of monochromator may be
+calculated from monochromator $f/\# = f/6.4$ as
+$\Omega_\text{S} =
+	2\text{\g{p}}\left[1 - \cos\left(\arctan\frac{1}{6.4}\right)\right]
+	\doteq 0.075$\,rad.
+
+The Raman flux fraction $F$ is then calculated from the solid angle fraction
+$\Omega / 4\text{\g{p}}$ and the fraction of the light which is “masked out”
+by the width of the slit image and fraction of the ribbon length as compared
+to the height of the slit image using \cref{%
+\eqnlabel{focus_optimization:L_E},%
+\eqnlabel{focus_optimization:W_E},%
+\eqnlabel{focus_optimization:slit_length_magnification},%
+\eqnlabel{focus_optimization:slit_width_magnification},%
+\eqnlabel{focus_optimization:omega_magnification}}.
+
+For the first $0 \leq \vartheta < \vartheta_\text{L}$ region, the whole
+
+slit-image width and height are illuminated, but the focused beam is wider
+than slit width, and therefore the radiant flux density in the sample is
+smaller (recall that we assumed that radiant losses in the sample are
+negligible)
+\begin{equation}
+	F_\text{I}(\vartheta)
+		= \frac{W}{W_\text{E}}\cdot\frac{\Omega}{4\text{\g{p}}}
+		= \frac{\frac{W_\text{S}}{M}}{\frac{4\lambda}{\text{\g{p}}\vartheta}}
+			\cdot\frac{\Omega_\text{S}M^2}{4\text{\g{p}}}
+		=	\frac{W_\text{S}\Omega_\text{S}M}{16\lambda}\vartheta.
+	\label{\eqnlabel{focus_optimization:F_I}}
+\end{equation}
+
+In the next second region
+$\vartheta_\text{L} < \vartheta < \vartheta_\text{W}$,
+only the whole slit-image width is illuminated, but the exciting beam is
+focused to an area with smaller length than is the slit length and so the
+radiant flux density is diminished by the ratio between scattering area
+length and slit-image length
+\begin{equation}
+	F_\text{II}(\vartheta)
+		= \frac{W}{W_\text{E}}\cdot\frac{\Omega}{4\text{\g{p}}}
+			\cdot\frac{L_\text{E}}{L}
+		=	\frac{\frac{W_\text{S}}{M}}{\frac{4\lambda}{\text{\g{p}}\vartheta}}
+			\cdot\frac{\Omega_\text{S}M^2}{4\text{\g{p}}}
+			\cdot\frac{\frac{16\lambda}{\text{\g{p}}\vartheta^2}}
+				{\frac{L_\text{S}}{M}}
+		= \frac{W_\text{S}\Omega_\text{S}M^2}{\text{\g{p}}L_\text{S}}
+			\cdot\frac{1}{\vartheta}.
+	\label{\eqnlabel{focus_optimization:F_II}}
+\end{equation}
+
+The Raman scattering area in the third region $\vartheta_\text{L} < \vartheta$
+is so small that the Raman scattered light is collected from the whole beam,
+and therefore whole radiant flux is used
+\begin{equation}
+	F_\text{III}(\vartheta)
+		= \frac{\Omega}{4\text{\g{p}}}\cdot\frac{L_\text{E}}{L}
+		= \frac{\Omega_\text{S}M^2}{4\text{\g{p}}}
+			\cdot\frac{\frac{16\lambda}{\text{\g{p}}\vartheta^2}}
+				{\frac{L_\text{S}}{M}}
+		= \frac{4\lambda\Omega_\text{S}M^3}{\text{\g{p}}^2L_\text{S}}
+			\cdot\frac{1}{\vartheta^2}.
+	\label{\eqnlabel{focus_optimization:F_III}}
+\end{equation}
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/F}
+	\caption{A plot of the values of the fractional Raman flux $F$ as calculated
+	for our experimental conditions using \cref{%
+		\eqnlabel{focus_optimization:F_I},\eqnlabel{focus_optimization:F_II},%
+		\eqnlabel{focus_optimization:F_III}}
+	versus the focusing angle $\vartheta$ of the
+	illuminating laser beam.}
+	\label{\figlabel{focus_optimization:F}}
+\end{figure}
+
+The results of \cref{%
+		\eqnlabel{focus_optimization:F_I},%
+		\eqnlabel{focus_optimization:F_II},%
+		\eqnlabel{focus_optimization:F_III}}
+
+for our experimental setup can be seen in \figref{focus_optimization:F}. The
+optimum value of $\vartheta$ is $\vartheta_\text{L}$. \textcite{Barrett1968}
+proposed the optimum value to lie above the $\vartheta_\text{L}$ because the
+signal from outside the cylinder along the excitation beam axis is also
+transmitted through the spectrometer in the second and third region, but they
+do not expect the optimum as high as $\vartheta_\text{W}$. The light
+collecting optics magnification can be optimized according to the equations
+from above too, but each equation must be multiplied by the length of the
+slit image $L$. The Raman signal then does not decrease with the
+magnification, which means that the magnification should be used as high as
+practical.
+
+From these considerations follows conclusion for our experimental setup, that
+the optimal focal length of the laser beam focusing lens for the off-
+resonance Raman spectroscopy should be somewhere between 18 and 22\,mm which
+is impractically small.
+
+All the above calculations, however, neglected loss of the excitation beam
+power as it goes through the sample, but we want to use the instrument for
+resonance Raman spectroscopy where significant absorption inside the sample
+occurs. It can decrease the length of the source cylinder $L_E$ significantly
+and can push the $\vartheta_\text{L}$ to much lower values. For example, we
+typically use samples with absorbance between 5 and 50 at 257\,nm in a 1cm
+cuvette. So, for example, the intensity of incident light is halved in
+300\,\g{m}m path through the sample with absorbance 10 but the
+$L_E = 802$\,\g{m}m at $\vartheta_\text{L}$. If we correct the
+\eqnref{focus_optimization:L_E} to for example one fourth, then the
+corrected $L_E,corr$ would be approximately 170\,\g{m}m and corresponding
+focal length of the laser beam focusing lens about 52\,mm.
+
+The absorbing medium brings additional complications. For example, the
+anomalous refractive index near the absorption band can significantly
+influence the focused beam waist, and laser beam absorption can cause local
+heating which also influences refractive index and moreover produces currents
+in the sample. There is also a dependence of the optimal focal length on the
+excitation wavelength, but exchanges of the focusing lens in dependence on
+the excitation wavelength was impractical.
+
+However, in conclusion, the focusing lens should have the focal length as
+small as possible following the experimental geometric constraints.

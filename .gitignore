@@ -21,6 +21,8 @@ src/materials_and_methods/materials_and_methods.aux
 src/misc/misc.aux
 src/preface/preface.aux
 src/results_and_discussion/results_and_discussion.aux
+src/results_and_discussion/assets/F.tex
+src/results_and_discussion/assets/F.pdf
 src/title/title.aux
 *.bak
 *.sav
