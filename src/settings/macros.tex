@@ -134,11 +134,25 @@
 }
 {\compress\end{enumerate}\ignorespacesafterend}
 
+\newenvironment{compitemize}[1][\quad]
+{\compress\begin{itemize}%
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parskip}{0pt}%
+  \setlength{\parsep}{0pt}%
+	\setlength{\topsep}{0pt}%
+	\setlength{\leftmargin}{29.3747pt}%
+	\setlength{\itemindent}{\itemindent+5.87494pt}%
+	\setlength{\partopsep}{0pt}%
+}
+{\compress\end{itemize}\ignorespacesafterend}
+
 % aliases for documentwide usage
 \let\docdesc\compdesc
 \let\enddocdesc\endcompdesc
 \let\docenum\compenum
 \let\enddocenum\endcompenum
+\let\docitemize\compitemize
+\let\enddocitemize\endcompitemize
 
 %%% Other
 

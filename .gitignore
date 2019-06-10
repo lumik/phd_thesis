@@ -19,6 +19,7 @@ src/conclusions/conclusions.aux
 src/introduction/introduction.aux
 src/materials_and_methods/materials_and_methods.aux
 src/misc/misc.aux
+src/objectives/objectives.aux
 src/preface/preface.aux
 src/results_and_discussion/results_and_discussion.aux
 src/results_and_discussion/assets/F.tex
