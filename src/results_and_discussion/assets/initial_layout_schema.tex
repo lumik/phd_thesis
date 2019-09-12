@@ -1,0 +1,392 @@
+\begin{tikzpicture}[font=\sffamily]
+
+% settings
+\newcommand*{\cellBorderWidth}{3\pgflinewidth}
+\newcommand*{\cellLineWidth}{1.5\pgflinewidth}
+\definecolor{glassBorderColor}{RGB}{0,128,255}
+\definecolor{glassFillColor}{RGB}{230,242,255}
+\definecolor{waterFillColor}{RGB}{0,128,255}
+\tikzset{
+	clip
+}
+\tikzset{
+	mirror element/.style={color=black, line width=2*\pgflinewidth},
+	laser beam/.style={color=cyan, line width=2*\pgflinewidth},
+	scattered ray/.style={color=red!60, line width=1.5*\pgflinewidth},
+	scattered fill/.style={fill=red, draw=none, fill opacity=0.2},
+	glass/.style={color=glassBorderColor, opacity=0.5,%
+		fill=glassFillColor, fill opacity=0.5},
+	sample cell/.style={color=glassBorderColor, opacity=0.5,%
+		double=glassFillColor, double distance=\cellBorderWidth,
+		line width=\cellLineWidth, line cap=rect},
+	water fill/.style={fill=waterFillColor, fill opacity=0.1},
+	mirror surface/.style={color=black!20, fill=black!10},
+	nd filter/.style={color=black, opacity=0.2, fill=black, fill opacity=0.1},
+	nd carousel/.style={color=black, opacity=0.4, fill=black, fill opacity=0.2},
+	notch/.style={color=black, opacity=0.4, fill=black, fill opacity=0.1}
+};
+\clip (-.1,-2.1) rectangle (14,6.6);
+\newcommand*{\samplePosWidth}{10}
+\newcommand*{\samplePosHeight}{3}
+\coordinate (samplePos) at (\samplePosWidth,\samplePosHeight);
+\newcommand*{\cellWidth}{1};
+\coordinate (cassegrainM1Center) at (\samplePosWidth - 0.5,\samplePosHeight);
+\newcommand*{\cassegrainMARadius}{1.5}
+\coordinate (cassegrainM2Center) at (\samplePosWidth - 0.7,\samplePosHeight);
+\newcommand*{\cassegrainMBRadius}{0.4}
+\newcommand*{\sqrttwo}{1.414213}
+\coordinate (MS1Edge1) at (4.5,\samplePosHeight + 0.5);
+\coordinate (MS1Edge2) at (3.5,\samplePosHeight - 0.5);
+\coordinate (parabolaFocus) at (3,0.4);
+\coordinate (MS2Edge1) at (4.5,1);
+\coordinate (MS2EdgeControl1) at (245:0.5);
+\coordinate (MS2Edge2) at (3.5,0);
+\coordinate (MS2EdgeControl2) at (17:0.3);
+
+% laser
+\draw (0,5.5) rectangle ++(3,1) node[pos=.5] {laser};
+
+% Mirror 3 - it should be under the beam so we have to draw it first
+\draw[mirror surface] ($ (samplePos) + (-0.3,-\sqrttwo * 0.3) $)
+	rectangle ++(0.6,\sqrttwo*0.6);
+\node[above] at ($ (samplePos) + (0,0.5) $) {M3};
+
+% laser beam
+\draw[laser beam] (3,6) -- (13,6) coordinate (M1)
+	-- (13,\samplePosHeight) coordinate (M2) -- (samplePos);
+
+% neutral density filters
+\newcommand*{\ndfilterA}{(3.5,5.8) rectangle ++(0.2,0.4)}
+\newcommand*{\ndfilterB}{(3.5,5) rectangle ++(0.2,0.4)}
+\draw[nd filter] \ndfilterA;
+\draw[nd filter] \ndfilterB;
+\draw[nd carousel] (3.45,4.9) rectangle ++(0.3,0.1);
+\draw[nd carousel] (3.45,5.4) rectangle ++(0.3,0.4);
+\draw[nd carousel] (3.45,6.2) rectangle ++(0.3,0.1);
+\node[below] at (3.6,4.9) {ND};
+
+% Mirror 2 and 3
+\draw[mirror element] ($ (M1) + (-0.3,0.3) $)
+	-- node[above,shift={(0.35cm,-0.05cm)}]{M1} ($ (M1) + (0.3,-0.3) $);
+\draw[mirror element] ($ (M2) + (0.3,0.3) $)
+	-- node[below,shift={(0.35cm,0.05cm)}]{M2} ($ (M2) + (-0.3,-0.3) $);
+
+% Draw laser focusing lens
+\newcommand*{\LARadius}{0.7}
+\coordinate (L1Center) at (\samplePosWidth+1.6-\LARadius,\samplePosHeight);
+\path[name path=L1Arc, shift={(L1Center)}]
+	(270:\LARadius) arc (-90:90:\LARadius);
+\path[name path=toL1Arc1] ($ (samplePos)  + (0,0.4) $) -- ++(10,0);
+\path[name path=toL1Arc2] ($ (samplePos)  + (0,-0.4) $) -- ++(10,0);
+\path[name intersections={of=L1Arc and toL1Arc1, by=L11}];
+\mypgfextractangle{\LAAAngle}{L1Center}{L11}
+\path[name intersections={of=L1Arc and toL1Arc2, by=L12}];
+\mypgfextractangle{\LABAngle}{L1Center}{L12}
+\draw[glass] (L11) arc (\LAAAngle:\LABAngle-360:\LARadius) -- ++(-0.05,0)
+	-- ($ (L11) + (-0.05,0) $) -- cycle;
+\node[above] at (L11) {L1};
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% draw the cassegrain
+
+% calculate intersections with mirror 1 (the objective mirror)
+% mirror1 arc
+\path[name path=M1arc, shift={(cassegrainM1Center)}]
+	(90:\cassegrainMARadius) arc (90:270:\cassegrainMARadius);
+% upper top ray
+\path[name path=toCassegrainM11] (samplePos) -- ++(135:5);
+\path[name intersections={of=M1arc and toCassegrainM11, by=cassegrainM11}];
+\mypgfextractangle{\cassegrainMAAAngle}{cassegrainM1Center}{cassegrainM11}
+% upper bottom ray
+\path[name path=toCassegrainM12] (samplePos) -- ++(165:5);
+\path[name intersections={of=M1arc and toCassegrainM12, by=cassegrainM12}];
+\mypgfextractangle{\cassegrainMABAngle}{cassegrainM1Center}{cassegrainM12}
+% lower top ray
+\path[name path=toCassegrainM13] (samplePos) -- ++(195:5);
+\path[name intersections={of=M1arc and toCassegrainM13, by=cassegrainM13}];
+\mypgfextractangle{\cassegrainMACAngle}{cassegrainM1Center}{cassegrainM13}
+% lower bottom ray
+\path[name path=toCassegrainM14] (samplePos) -- ++(225:5);
+\path[name intersections={of=M1arc and toCassegrainM14, by=cassegrainM14}];
+\mypgfextractangle{\cassegrainMADAngle}{cassegrainM1Center}{cassegrainM14}
+
+\draw[scattered ray] (samplePos) -- (cassegrainM11);
+\draw[scattered ray] (samplePos) -- (cassegrainM12);
+\draw[scattered fill] (samplePos) -- (cassegrainM11)
+	arc (\cassegrainMAAAngle:\cassegrainMABAngle:\cassegrainMARadius) -- cycle;
+\draw[scattered ray] (samplePos) -- (cassegrainM13);
+\draw[scattered ray] (samplePos) -- (cassegrainM14);
+\draw[scattered fill] (samplePos) -- (cassegrainM13)
+	arc (\cassegrainMACAngle:\cassegrainMADAngle:\cassegrainMARadius) -- cycle;
+
+% draw the cell
+\draw[sample cell, water fill]
+	($ (samplePos)%
+		+ (-0.5 * \cellBorderWidth - \cellLineWidth,-0.5 * \cellWidth) $)
+		rectangle ++(\cellWidth,\cellWidth);
+\node[below] at ($ (samplePos) + (0.5 * \cellWidth,-0.5 * \cellWidth)%
+	+ (-0.5 * \cellBorderWidth,0) + (-0.5 * \cellLineWidth,0) $) {S};
+
+% calculate intersections with mirror 2 (the objective mirror)
+% mirror2 arc
+\path[
+	name path=M2arc, shift={(cassegrainM2Center)}] (90:\cassegrainMBRadius)
+		arc (90:270:\cassegrainMBRadius);
+% calculate cassegrain mirror2 edges
+\path[
+	name intersections={of=M2arc and toCassegrainM12, by=cassegrainM2Edge1}];
+\mypgfextractangle{\cassegrainMBAAngle}{cassegrainM2Center}{cassegrainM2Edge1}
+\path[
+	name intersections={of=M2arc and toCassegrainM13, by=cassegrainM2Edge2}];
+\mypgfextractangle{\cassegrainMBDAngle}{cassegrainM2Center}{cassegrainM2Edge2}
+% upper bottom ray
+\path[name path=toCassegrainM22] ($ (samplePos) + (0,0.1) $) -- ++(-10,0);
+\path[name intersections={of=M2arc and toCassegrainM22, by=cassegrainM22}];
+\mypgfextractangle{\cassegrainMBBAngle}{cassegrainM2Center}{cassegrainM22}
+% lower top ray
+\path[name path=toCassegrainM23] ($ (samplePos) + (0,-0.1) $) -- ++(-10,0);
+\path[name intersections={of=M2arc and toCassegrainM23, by=cassegrainM23}];
+\mypgfextractangle{\cassegrainMBCAngle}{cassegrainM2Center}{cassegrainM23}
+
+\draw[scattered ray] (cassegrainM11) -- (cassegrainM2Edge1);
+\draw[scattered ray] (cassegrainM12) -- (cassegrainM22);
+\draw[scattered fill] (cassegrainM2Edge1)
+	arc (\cassegrainMBAAngle:\cassegrainMBBAngle:\cassegrainMBRadius)
+		-- (cassegrainM12)
+	arc (\cassegrainMABAngle:\cassegrainMAAAngle:\cassegrainMARadius) -- cycle;
+\draw[scattered ray] (cassegrainM13) -- (cassegrainM23);
+\draw[scattered ray] (cassegrainM14) -- (cassegrainM2Edge2);
+\draw[scattered fill] (cassegrainM23)
+	arc (\cassegrainMBCAngle:\cassegrainMBDAngle:\cassegrainMBRadius)
+		-- (cassegrainM14)
+	arc (\cassegrainMADAngle:\cassegrainMACAngle:\cassegrainMARadius) -- cycle;
+
+% to mirror MS1
+% path representing the mirror
+\path[name path=MS1Path] (MS1Edge1) -- (MS1Edge2);
+% intersections with the mirror
+% ray 1
+\path[name path=toCassegrainM21] (cassegrainM2Edge1) -- ++(-10,0);
+\path[name intersections={of=MS1Path and toCassegrainM21, by=MS11}];
+% ray 2
+\path[name intersections={of=MS1Path and toCassegrainM22, by=MS12}];
+% ray 3
+\path[name intersections={of=MS1Path and toCassegrainM23, by=MS13}];
+% ray 4
+\path[name path=toCassegrainM24] (cassegrainM2Edge2) -- ++(-10,0);
+\path[name intersections={of=MS1Path and toCassegrainM24, by=MS14}];
+
+\draw[scattered ray] (cassegrainM2Edge1) -- (MS11);
+\draw[scattered ray] (cassegrainM22) -- (MS12);
+\draw[scattered fill] (cassegrainM2Edge1)
+	arc (\cassegrainMBAAngle:\cassegrainMBBAngle:\cassegrainMBRadius) -- (MS12)
+		-- (MS11) -- cycle;
+\draw[scattered ray] (cassegrainM23) -- (MS13);
+\draw[scattered ray] (cassegrainM2Edge2) -- (MS14);
+\draw[scattered fill] (cassegrainM23)
+	arc (\cassegrainMBCAngle:\cassegrainMBDAngle:\cassegrainMBRadius) -- (MS14)
+		-- (MS13) -- cycle;
+
+% draw first mirror of cassegrain
+\draw[mirror element]
+	(cassegrainM11)
+		arc (\cassegrainMAAAngle:\cassegrainMABAngle:\cassegrainMARadius)
+			node[left,pos=0.5] {O};
+\draw[mirror element]
+	(cassegrainM13)
+		arc (\cassegrainMACAngle:\cassegrainMADAngle:\cassegrainMARadius);
+% mirror 2
+\draw[mirror element]
+	(cassegrainM2Edge1)
+		arc (\cassegrainMBAAngle:\cassegrainMBDAngle:\cassegrainMBRadius);
+
+% draw notch
+\draw[notch] ($ (samplePos) + (-3,-0.5) $) rectangle ++(0.2,1);
+\node[above] at ($ (samplePos) + (-2.9,0.5) $) {NF};
+
+% Parabolic mirror MS2
+\newcommand*{\parabolicMirrorDef}{%
+		(MS2Edge2)
+		.. controls ($ (MS2Edge2) + (MS2EdgeControl2) $)
+			and ($ (MS2Edge1) + (MS2EdgeControl1) $)
+		.. (MS2Edge1)
+}
+\path[name path=MS2Path] \parabolicMirrorDef;
+% ray 1
+\path[name path=toMS21] (MS11) -- ++(0,-10);
+\path[name intersections={of=MS2Path and toMS21, by=MS21}];
+% ray 2
+\path[name path=toMS22] (MS12) -- ++(0,-10);
+\path[name intersections={of=MS2Path and toMS22, by=MS22}];
+% ray 3
+\path[name path=toMS23] (MS13) -- ++(0,-10);
+\path[name intersections={of=MS2Path and toMS23, by=MS23}];
+% ray 4
+\path[name path=toMS24] (MS14) -- ++(0,-10);
+\path[name intersections={of=MS2Path and toMS24, by=MS24}];
+
+\draw[scattered ray] (MS11) -- (MS21);
+\draw[scattered ray] (MS12) -- (MS22);
+\begin{scope}
+	\clip (MS11) -- ($ (MS21) + (0,-1) $) -- ($ (MS22) + (0,-1) $) -- (MS12)
+		-- cycle;
+	\draw[scattered fill] (MS12) -- \parabolicMirrorDef -- (MS11) -- cycle;
+\end{scope}
+\draw[scattered ray] (MS13) -- (MS23);
+\draw[scattered ray] (MS14) -- (MS24);
+\begin{scope}
+	\clip (MS13) -- ($ (MS23) + (0,-1) $) -- ($ (MS24) + (0,-1) $) -- (MS14)
+		-- cycle;
+	\draw[scattered fill] (MS14) -- \parabolicMirrorDef -- (MS13) -- cycle;
+\end{scope}
+
+% draw MS1 over all incident rays on that mirror
+\draw[mirror element]
+	(MS1Edge1) -- node[above,shift={(-0.5cm,-0.1cm)}]{MS1} (MS1Edge2);
+
+\draw[scattered ray] (MS21) -- (parabolaFocus);
+\draw[scattered ray] (MS22) -- (parabolaFocus);
+\begin{scope}
+	\clip (parabolaFocus) -- (MS21) -- ++(1,0) -- ($ (MS22) + (1,0) $) -- (MS22)
+		-- cycle;
+	\draw[scattered fill] (parabolaFocus) -- \parabolicMirrorDef -- cycle;
+\end{scope}
+\draw[scattered ray] (MS23) -- (parabolaFocus);
+\draw[scattered ray] (MS24) -- (parabolaFocus);
+\begin{scope}
+	\clip (parabolaFocus) -- (MS23) -- ++(1,0) -- ($ (MS24) + (1,0) $) -- (MS24)
+		-- cycle;
+	\draw[scattered fill] (parabolaFocus) -- \parabolicMirrorDef -- cycle;
+\end{scope}
+
+% draw the parabolic mirror MS2
+\draw[mirror element]
+	(MS2Edge2)
+	.. controls ($ (MS2Edge2) + (MS2EdgeControl2) $)
+		and ($ (MS2Edge1) + (MS2EdgeControl1) $)
+	.. node[below,shift={(0.5cm,0.1cm)}]{MS2} (MS2Edge1);
+
+\draw (0,0) rectangle ++(3,2.5) node[pos=.5] {spectrograph};
+
+% side view
+\begin{scope}[shift={(\samplePosWidth - 2,-1.7)}]
+
+\newcommand*{\samplePosSideWidth}{2}
+\newcommand*{\samplePosSideHeight}{2.5}
+\coordinate (samplePosSide) at (\samplePosSideWidth,\samplePosSideHeight);
+\coordinate (cassegrainM1SideCenter)
+	at (\samplePosSideWidth - 0.5,\samplePosSideHeight);
+\coordinate (cassegrainM2SideCenter)
+	at (\samplePosSideWidth - 0.7,\samplePosSideHeight);
+
+
+\clip (-.05,-.35) rectangle ++(3.3,3.4);
+\draw (-.05,-.35) rectangle ++(3.3,3.4);
+\draw[laser beam] (4,0) -- (\samplePosSideWidth,0) coordinate (M3Side)
+	-- (samplePosSide);
+\draw[mirror element] ($ (M3Side) + (-0.3,0.3) $)
+	-- node[above,shift={(0.35cm,-0.05cm)}]{M3} ($ (M3Side) + (0.3,-0.3) $);
+
+% draw the cassegrain
+% calculate intersections with mirror 1 (the objective mirror)
+% mirror1 arc
+\path[name path=M1SideArc, shift={(cassegrainM1SideCenter)}]
+	(90:\cassegrainMARadius) arc (90:270:\cassegrainMARadius);
+% upper top ray
+\path[name path=toCassegrainM11Side] (samplePosSide) -- ++(135:5);
+\path[name intersections={of=M1SideArc and toCassegrainM11Side,
+	by=cassegrainM11Side}];
+% upper bottom ray
+\path[name path=toCassegrainM12Side] (samplePosSide) -- ++(165:5);
+\path[name intersections={of=M1SideArc and toCassegrainM12Side,
+	by=cassegrainM12Side}];
+% lower top ray
+\path[name path=toCassegrainM13Side] (samplePosSide) -- ++(195:5);
+\path[name intersections={of=M1SideArc and toCassegrainM13Side,
+	by=cassegrainM13Side}];
+% lower bottom ray
+\path[name path=toCassegrainM14Side] (samplePosSide) -- ++(225:5);
+\path[name intersections={of=M1SideArc and toCassegrainM14Side,
+	by=cassegrainM14Side}];
+
+\draw[scattered ray] (samplePosSide) -- (cassegrainM11Side);
+\draw[scattered ray] (samplePosSide) -- (cassegrainM12Side);
+\draw[scattered fill] (samplePosSide) -- (cassegrainM11Side)
+	arc (\cassegrainMAAAngle:\cassegrainMABAngle:\cassegrainMARadius) -- cycle;
+\draw[scattered ray] (samplePosSide) -- (cassegrainM13Side);
+\draw[scattered ray] (samplePosSide) -- (cassegrainM14Side);
+\draw[scattered fill] (samplePosSide) -- (cassegrainM13Side)
+	arc (\cassegrainMACAngle:\cassegrainMADAngle:\cassegrainMARadius) -- cycle;
+
+% draw the cell
+\draw[sample cell, water fill]
+	($ (samplePosSide) + (-0.5 * \cellBorderWidth - \cellLineWidth,%
+		-0.5 * \cellBorderWidth - \cellLineWidth) $)
+		rectangle ++(\cellWidth,10);
+
+% calculate intersections with mirror 2 (the objective mirror)
+% mirror2 arc
+\path[
+	name path=M2SideArc, shift={(cassegrainM2SideCenter)}] (90:\cassegrainMBRadius)
+		arc (90:270:\cassegrainMBRadius);
+% calculate cassegrain mirror2 edges
+\path[
+	name intersections={%
+		of=M2SideArc and toCassegrainM12Side, by=cassegrainM2SideEdge1}];
+\path[
+	name intersections={%
+		of=M2SideArc and toCassegrainM13Side, by=cassegrainM2SideEdge2}];
+% upper bottom ray
+\path[name path=toCassegrainM22Side]%
+	($ (samplePosSide) + (0,0.1) $) -- ++(-10,0);
+\path[name intersections={%
+	of=M2SideArc and toCassegrainM22Side, by=cassegrainM22Side}];
+% lower top ray
+\path[name path=toCassegrainM23Side]
+	($ (samplePosSide) + (0,-0.1) $) -- ++(-10,0);
+\path[name intersections={%
+	of=M2SideArc and toCassegrainM23Side, by=cassegrainM23Side}];
+
+\draw[scattered ray] (cassegrainM11Side) -- (cassegrainM2SideEdge1);
+\draw[scattered ray] (cassegrainM12Side) -- (cassegrainM22Side);
+\draw[scattered fill] (cassegrainM2SideEdge1)
+	arc (\cassegrainMBAAngle:\cassegrainMBBAngle:\cassegrainMBRadius)
+		-- (cassegrainM12Side)
+	arc (\cassegrainMABAngle:\cassegrainMAAAngle:\cassegrainMARadius) -- cycle;
+\draw[scattered ray] (cassegrainM13Side) -- (cassegrainM23Side);
+\draw[scattered ray] (cassegrainM14Side) -- (cassegrainM2SideEdge2);
+\draw[scattered fill] (cassegrainM23Side)
+	arc (\cassegrainMBCAngle:\cassegrainMBDAngle:\cassegrainMBRadius)
+		-- (cassegrainM14Side)
+	arc (\cassegrainMADAngle:\cassegrainMACAngle:\cassegrainMARadius) -- cycle;
+
+% to mirror MS1
+% ray 1
+\draw[scattered ray] (cassegrainM2SideEdge1) -- ++(-10,0);
+\draw[scattered ray] (cassegrainM22Side) -- ++(-10,0);
+\draw[scattered fill] (cassegrainM2SideEdge1)
+	arc (\cassegrainMBAAngle:\cassegrainMBBAngle:\cassegrainMBRadius)
+		-- ++(-10,0) -- ($ (cassegrainM2SideEdge1) + (-10,0) $) -- cycle;
+\draw[scattered ray] (cassegrainM23Side) -- ++(-10,0);
+\draw[scattered ray] (cassegrainM2SideEdge2) -- ++(-10,0);
+\draw[scattered fill] (cassegrainM23Side)
+	arc (\cassegrainMBCAngle:\cassegrainMBDAngle:\cassegrainMBRadius) --
+		++(-10,0) -- ($ (cassegrainM2SideEdge1) + (-10,0) $) -- cycle;
+
+% draw first mirror of cassegrain
+\draw[mirror element]
+	(cassegrainM11Side)
+		arc (\cassegrainMAAAngle:\cassegrainMABAngle:\cassegrainMARadius)
+			node[left,pos=0.5] {O};
+\draw[mirror element]
+	(cassegrainM13Side)
+		arc (\cassegrainMACAngle:\cassegrainMADAngle:\cassegrainMARadius);
+% mirror 2
+\draw[mirror element]
+	(cassegrainM2SideEdge1)
+		arc (\cassegrainMBAAngle:\cassegrainMBDAngle:\cassegrainMBRadius);
+
+\end{scope}
+
+\end{tikzpicture}
