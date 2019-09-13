@@ -1,0 +1,17 @@
+\newcommand*{\nodotcell}[1]{\multicolumn{1}{r@{\hphantom{.}}}{#1}}
+
+\begin{tabular}{c@{\hspace{5mm}}r@{\hspace{7mm}}>{\hspace{6mm}}r@{.}l}
+\toprule
+$\lambda$ (nm) & \multicolumn{1}{c}{$P_\text{e}$ (mW)}
+                     & \multicolumn{2}{c}{$P_\text{m}$ (mW)} \\
+\midrule
+
+228.962        &  10 &              2&37 \\
+238.238        &  30 &             33&5  \\
+243.989        & 100 & \nodotcell{110}   \\
+248.250        &  60 &             33&2  \\
+250.854        &  15 &             11&4  \\
+257.261        & 100 & \nodotcell{170}   \\
+
+\bottomrule
+\end{tabular}
