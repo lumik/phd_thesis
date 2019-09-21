@@ -44,7 +44,11 @@ def fix_include_path(file_name, working_dir, rel_dir):
 def process_plots():
 	plot_settings = [
 		# relative directory                filename         outputs
-		['results_and_discussion/assets/', 'focusing.gp', ['F.eps']]
+		['results_and_discussion/assets/', 'focusing.gp', ['F.eps']],
+		['results_and_discussion/assets/spectrograph_dispersion_meas/',
+			'bounds_1200_range.gp', ['bounds_1200_range.eps']],
+		['results_and_discussion/assets/spectrograph_dispersion_meas/',
+			'bounds_2400_range.gp', ['bounds_2400_range.eps']]
 	]
 
 	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

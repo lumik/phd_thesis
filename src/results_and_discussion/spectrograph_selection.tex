@@ -1,21 +1,4 @@
 \subsection{Choice of spectrograph parameters}
-\begin{docitemize}
-	\item Introduce dispersion according to focal length and groove density of
-	grating.
-	\begin{docitemize}
-		\item How the theoretical values were computed using theoretical dispersion
-			from Horiba manual.
-		\item How the experimental values were measured and how we extrapolated
-			for possible new grating selection
-	\end{docitemize}
-	\item Produce table of possible scenarios:
-	\begin{docitemize}
-		\item Theoretical values \tabref{spectrograph_selection:dispersion_est}
-		\item Experimental values
-	\end{docitemize}
-	\item Present decision criteria.
-\end{docitemize}
-
 
 As a spectrograph, we selected Horiba iHR550 Imaging Spectrometer with aperture
 f/6.4, focal length 550 mm, magnification 1.1 and triple-grating turret so we
@@ -25,7 +8,8 @@ gratings for the other two positions needed to be selected based on the
 required spectral range and dispersion. For the spectral range estimation
 we neglected all the nonlinearities of dispersion in dependence on wavelength
 and used dispersion from spectrograph specifications which are shown in the
-\tabref{spectrograph_selection:dispersion_spec} for available gratings.
+\tabref{spectrograph_selection:dispersion_spec}
+for available gratings.
 
 
 \begin{table}
@@ -39,10 +23,16 @@ and used dispersion from spectrograph specifications which are shown in the
 \end{table}
 
 
-Then we calculated the maximal measured wavenumber $\tilde{\nu}_2$ from the
+Then we used the equation for Raman wavenumber $\tilde{\nu}$ calculation from
+the laser excitation wavelength in the air $\lambda_\text{e}$ and Stokes Raman
+signal wavelength $\lambda_\text{R}$
+\begin{equation}
+	\tilde{\nu} = \frac{1}{\lambda_\text{e}} - \frac{1}{\lambda_\text{R}}
+	\label{\eqnlabel{spectrograph_selection:nu}}
+\end{equation}
+to calculate the maximal measured wavenumber $\tilde{\nu}_2$ from the
 $\tilde{\nu}_1 = 200$\,\icm{} for all the available excitation wavelengths
-$\lambda_\text{e}$ from our Ar ion frequency double laser in Stokes Raman
-according to formula
+from our Ar ion frequency double laser according to formula
 \begin{equation}
 	\tilde{\nu}_2 = \lambda_\text{e}^{-1}
 		- \left(\frac{1}{\lambda_\text{e}^{-1} - \tilde{\nu}_1}
@@ -61,18 +51,20 @@ $\tilde{\nu}_2 = 4000$\,\icm{} using the formula
 	\label{\eqnlabel{spectrograph_selection:spectral_range_min_est}}
 \end{equation}
 
-From these values, the average wavenumber dispersion per pixel
+From these values, the average wavenumber dispersion per pixel can be
+calculated as
 \begin{equation}
 	\bar{d} = \frac{\tilde{\nu}_2 - \tilde{\nu}_1}{N_w},
 	\label{\eqnlabel{spectrograph_selection:dispersion_est}}
 \end{equation}
 where $N_w = 2048$ is number of camera width pixels. The results of these
-calculations can be seen in \tabref{spectrograph_selection:dispersion_est}
+calculations can be seen in
+\tabref{spectrograph_selection:dispersion_est}.
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/spectrograph_dispersion_est}
-	\caption{Spectrograph dispersion estimation. Gratins are denoted by number
+	\caption{Spectrograph dispersion estimation. Gratings are denoted by number
 		of grooves per mm, $\tilde{\nu}_1$ and $\tilde{\nu}_2$ are lowest and
 		highest detected frequencies in \icm calculated according to
 		\cref{%
@@ -80,17 +72,114 @@ calculations can be seen in \tabref{spectrograph_selection:dispersion_est}
 			\eqnlabel{spectrograph_selection:spectral_range_min_est}%
 		},
 		respectively. The $\bar{d}$ denotes average dispersion in \icm/px
-		calculated from \eqnref{spectrograph_selection:dispersion_est}.}
+		calculated from
+		\eqnref{spectrograph_selection:dispersion_est}.}
 	\label{\tablabel{spectrograph_selection:dispersion_est}}
 \end{table}
 
 We can see, that if we want to see the full Raman vibration range from the
-low frequency fibrations from 200\,\icm to valence hydrogen strething
-vibrations to 4000\,\icm at all possible excitation wavelengths we need to
-select grating with 1200 gr/mm. For the Raman fingerprint region below
-1800\,\icm we need to chose the grating with 2400 gr/mm.
+low frequency fibrations from 200\,\icm{} to valence hydrogen strething
+vibrations to 4000\,\icm{} at all possible excitation wavelengths we need to
+select grating with 1200\,gr/mm. For the Raman fingerprint region below
+1800\,\icm{} we need to chose the grating with 2400\,gr/mm.
 
-So, finally we chose grating with 300 gr/mm for possible fluorescence
-measurements 1200 gr/mm for the measurement of full range including valence
+So, finally we chose grating with 300\,gr/mm for possible fluorescence
+measurements 1200\,gr/mm for the measurement of full range including valence
 hydrogen stretching vibrations at higher wavelengths (e.g. 257\,nm excitation)
-and 2400 gr/mm for the Raman fingerprint region measurements.
+and 2400\,gr/mm for the Raman fingerprint region measurements.
+
+After the gratings were installed the predictions from spectrograph
+specifications were evaluated on actual experiment and linear interpolation to
+1800\,gr/mm and extrapolation to 3600\,gr/mm gratings were done for possible
+future evaluation of extension of our experimental capabilities. We measured
+spectra of Pt lamp for different positions of spectrograph and calibrated the
+spectra to themselves
+(\REFERENCE{} to the chapter describing calibration).
+Then the lower ($\lambda_1$) and upper ($\lambda_2$) bound wavelengths from
+each spectrum was taken and dependences of the measured range
+($\lambda_2 - \lambda_1$) on these bounds were investigated. From the
+\figref{spectrograph_selection:dispersion_range}
+we see that they can be well approximated by linear curve, only in the plot
+for 2400\,gr/mm grating a slight curvature can be seen (the residuals from
+the beginning and end of the plot are slightly negative and positive in the
+center). So we fitted the ranges following the equation
+\begin{equation}
+	\lambda_2 - \lambda_1 = p_0 \lambda_1 + p_1,
+	\label{\eqnlabel{spectrograph_selection:spectral_range_max_meas}}
+\end{equation}
+where $p_i$ are the parameters of the fit. By using the simple transformations
+we can derive the following linear dependences for the $\lambda_2$ on
+$\lambda_1$
+\begin{equation}
+	\lambda_2 = (p_0 + 1) \lambda_1 + p_1
+\end{equation}
+and the range $\lambda_2 - \lambda_1$ on $\lambda_2$
+\begin{align}
+	\lambda_2 - \lambda_1 &= q_0 \lambda_2 + q_1,
+	\label{\eqnlabel{spectrograph_selection:spectral_range_min_meas}} \\
+	q_0 &= \frac{p_0}{1 + p_0}, \nonumber\\
+	q_1 &= \frac{p_1}{1 + p_0}. \nonumber
+\end{align}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{1\textwidth}
+		\centering
+		\input{results_and_discussion/assets/spectrograph_dispersion_meas/%
+bounds_1200_range}
+		\caption{The grating with 1200\,gr/mm.}
+		\label{\figlabel{spectrograph_selection:dipsersion_range_1200}}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[b]{1\textwidth}
+		\centering
+		\input{results_and_discussion/assets/spectrograph_dispersion_meas/%
+bounds_2400_range}
+		\caption{The grating with 2400\,gr/mm.}
+		\label{\figlabel{spectrograph_selection:dipsersion_range_2400}}
+	\end{subfigure}
+	\caption{Plots of spectral ranges captured by the detector in dependence on
+		the lowest detected wavelength $\lambda_1$ for different gratings, where
+		$\lambda_2$ denotes the largest detected wavelength. Solid lines
+		represents linear fits.}
+	\label{\figlabel{spectrograph_selection:dispersion_range}}
+\end{figure}
+
+From the results of the fit we calculated the same table of ranges, this time
+based on measurements with real gratings. As we know that the dipsersion range
+is inverse proportional to the grating number $a$, we can also estimate
+them for the 1800 and 3600\,gr/mm gratings by for example interpolating
+and extrapolating reciprocal dispersion (px/mm) from the values measured for
+1200 and 2400\,gr/mm gratings. All these results are in
+\tabref{spectrograph_selection:dispersion_meas}.
+
+\begin{table}
+	\centering
+	\input{results_and_discussion/assets/spectrograph_dispersion_meas}
+	\caption{Spectrograph dispersion estimation. These are the same values as in
+		\tabref{spectrograph_selection:dispersion_est}
+		but now calculated by fit of
+		\cref{%
+			\eqnlabel{spectrograph_selection:nu},%
+			\eqnlabel{spectrograph_selection:spectral_range_max_meas},%
+			\eqnlabel{spectrograph_selection:spectral_range_min_meas}%
+		}
+		to measured dispersions of 1200 and 2400\,gr/mm gratings which were then
+		interpolated and extrapolated to 1800 and 3600\,gr/mm gratings,
+		respectively. Gratings are denoted by number of grooves per mm,
+		$\tilde{\nu}_1$ and $\tilde{\nu}_2$ are lowest and highest detected
+		frequencies in \icm. The $\bar{d}$ denotes average dispersion in \icm/px
+		calculated from
+		\eqnref{spectrograph_selection:dispersion_est}.}
+	\label{\tablabel{spectrograph_selection:dispersion_meas}}
+\end{table}
+
+These results from the
+\tabref{spectrograph_selection:dispersion_meas}
+shows that the real values are significantly higher compared to the values
+estimated from the spectrograph vendor's manual
+(\tabref{spectrograph_selection:dispersion_est}),
+especially for the 2400\,gr/mm grating and therefore the extrapolation to the
+3600\,gr/mm grating differs even more from the estimated values. If this
+extrapolation is correct it can be seen that the 3600\,gr/mm grating is more
+suitable for the Raman fingerprint region than the 2400\,gr/mm one.
