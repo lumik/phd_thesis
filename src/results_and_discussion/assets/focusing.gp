@@ -1,7 +1,8 @@
+set encoding utf8
 reset
 
 #set terminal qt enhanced
-set terminal epslatex color dashed size 13cm,7cm header "\\sffamily"
+set terminal epslatex color dashed size 13cm,7cm header "\\sffamily\\sansmath"
 set output 'F.tex'
 
 W_s = 50.e-6
