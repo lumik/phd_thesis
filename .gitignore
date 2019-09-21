@@ -22,8 +22,13 @@ src/misc/misc.aux
 src/objectives/objectives.aux
 src/preface/preface.aux
 src/results_and_discussion/results_and_discussion.aux
+src/title/title.aux
+src/scripts/__pycache__
 src/results_and_discussion/assets/F.tex
 src/results_and_discussion/assets/F.pdf
-src/title/title.aux
+src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_1200_range.tex
+src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_1200_range.pdf
+src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_2400_range.tex
+src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_2400_range.pdf
 *.bak
 *.sav
