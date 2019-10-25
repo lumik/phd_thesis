@@ -1,0 +1,81 @@
+\begin{tikzpicture}[font=\sffamily, >=Latex]
+
+\tikzset{
+	mirror element/.style={color=black, line width=2*\pgflinewidth},
+	axis/.style={color=black, dash pattern=on 3pt off 3pt},
+	ray arrow/.tip={Latex[length=3mm]},
+	angle arrow/.tip={Latex[length=2mm]},
+	incident ray/.style={->,color=black, line width=2*\pgflinewidth,%
+		>=ray arrow},
+	difracted ray/.style={->,color=cyan, line width=2*\pgflinewidth,%
+		>=angle arrow},
+	directed angle/.style={->,color=black, >=angle arrow},
+};
+
+\clip (1,-.1) rectangle (11,4.1);
+
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfsetlayers{bg,main}  % set the order of the layers (main is the standard layer)
+
+\newcommand*{\gratingStepA}{0.1}
+\newcommand*{\gratingStepB}{0.3}
+\newcommand*{\gratingStepY}{0.1}
+\newcommand*{\halfGrooveRepetition}{15}
+\newcommand*{\canvasHeight}{4}
+\newcommand*{\angleRadiusA}{1.0}
+\newcommand*{\angleRadiusB}{1.7}
+\newcommand*{\angleRadiusC}{1.8}
+\newcommand*{\angleRadiusD}{2.5}
+
+% draw the grating
+\draw[mirror element] (0,0)
+	% first half of the grating
+	\foreach \x in {1,...,\halfGrooveRepetition} {
+		-- ++(\gratingStepA,\gratingStepY) -- ++(\gratingStepB,-\gratingStepY)}
+	coordinate (gratingMiddle)
+	% second half of the grating
+	\foreach \x in {1,...,\halfGrooveRepetition} {
+		-- ++(\gratingStepA,\gratingStepY) -- ++(\gratingStepB,-\gratingStepY)};
+
+% draw axis perpendicular to the grating offseted from the bottom of the groove
+\draw[axis] ($ (gratingMiddle) + (-\gratingStepB/2,\gratingStepY/2) $)
+	coordinate (zero)
+	-- ++(0,10);
+
+% draw the rays in background for them not to overlay the grating
+\begin{pgfonlayer}{bg}    % select the background layer
+	\draw[difracted ray] (zero) -- ($ (zero) + (5,\canvasHeight) $)
+		coordinate (difractedEnd);
+	\draw[incident ray] ($ (zero) + (-1.7,\canvasHeight) $)
+		coordinate (incidentStart) -- (zero);
+\end{pgfonlayer}
+
+% calculate incident and difracted light angles
+\mypgfextractangle{\incidentAngle}{zero}{incidentStart}
+\mypgfextractangle{\diffractedAngle}{zero}{difractedEnd}
+
+% calculate middle of Ebert angle \varphi
+\pgfmathparse{\incidentAngle/2 + \diffractedAngle/2}
+\let\diffractionAxisAngle\pgfmathresult
+
+% draw axis in the middle of Ebert angle \varphi
+\draw[axis] (zero) -- ++(\diffractionAxisAngle:10);
+
+% draw angles
+\draw[directed angle] ($ (zero) + (\incidentAngle:\angleRadiusA) $)
+	arc (\incidentAngle:\diffractedAngle:\angleRadiusA)
+	node[above,pos=0.85] {$\varphi$};
+\draw[directed angle] ($ (zero) + (90:\angleRadiusB) $)
+	arc (90:\incidentAngle:\angleRadiusB)
+	node[above,pos=0.5] {$\alpha_i$};
+\draw[directed angle] ($ (zero) + (90:\angleRadiusC) $)
+	arc (90:\diffractedAngle:\angleRadiusC)
+	node[above,pos=0.7] {$\alpha_m$};
+\draw[directed angle] ($ (zero) + (90:\angleRadiusD) $)
+	arc (90:\diffractionAxisAngle:\angleRadiusD)
+	node[above,pos=0.5] {$\vartheta_m$};
+\draw[directed angle] ($ (zero) + (\diffractionAxisAngle:\angleRadiusD) $)
+	arc (\diffractionAxisAngle:\diffractedAngle:\angleRadiusD)
+	node[above,pos=0.5] {$\frac{\varphi}{2}$};
+
+\end{tikzpicture}

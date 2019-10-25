@@ -11,7 +11,6 @@ and used dispersion from spectrograph specifications which are shown in the
 \tabref{spectrograph_selection:dispersion_spec}
 for available gratings.
 
-
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/spectrograph_dispersion_spec}
@@ -21,7 +20,6 @@ for available gratings.
 		interval is spread out across the focal field.}
 	\label{\tablabel{spectrograph_selection:dispersion_spec}}
 \end{table}
-
 
 Then we used the equation for Raman wavenumber $\tilde{\nu}$ calculation from
 the laser excitation wavelength in the air $\lambda_\text{e}$ and Stokes Raman
@@ -78,7 +76,7 @@ calculations can be seen in
 \end{table}
 
 We can see, that if we want to see the full Raman vibration range from the
-low frequency fibrations from 200\,\icm{} to valence hydrogen strething
+low frequency vibrations from 200\,\icm{} to valence hydrogen stretching
 vibrations to 4000\,\icm{} at all possible excitation wavelengths we need to
 select grating with 1200\,gr/mm. For the Raman fingerprint region below
 1800\,\icm{} we need to chose the grating with 2400\,gr/mm.
@@ -88,38 +86,171 @@ measurements 1200\,gr/mm for the measurement of full range including valence
 hydrogen stretching vibrations at higher wavelengths (e.g. 257\,nm excitation)
 and 2400\,gr/mm for the Raman fingerprint region measurements.
 
-After the gratings were installed the predictions from spectrograph
-specifications were evaluated on actual experiment and linear interpolation to
-1800\,gr/mm and extrapolation to 3600\,gr/mm gratings were done for possible
-future evaluation of extension of our experimental capabilities. We measured
-spectra of Pt lamp for different positions of spectrograph and calibrated the
-spectra to themselves
+After the gratings were installed the predictions from spectrograph vendor
+sale materials were evaluated on actual experiment and with help of
+diffraction grating theory and spectrograph and CCD camera specifications.
+The values in the table were adjusted for possible future evaluation of
+extension of our experimental capabilities. We measured spectra of Pt lamp for
+different positions of spectrograph and calibrated the spectra to themselves
 (\REFERENCE{} to the chapter describing calibration).
 Then the lower ($\lambda_1$) and upper ($\lambda_2$) bound wavelengths from
-each spectrum was taken and dependences of the measured range
-($\lambda_2 - \lambda_1$) on these bounds were investigated. From the
-\figref{spectrograph_selection:dispersion_range}
-we see that they can be well approximated by linear curve, only in the plot
-for 2400\,gr/mm grating a slight curvature can be seen (the residuals from
-the beginning and end of the plot are slightly negative and positive in the
-center). So we fitted the ranges following the equation
+each spectrum were taken and dependences of the measured range
+($\Delta\lambda = \lambda_2 - \lambda_1$)
+on these bounds were investigated.
+
+The spectrograph uses a grating to separate different light energies. The
+diffraction of light on the grating follows grating equation
 \begin{equation}
-	\lambda_2 - \lambda_1 = p_0 \lambda_1 + p_1,
-	\label{\eqnlabel{spectrograph_selection:spectral_range_max_meas}}
+	a(\sin\alpha_\text{i} + \sin\alpha_m) = m\lambda,
+	\label{\eqnlabel{spectrograph_selection:grating_equation}}
 \end{equation}
-where $p_i$ are the parameters of the fit. By using the simple transformations
-we can derive the following linear dependences for the $\lambda_2$ on
-$\lambda_1$
+where $\alpha_\text{i}$ is incident light angle, $\alpha_m$ is diffraction
+angle to the $m$-th diffraction order, $\lambda$ is diffracted light wavelength
+and $a$ is grating constant. The directions of the angles $\alpha$ can be seen
+in the
+\figref{spectrograph_selection:configuration_schema}.
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/spectrograph_configuration}
+	\caption{Spectrograph configuration schema.}
+	\label{\figlabel{spectrograph_selection:configuration_schema}}
+\end{figure}
+
+The grating constant can be calculated from the number of the grooves per mm
+$N_\text{gr}$ as
+
+\begin{equation*}
+	a = \frac{1}{N_\text{gr}}.
+\end{equation*}
+
+We can also derive angular dispersion
+$\frac{\text{d}\alpha_m}{\text{d}\lambda}$
+of the grating from the
+\eqnref{spectrograph_selection:grating_equation}
+for the fixed incident light angle $\alpha_\text{i}$ as
+
 \begin{equation}
-	\lambda_2 = (p_0 + 1) \lambda_1 + p_1
+	\frac{\text{d}\alpha_m}{\text{d}\lambda} = \frac{m}{a\cos\alpha_m}.
+	\label{\eqnlabel{spectrograph_selection:angular_dispersion}}
 \end{equation}
-and the range $\lambda_2 - \lambda_1$ on $\lambda_2$
-\begin{align}
-	\lambda_2 - \lambda_1 &= q_0 \lambda_2 + q_1,
-	\label{\eqnlabel{spectrograph_selection:spectral_range_min_meas}} \\
-	q_0 &= \frac{p_0}{1 + p_0}, \nonumber\\
-	q_1 &= \frac{p_1}{1 + p_0}. \nonumber
-\end{align}
+
+The selected spectrograph uses Czerny-Turner configuration in which the
+diffracted light is focused onto detector plane by focussing mirror with
+effective focal length $f$ which converts angular dispersion to dispersion on
+the detector plane with coordinate $x$ as
+\begin{equation*}
+	\frac{\text{d}x}{\text{d}\lambda} =
+		f\frac{\text{d}\alpha_m}{\text{d}\lambda}
+\end{equation*}
+and inverting the equation and using
+\eqnref{spectrograph_selection:angular_dispersion}
+we get linear dispersion
+\begin{equation}
+	\frac{\text{d}\lambda}{\text{d}x} = \frac{a\cos\alpha_m}{fm}.
+	\label{\eqnlabel{spectrograph_selection:linear_dispersion}}
+\end{equation}
+
+We can see, that linear dispersion for fixed grating position is independent
+of the light wavelength but, for a typical spectrograph, the angle between
+incident and diffracted light $\varphi$, called \emph{Ebert angle}, is fixed by
+the spectrograph geometry and the diffracted light wavelength is selected by
+rotation of diffraction grating by angle $\vartheta_m$. So, it is useful to
+transform the
+\eqnref{spectrograph_selection:grating_equation}
+to these variables. Following the direction of angles denoted in the
+\figref{spectrograph_selection:configuration_schema}
+we can derive
+\begin{equation}
+	\alpha_\text{i} = \vartheta_m - \frac{\varphi}{2}\ ,
+	\alpha_m = \vartheta_m + \frac{\varphi}{2}
+	\label{\eqnlabel{spectrograph_selection:ebert_transformation}}
+\end{equation}
+and putting that into
+\eqnref{spectrograph_selection:grating_equation}
+and using goniometric formula for summation of two sine functions we get
+\begin{equation}
+	2a\sin\vartheta_m\cos\frac{\varphi}{2} = m\lambda.
+	\label{\eqnlabel{spectrograph_selection:grating_equation_ebert}}
+\end{equation}
+
+As we previously said, for typical spectrograph, we usually do not know
+diffraction angle $\alpha_m$ but rather the Ebert angle $\phi$ and we can
+measure the diffracted light wavelength $\lambda$ by comparison to the source
+of light with known wavelength so using
+\eqnref{spectrograph_selection:grating_equation_ebert}
+we can calculate grating rotation angle
+\begin{equation}
+	\vartheta_m = \text{arcsin}\left(
+		\frac{m\lambda}{2a\cos\frac{\varphi}{2}}\right)
+	\label{\eqnlabel{spectrograph_selection:grating_rotation_angle}}
+\end{equation}
+which can be used in combination with
+\cref{%
+	\eqnlabel{spectrograph_selection:ebert_transformation},%
+	\eqnlabel{spectrograph_selection:linear_dispersion}%
+}
+for linear dispersion calculation.
+
+All the parameters for the linear dispersion calculation can be retrieved from
+the spectrograph documentation and are summarized in
+\tabref{spectrograph_selection:dispersion_params}.
+
+\begin{table}
+	\centering
+	\input{results_and_discussion/assets/dispersion_params}
+	\caption{Spectrograph and CCD parameters for dispersion calculation. All the
+		values are taken from the spectrograph and CCD specification documents.}
+	\label{\tablabel{spectrograph_selection:dispersion_params}}
+\end{table}
+
+We can't measure linear dispersion directly but we can measure it for example
+from the spectral range captured by the used CCD camera
+\begin{equation*}
+	\Delta\lambda = \lambda_2 - \lambda_1
+\end{equation*}
+divided by the length of the CCD camera $l_\text{CCD}$, because in the first
+approximation of
+\eqnref{spectrograph_selection:linear_dispersion}
+the linear dispersion is not dependent on the diffracted light wavelength. So,
+we can relate experimentally measured spectral range to the dispersion by the
+equation
+\begin{equation}
+	\Delta\lambda = l_\text{CCD}\frac{\text{d}\lambda}{\text{d}x}.
+	\label{\eqnlabel{spectrograph_selection:measured_range}}
+\end{equation}
+
+Last unknown in this equation is the wavelength $\lambda$ for the Ebert angle
+$\varphi$ but we can calculate it in the linear dispersion approximation as the
+center of the measured spectral range
+\begin{equation*}
+	\lambda = \frac{\lambda_1 + \lambda_2}{2}.
+\end{equation*}
+
+As we want to compare the theoretical and experimental values the less precise
+parameter from the description of the instrument was the camera size, so we
+fitted
+\eqnref{spectrograph_selection:measured_range}
+to the measured ranges with the camera length $l_\text{CCD}$ as a parameter for
+grating with 1200 and 2400\,gr/mm, the results can be seen in the
+\tabref{spectrograph_selection:detector_length_fits}
+and dependences of the spectral ranges on wavelength are plotted in the
+\figref{spectrograph_selection:dispersion_range}.
+From the
+\tabref{spectrograph_selection:detector_length_fits}
+can be seen that the detector length estimation difference between grating
+with 1200\,gr/mm and 2400\,gr/mm is slightly larger thant the estimated
+standard deviations. It can be attributed to the slight inaccuracy in used
+Ebert angle but the difference is so small that we decided not to pursue its
+further refinement by more complicated fit nonlinear fit.
+
+\begin{table}
+	\centering
+	\input{results_and_discussion/assets/detector_length_fits}
+	\caption{Results of fits of dispersion in dependence on wavelength with
+		detector length as a parameter for different gratings.}
+	\label{\tablabel{spectrograph_selection:detector_length_fits}}
+\end{table}
 
 \begin{figure}
 	\centering
@@ -139,18 +270,39 @@ bounds_2400_range}
 		\label{\figlabel{spectrograph_selection:dipsersion_range_2400}}
 	\end{subfigure}
 	\caption{Plots of spectral ranges captured by the detector in dependence on
-		the lowest detected wavelength $\lambda_1$ for different gratings, where
-		$\lambda_2$ denotes the largest detected wavelength. Solid lines
-		represents linear fits.}
+		the central detected wavelength $\lambda$ for different gratings. Solid
+		lines represents theoretical curves following
+		\eqnref{spectrograph_selection:measured_range}
+		with parameters from
+		\tabref{spectrograph_selection:dispersion_params}
+		but for lenght of CCD chip $l_\text{CCD}$ which is average of estimates
+		from fits summarized in
+		\tabref{spectrograph_selection:detector_length_fits}.}
 	\label{\figlabel{spectrograph_selection:dispersion_range}}
 \end{figure}
 
-From the results of the fit we calculated the same table of ranges, this time
-based on measurements with real gratings. As we know that the dipsersion range
-is inverse proportional to the grating number $a$, we can also estimate
-them for the 1800 and 3600\,gr/mm gratings by for example interpolating
-and extrapolating reciprocal dispersion (px/mm) from the values measured for
-1200 and 2400\,gr/mm gratings. All these results are in
+We would like to calculate the similar table to
+\tabref{spectrograph_selection:dispersion_est}
+now. For that purpose, we need to be able to estimate the $\lambda_2$ if we
+know $\lambda_1$ or vice versa. We can use the grating equation
+\eqnref{spectrograph_selection:grating_equation}
+using
+\cref{%
+	\eqnlabel{spectrograph_selection:ebert_transformation},%
+	\eqnlabel{spectrograph_selection:grating_rotation_angle}%
+}
+with Ebert angle $\phi$ modified by view angle of detector length
+$\beta$ for the rays pointing to the detector edges instead of the center
+\begin{align}
+	\begin{split}
+		\varphi_1 = \varphi - \beta / 2    &= 11.606^\circ, \\
+		\varphi_2 = \varphi + \beta / 2    &= 14.386^\circ, \\
+		\beta     = \frac{l_\text{CCD}}{f} &=  2.781^\circ,
+	\end{split}
+	\label{\eqnlabel{spectrograph_selection:modified_ebert_angles}}
+\end{align}
+where $\varphi_1$ and $\varphi_2$ stays for Ebert angles to the beginning and
+end of the detector respectively. The results are summarized in the
 \tabref{spectrograph_selection:dispersion_meas}.
 
 \begin{table}
@@ -158,18 +310,18 @@ and extrapolating reciprocal dispersion (px/mm) from the values measured for
 	\input{results_and_discussion/assets/spectrograph_dispersion_meas}
 	\caption{Spectrograph dispersion estimation. These are the same values as in
 		\tabref{spectrograph_selection:dispersion_est}
-		but now calculated by fit of
+		but now calculated from
 		\cref{%
-			\eqnlabel{spectrograph_selection:nu},%
-			\eqnlabel{spectrograph_selection:spectral_range_max_meas},%
-			\eqnlabel{spectrograph_selection:spectral_range_min_meas}%
+			\eqnlabel{spectrograph_selection:grating_equation},%
+			\eqnlabel{spectrograph_selection:ebert_transformation},%
+			\eqnlabel{spectrograph_selection:grating_rotation_angle},%
+			\eqnlabel{spectrograph_selection:nu}%
 		}
-		to measured dispersions of 1200 and 2400\,gr/mm gratings which were then
-		interpolated and extrapolated to 1800 and 3600\,gr/mm gratings,
-		respectively. Gratings are denoted by number of grooves per mm,
-		$\tilde{\nu}_1$ and $\tilde{\nu}_2$ are lowest and highest detected
-		frequencies in \icm. The $\bar{d}$ denotes average dispersion in \icm/px
-		calculated from
+		with Ebert angle values calculated in
+		\eqnref{spectrograph_selection:modified_ebert_angles}.
+		Gratings are denoted by number of grooves per mm, $\tilde{\nu}_1$ and
+		$\tilde{\nu}_2$ are lowest and highest detected frequencies in \icm. The
+		$\bar{d}$ denotes average dispersion in \icm/px calculated from
 		\eqnref{spectrograph_selection:dispersion_est}.}
 	\label{\tablabel{spectrograph_selection:dispersion_meas}}
 \end{table}
@@ -179,7 +331,6 @@ These results from the
 shows that the real values are significantly higher compared to the values
 estimated from the spectrograph vendor's manual
 (\tabref{spectrograph_selection:dispersion_est}),
-especially for the 2400\,gr/mm grating and therefore the extrapolation to the
-3600\,gr/mm grating differs even more from the estimated values. If this
-extrapolation is correct it can be seen that the 3600\,gr/mm grating is more
-suitable for the Raman fingerprint region than the 2400\,gr/mm one.
+especially for the gratings with higher densities. It can be seen from these
+results that the 3600\,gr/mm grating would be more suitable for the Raman
+fingerprint region than the 2400\,gr/mm one.

@@ -176,3 +176,11 @@
 \newcommand{\REFERENCE}{%
 		\PackageWarning{references}{Missing reference!!!}%
 		\textcolor{red}{REFERENCE}}
+
+% TikZ macros
+\newcommand{\mypgfextractangle}[3]{%
+	\pgfmathanglebetweenpoints{%
+		\pgfpointanchor{#2}{center}}{%
+		\pgfpointanchor{#3}{center}}
+	\global\let#1\pgfmathresult
+}
