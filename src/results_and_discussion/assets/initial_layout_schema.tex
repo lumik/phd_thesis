@@ -23,7 +23,10 @@
 	mirror surface/.style={color=black!20, fill=black!10},
 	nd filter/.style={color=black, opacity=0.2, fill=black, fill opacity=0.1},
 	nd carousel/.style={color=black, opacity=0.4, fill=black, fill opacity=0.2},
-	notch/.style={color=black, opacity=0.4, fill=black, fill opacity=0.1}
+	notch/.style={color=black, opacity=0.4, fill=black, fill opacity=0.1},
+	aperture/.style={color=black, line width=2*\pgflinewidth},
+	aperture filldraw/.style={color=black!40, fill=black!20, clip even odd rule},
+	clip even odd rule/.code={\pgfseteorule}
 };
 \clip (-.1,-2.1) rectangle (14,6.6);
 \newcommand*{\samplePosWidth}{10}
@@ -42,6 +45,8 @@
 \coordinate (MS2EdgeControl1) at (245:0.5);
 \coordinate (MS2Edge2) at (3.5,0);
 \coordinate (MS2EdgeControl2) at (17:0.3);
+\newcommand*{\apertureOuterRadius}{0.3}
+\newcommand*{\apertureInnerRadius}{0.1}
 
 % laser
 \draw (0,5.5) rectangle ++(3,1) node[pos=.5] {laser};
@@ -55,6 +60,11 @@
 \draw[laser beam] (3,6) -- (13,6) coordinate (M1)
 	-- (13,\samplePosHeight) coordinate (M2) -- (samplePos);
 
+% aperture 2
+\draw[aperture filldraw]
+	(samplePos) circle (\apertureOuterRadius)
+	(samplePos) circle (\apertureInnerRadius);
+
 % neutral density filters
 \newcommand*{\ndfilterA}{(3.5,5.8) rectangle ++(0.2,0.4)}
 \newcommand*{\ndfilterB}{(3.5,5) rectangle ++(0.2,0.4)}
@@ -65,11 +75,18 @@
 \draw[nd carousel] (3.45,6.2) rectangle ++(0.3,0.1);
 \node[below] at (3.6,4.9) {ND};
 
-% Mirror 2 and 3
+% Mirror 1 and 2
 \draw[mirror element] ($ (M1) + (-0.3,0.3) $)
 	-- node[above,shift={(0.35cm,-0.05cm)}]{M1} ($ (M1) + (0.3,-0.3) $);
 \draw[mirror element] ($ (M2) + (0.3,0.3) $)
 	-- node[below,shift={(0.35cm,0.05cm)}]{M2} ($ (M2) + (-0.3,-0.3) $);
+
+% Aperture 1
+\draw[aperture] ($ (M2) + (-0.5,\apertureOuterRadius) $)
+	node[above]{A1}
+	-- ++(0,-\apertureOuterRadius + \apertureInnerRadius);
+\draw[aperture] ($ (M2) + (-0.5,-\apertureOuterRadius) $)
+	-- ++(0,\apertureOuterRadius - \apertureInnerRadius);
 
 % Draw laser focusing lens
 \newcommand*{\LARadius}{0.7}
@@ -203,7 +220,7 @@
 
 % draw notch
 \draw[notch] ($ (samplePos) + (-3,-0.5) $) rectangle ++(0.2,1);
-\node[above] at ($ (samplePos) + (-2.9,0.5) $) {NF};
+\node[above] at ($ (samplePos) + (-2.9,0.5) $) {EF};
 
 % Parabolic mirror MS2
 \newcommand*{\parabolicMirrorDef}{%
@@ -280,13 +297,24 @@
 \coordinate (cassegrainM2SideCenter)
 	at (\samplePosSideWidth - 0.7,\samplePosSideHeight);
 
-
+% clip the view
 \clip (-.05,-.35) rectangle ++(3.3,3.4);
 \draw (-.05,-.35) rectangle ++(3.3,3.4);
+
+% laser beam
 \draw[laser beam] (4,0) -- (\samplePosSideWidth,0) coordinate (M3Side)
 	-- (samplePosSide);
+
+% mirror 3
 \draw[mirror element] ($ (M3Side) + (-0.3,0.3) $)
 	-- node[above,shift={(0.35cm,-0.05cm)}]{M3} ($ (M3Side) + (0.3,-0.3) $);
+
+% aperture 2
+\draw[aperture] ($ (M3Side) + (\apertureOuterRadius,0.8) $)
+	node[above, shift={(0.05,0)}]{A2}
+	-- ++(-\apertureOuterRadius + \apertureInnerRadius,0);
+\draw[aperture] ($ (M3Side) + (-\apertureOuterRadius,0.8) $)
+	-- ++(\apertureOuterRadius - \apertureInnerRadius,0);
 
 % draw the cassegrain
 % calculate intersections with mirror 1 (the objective mirror)
