@@ -30,5 +30,7 @@ src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_1200_range
 src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_1200_range.pdf
 src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_2400_range.tex
 src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_2400_range.pdf
+src/results_and_discussion/assets/cyclohexane_calibration/cyclohexane_calibration.tex
+src/results_and_discussion/assets/cyclohexane_calibration/cyclohexane_calibration.pdf
 *.bak
 *.sav
