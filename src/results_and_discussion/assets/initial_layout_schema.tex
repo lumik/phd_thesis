@@ -26,9 +26,12 @@
 	notch/.style={color=black, opacity=0.4, fill=black, fill opacity=0.1},
 	aperture/.style={color=black, line width=2*\pgflinewidth},
 	aperture filldraw/.style={color=black!40, fill=black!20, clip even odd rule},
-	clip even odd rule/.code={\pgfseteorule}
+	clip even odd rule/.code={\pgfseteorule},
+	shutter/.style={nd carousel},
+	shutter blade/.style={dashed, line width = 1.5*\pgflinewidth, opacity = 0.4}
 };
 \clip (-.1,-2.1) rectangle (14,6.6);
+\coordinate (shutter) at (11,6);
 \newcommand*{\samplePosWidth}{10}
 \newcommand*{\samplePosHeight}{3}
 \coordinate (samplePos) at (\samplePosWidth,\samplePosHeight);
@@ -74,6 +77,11 @@
 \draw[nd carousel] (3.45,5.4) rectangle ++(0.3,0.4);
 \draw[nd carousel] (3.45,6.2) rectangle ++(0.3,0.1);
 \node[below] at (3.6,4.9) {ND};
+
+\draw[shutter blade] ($ (shutter) + (0,0.3) $) -- ++(0,-0.6);
+\draw[shutter] ($ (shutter) + (-0.1,-0.3) $) -- ++(0.2,0) -- ++(0,-0.4)
+	-- ++(-0.2,0) -- cycle;
+\node[below] at ($ (shutter) + (0,-0.7) $) {shutter};
 
 % Mirror 1 and 2
 \draw[mirror element] ($ (M1) + (-0.3,0.3) $)
