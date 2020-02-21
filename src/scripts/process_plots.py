@@ -50,7 +50,9 @@ def process_plots():
 		['results_and_discussion/assets/spectrograph_dispersion_meas/',
 			'bounds_2400_range.gp', ['bounds_2400_range.eps']],
 		['results_and_discussion/assets/cyclohexane_calibration/',
-			'cyclohexane_calibration.gp', ['cyclohexane_calibration.eps']]
+			'cyclohexane_calibration.gp', ['cyclohexane_calibration.eps']],
+		['results_and_discussion/assets/pt_calibration/',
+			'pt_calibration.gp', ['pt_calibration.eps']]
 	]
 
 	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

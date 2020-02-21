@@ -118,7 +118,9 @@ highlighted band positions can be seen in
 cyclohexane_calibration}
 	\caption{%
 		UV Raman spectrum of cyclohexane and cyclohexane-d12 with 244-nm
-		excitation.%
+		excitation. Grey lines denotes the positions of Raman lines used for
+		calibratin (see
+		\tabref{wavenumber_calibration:cyclohexane_wavenumbers}).%
 	}
 	\label{\figlabel{wavenumber_calibration:cyclohexane_spc}}
 \end{figure}
@@ -141,13 +143,60 @@ zinc (202.5, 206.2, and 213.9\,nm) and cadmium (214.4, 226.5, and 228.8\,nm)
 standard lamps and Positive Light Indigo-S 210 -- 240\,nm tunable Ti:Sa laser
 if necessary. But we pursued different approach and took inspiration from
 calibration of space instruments which broadly use hollow cathode platinum
-lamp \parencite{Mount1977,Reader1990,Sansonetti1992}.
+lamp \parencite{Mount1977,Reader1990,Sansonetti1992} for calibration in UV
+spectral range.
 
-\textbf{What's missing:}
-\begin{docitemize}
-	\item Describe the advantages of Pt lamp
-	\item Describe parameters of the new Pt lamp
-	\item Present spectrum of Pt lamp
-	\item Show new schema of the apparatus
-\end{docitemize}
+\emph{Hollow cathode lamps} (HCL) are routinely used in \emph{atomic absorption
+spectroscopy} (AAS) and therefore they are commercially available on the market
+together with power supplies because HCL requires precision current source. We
+used P209 HCL Power Supply (Photron) with P840 Hollow Cathode Lamp -- Pt
+(Photron) which provided stable platinum atomic spectrum right after start. The
+new spectrometer schema with calibration source is in
+\figref{wavenumber_calibration:aparatus_schema}.
+The callibration beam was guided by right-angle prisms in total internal
+reflection mode (MC1 and MC2). We chose prisms instead of mirrors because they
+are much more stable in time and we don't need to have any concerns about their
+aging. Prism MC2 was placed on motorized flip mount so we can easily switch
+between measurement of calibration spectra and Raman spectra from samples.
+The calibration beam was colimated by the lens LC1 with focal length of
+10\,cm (Thorlabs) and could be attenuated by the aperture AC1 which was
+represented by iris diaphragm (Thorlabs).
 
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/calibration_schema}
+	\caption{Top-view schema of the apparatus with wavenumber calibration lamp
+		and with side-view inset of the sample space. The calibration beam from Pt
+		\emph{hollow cathode lamp} (HCL) is collimated by calibration beam lens
+		LC1 and guided by calibration right-angle prisms in total internal
+		reflection mode (MC1 and MC2) and and focused on the entrance slit of
+		spectrograph by parabolic mirror MS2 the same way as scattered signal from
+		samples. The calibration lamp signal can be attenuated by modifying the
+		size of the calibration beam aperture AC1. The mirror MC2 was placed on
+		motorized flip mount to enable easy insertion for measurement of
+		calibration spectra. The explanation of rest of the symbols is the same as
+		in
+		\figref{initial_layout:aparatus_schema}.}
+	\label{\figlabel{wavenumber_calibration:aparatus_schema}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/pt_calibration/pt_calibration}
+	\caption{%
+		UV Raman spectrum of platinum hollow cathode lamp with the same grating
+		position as in
+		\figref{wavenumber_calibration:cyclohexane_spc}.
+		excitation. Grey lines denotes the positions of Raman lines used for
+		calibratin.%
+	}
+	\label{\figlabel{wavenumber_calibration:pt_spc}}
+\end{figure}
+
+As you can see in
+\figref{wavenumber_calibration:pt_spc}
+the Pt lamp has many sharp well-resolved lines with reasonable intensity. The
+acquisition of the spectrum is also relatively fast, the spectrum was usually
+acquired as average of 100 of 0.1s scans. Because of these parameters, the
+measured Raman spectra can be calibrated with the precision as high as
+$\pm0.1$\,\icm.
