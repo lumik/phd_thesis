@@ -52,7 +52,9 @@ def process_plots():
 		['results_and_discussion/assets/cyclohexane_calibration/',
 			'cyclohexane_calibration.gp', ['cyclohexane_calibration.eps']],
 		['results_and_discussion/assets/pt_calibration/',
-			'pt_calibration.gp', ['pt_calibration.eps']]
+			'pt_calibration.gp', ['pt_calibration.eps']],
+		['results_and_discussion/assets/spinning_cell_rotation/',
+			'rotation.gp', ['rotation.eps']],
 	]
 
 	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

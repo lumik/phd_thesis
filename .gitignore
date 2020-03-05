@@ -34,5 +34,8 @@ src/results_and_discussion/assets/cyclohexane_calibration/cyclohexane_calibratio
 src/results_and_discussion/assets/cyclohexane_calibration/cyclohexane_calibration.pdf
 src/results_and_discussion/assets/pt_calibration/pt_calibration.tex
 src/results_and_discussion/assets/pt_calibration/pt_calibration.pdf
+src/results_and_discussion/assets/spinning_cell_rotation/fit.log
+src/results_and_discussion/assets/spinning_cell_rotation/rotation.pdf
+src/results_and_discussion/assets/spinning_cell_rotation/rotation.tex
 *.bak
 *.sav
