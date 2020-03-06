@@ -1,8 +1,36 @@
 \subsection{Redesign for multiple excitation wavelengths}
-\begin{docitemize}
-	\item Draw a new spectrometer schema
-	\item Describe briefly newly used elements
-\end{docitemize}
+
+At the beginning, the spectrometer allowed to use only 244\,nm as the
+excitation beam wavelength. Next step in spectrometer development was to
+enable more excitation wavelengths provided by the laser as described in
+\cref{focus_optimization}.
+We decided to use prism optics for that purpose from the same reasons as we
+chose it for guiding the calibration beam, i.e. prisms have very weak
+dependence of reflectance on wavelenght and are not susceptible to aging
+compared to broadband metalic mirrors. On the other side, if we used laser
+mirrors, we will be constrained only to wavelengths which are covered by
+these mirrors (moreover it is more costly to have set of mirrors for each
+excitation wavelength) and all the mirrors needs to be changed when different
+excitation wavelength is used.
+
+Some method of removal of the unwanted frequencies from the excitation beam
+also needed to be introduced because the laser manufacturer didn't provide
+fundamental line light removal equipment for 229-nm excitation. Pellin-Broca
+prism can be used for that purpose. It has advantage that there always exist
+rotation angle of the prism that the incoming and outgoing light deviates by
+exactly 90$^\circ$ and if you rotate the prism along its axis the position of
+outgoing beam at 90$^\circ$ doesn't change. Moreover, the angle of incidence of
+incoming light is near to Brewster angle so the amount of reflected light for
+p-polarization (our situation) is small.
+
+Overall, the laser mirror M1 was replaced by Pellin-Broca prism (PB) which
+separated the excitation beam from unwanted light (for example from fundamental
+laser lines). The Pellin-Broca prism was placed on precise rotation stage
+which enabled the selection of excitation wavelength which was outgoing in
+right angle direction to the beam from laser. The unwanted light was guided to
+the beam blocker (BB). Mirrors M2 and M3 were replaced then by right angle
+prisms. All these changes are depicted in
+\figref{multiple_excitations:apparatus_schema}.
 
 \begin{figure}
 	\centering
@@ -15,6 +43,6 @@
 		blocker BB. M2 and M3 were replaced by right angle prisms. The prism MC2 is
 		flipped to the position for measurement and calibration lamp is switched
 		off. The explanation of rest of the symbols is the same as in
-		\figref{wavenumber_calibration:aparatus_schema}.}
-	\label{\figlabel{mutliple_excitations:aparatus_schema}}
+		\figref{wavenumber_calibration:apparatus_schema}.}
+	\label{\figlabel{multiple_excitations:apparatus_schema}}
 \end{figure}
