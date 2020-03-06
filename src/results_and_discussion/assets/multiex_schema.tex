@@ -7,6 +7,7 @@
 \definecolor{glassFillColor}{RGB}{230,242,255}
 \definecolor{waterFillColor}{RGB}{0,128,255}
 \definecolor{hclColor}{RGB}{255,128,0}
+\definecolor{unwantedLightColor}{RGB}{153,17,0}
 \tikzset{
 	clip
 }
@@ -43,7 +44,8 @@
 		line width = 1.5 * \pgflinewidth},
 	hcl beam/.style = {draw = none, fill = black, opacity = 0.1},
 	beam blocker/.style = {mirror element},
-	unwanted ray/.style = {color = red!60, line width = 1.5 * \pgflinewidth}
+	unwanted ray/.style = {color = unwantedLightColor,%
+		line width = 1.5 * \pgflinewidth}
 };
 \clip (-.1,-2.1) rectangle (14,6.6);
 \coordinate (shutter) at (11,6);
@@ -68,9 +70,6 @@
 \coordinate (MC1Edge1) at (5.5,2.5);
 \coordinate (MC1Edge2) at (6.5,1.5);
 \coordinate (MC1Edge3) at (5.5,1.5);
-\coordinate (MC2Edge1) at (4.5,2.5);
-\coordinate (MC2Edge2) at (3.5,1.5);
-\coordinate (MC2Edge3) at (4.5,1.5);
 \coordinate (MC2FlippedEdge1) at (4.4,2.5);
 \newcommand*{\MCBFlippedH}{1.0};  % MC2 height
 \newcommand*{\MCBFlippedD}{1.0};  % MC2 depth
