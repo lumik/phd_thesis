@@ -11,39 +11,48 @@
 	clip
 }
 \tikzset{
-	mirror element/.style={color=black, line width=2*\pgflinewidth},
-	real laser beam/.style={color=cyan, line width=2*\pgflinewidth},
-	laser beam/.style={color = black, opacity = 0.2,%
-		line width = 2*\pgflinewidth},
-	scattered ray/.style={color = black, opacity = 0.2,%
-		line width = 1.5*\pgflinewidth},
-	scattered fill/.style={fill=black, draw=none, fill opacity=0.1},
-	glass/.style={color=glassBorderColor, opacity=0.5,%
-		fill=glassFillColor, fill opacity=0.5},
-	sample cell/.style={color=glassBorderColor, opacity=0.5,%
-		double=glassFillColor, double distance=\cellBorderWidth,
-		line width=\cellLineWidth, line cap=rect},
-	water fill/.style={fill=waterFillColor, fill opacity=0.1},
-	mirror surface/.style={color=black!20, fill=black!10},
-	nd filter/.style={color=black, opacity=0.2, fill=black, fill opacity=0.1},
-	nd carousel/.style={color=black, opacity=0.4, fill=black, fill opacity=0.2},
-	notch/.style={color=black, opacity=0.4, fill=black, fill opacity=0.1},
-	aperture/.style={color=black, line width=2*\pgflinewidth},
-	aperture filldraw/.style={color=black!40, fill=black!20, clip even odd rule},
-	clip even odd rule/.code={\pgfseteorule},
-	shutter/.style={nd carousel},
-	shutter blade/.style={solid, line width = 1.5*\pgflinewidth, opacity = 0.4},
-	hcl/.style={nd carousel},
-	hcl lamp/.style = {color = hclColor, line width = 3 * \pgflinewidth,%
+	mirror element/.style = {color = black, line width = 2 * \pgflinewidth},
+	real laser beam/.style = {color = cyan, line width = 2 * \pgflinewidth},
+	laser beam/.style = {real laser beam},
+	scattered ray/.style = {color = red!60, line width = 1.5 * \pgflinewidth},
+	scattered fill/.style = {fill = red, draw = none, fill opacity = 0.2},
+	glass/.style = {color = glassBorderColor, opacity = 0.5,%
+		fill = glassFillColor, fill opacity = 0.5},
+	sample cell/.style = {color = glassBorderColor, opacity = 0.5,%
+		double = glassFillColor, double distance = \cellBorderWidth,
+		line width = \cellLineWidth, line cap = rect},
+	water fill/.style = {fill = waterFillColor, fill opacity = 0.1},
+	mirror surface/.style = {color = black!20, fill = black!10},
+	nd filter/.style = {color = black, opacity = 0.2, fill = black,%
+		fill opacity = 0.1},
+	nd carousel/.style = {color = black, opacity = 0.4, fill = black,%
+		fill opacity = 0.2},
+	notch/.style = {color = black, opacity = 0.4, fill = black,%
+		fill opacity = 0.1},
+	aperture/.style = {color = black, line width = 2 * \pgflinewidth},
+	aperture filldraw/.style = {color = black!40, fill = black!20,%
+		clip even odd rule},
+	clip even odd rule/.code = {\pgfseteorule},
+	shutter/.style = {nd carousel},
+	shutter blade/.style = {dashed, line width = 1.5 * \pgflinewidth,%
+		opacity = 0.4},
+	hcl/.style = {nd carousel},
+	hcl lamp/.style = {color = black!40, line width = 3 * \pgflinewidth,%
 		line cap = round},
-	hcl ray/.style = {color = hclColor, opacity = 0.4,%
+	hcl ray/.style = {color = black, opacity = 0.2,%
 		line width = 1.5 * \pgflinewidth},
-	hcl beam/.style = {draw = none, fill = hclColor, opacity = 0.3}
+	hcl beam/.style = {draw = none, fill = black, opacity = 0.1},
+	beam blocker/.style = {mirror element},
+	unwanted ray/.style = {color = red!60, line width = 1.5 * \pgflinewidth}
 };
 \clip (-.1,-2.1) rectangle (14,6.6);
 \coordinate (shutter) at (11,6);
 \newcommand*{\samplePosWidth}{10}
 \newcommand*{\samplePosHeight}{3}
+\coordinate (M1) at (13,6);
+\coordinate (M2) at (13,\samplePosHeight);
+\coordinate (BeamBlocker) at ($ (M2) + (-0.35,1.2) $);
+\newcommand*{\beamBlockerWidth}{0.5}
 \coordinate (samplePos) at (\samplePosWidth,\samplePosHeight);
 \newcommand*{\cellWidth}{1};
 \coordinate (cassegrainM1Center) at (\samplePosWidth - 0.5,\samplePosHeight);
@@ -62,6 +71,9 @@
 \coordinate (MC2Edge1) at (4.5,2.5);
 \coordinate (MC2Edge2) at (3.5,1.5);
 \coordinate (MC2Edge3) at (4.5,1.5);
+\coordinate (MC2FlippedEdge1) at (4.4,2.5);
+\newcommand*{\MCBFlippedH}{1.0};  % MC2 height
+\newcommand*{\MCBFlippedD}{1.0};  % MC2 depth
 \coordinate (parabolaFocus) at (3,0.4);
 \coordinate (MS2Edge1) at (4.5,1);
 \coordinate (MS2EdgeControl1) at (245:0.5);
@@ -69,24 +81,49 @@
 \coordinate (MS2EdgeControl2) at (17:0.3);
 \newcommand*{\apertureOuterRadius}{0.3}
 \newcommand*{\apertureInnerRadius}{0.1}
+\newcommand*{\pbrot}{305}  % Pellin broca prism rotation
+
+% Pellin-Broca prism path def
+% B -----
+% |      ----C
+% |           \
+% |            \
+% A ----------- D
+\coordinate (PBB) at ($ (M1) + (0.06,0.2) $);
+\coordinate (PBA) at ($ (PBB) + (270 + \pbrot:0.6) $);
+\coordinate (PBD) at ($ (PBA) + (0 + \pbrot:0.9) $);
+\path[name path=PBBtoC] (PBB) -- ++(345 + \pbrot:10);
+\path[name path=PBDtoC] (PBD) -- ++(120 + \pbrot:10);
+\path[name intersections={of=PBBtoC and PBDtoC, by=PBC}];
+\path[name path=PBAB] (PBA) -- (PBB);
+\path[name path=PBBC] (PBB) -- (PBC);
+\path[name path=PBDA] (PBD) -- (PBA);
 
 % laser
 \draw (0,5.5) rectangle ++(3,1) node[pos=.5] {laser};
 
-% Mirror 3 - it should be under the beam so we have to draw it first
-\draw[mirror surface] ($ (samplePos) + (-0.3,-\sqrttwo * 0.3) $)
-	rectangle ++(0.6,\sqrttwo*0.6);
-\node[above] at ($ (samplePos) + (0,0.5) $) {M3};
-
-% laser beam
+% laser beam Pellin-Broca coordinates
+\path[name path=LToPBAB] (shutter) -- (M1);
+\path[name intersections = {of = LToPBAB and PBAB, by = PBAB1}];
 \draw[real laser beam] (3,6) -- (shutter);
-\draw[laser beam] (shutter) -- (13,6) coordinate (M1)
-	-- (13,\samplePosHeight) coordinate (M2) -- (samplePos);
+\path[name path=LToPBBC] (PBAB1) -- ++(340:2);
+\path[name intersections = {of = LToPBBC and PBBC, by = PBBC1}];
+\path[name path=LToPBDA] (M2) -- (M1);
+\path[name intersections = {of = LToPBDA and PBDA, by = PBDA1}];
 
-% aperture 2
-\draw[aperture filldraw]
-	(samplePos) circle (\apertureOuterRadius)
-	(samplePos) circle (\apertureInnerRadius);
+% Unvanted laser beam
+\path[name path=ULToPBBC] (PBAB1) -- ++(347:2);
+\path[name intersections = {of = ULToPBBC and PBBC, by = UPBBC1}];
+\path[name path=ULToPBDA] (M2) -- ($ (M1) + (-0.12,0) $);
+\path[name intersections = {of = ULToPBDA and PBDA, by = UPBDA1}];
+
+% Draw unwanted beam
+\draw[unwanted ray] (PBAB1) -- (UPBBC1) -- (UPBDA1)
+	-- ($ (BeamBlocker) + (0.08,0) $);
+
+% Draw laser beam
+\draw[laser beam] (shutter) -- (PBAB1) -- (PBBC1) -- (PBDA1) -- (M2)
+	-- (samplePos);
 
 % neutral density filters
 \newcommand*{\ndfilterA}{(3.5,5.8) rectangle ++(0.2,0.4)}
@@ -103,11 +140,21 @@
 	-- ++(-0.2,0) -- cycle;
 \node[below] at ($ (shutter) + (0,-0.7) $) {shutter};
 
-% Mirror 1 and 2
-\draw[mirror element] ($ (M1) + (-0.3,0.3) $)
-	-- node[above,shift={(0.35cm,-0.05cm)}]{M1} ($ (M1) + (0.3,-0.3) $);
-\draw[mirror element] ($ (M2) + (0.3,0.3) $)
-	-- node[below,shift={(0.35cm,0.05cm)}]{M2} ($ (M2) + (-0.3,-0.3) $);
+% Pellin-Broca prism
+\draw[glass] (PBA) -- (PBB) -- (PBC) -- (PBD) -- cycle;
+\node[above, shift = {(0.25cm,-0.05cm)}] at (PBB) {PB};
+% Mirror 2
+\draw[glass] ($ (M2) + (0.2,0.2) $)
+	-- node[below, shift = {(0.35cm,0.05cm)}, color = black, opacity = 1.0]{M2}
+	($ (M2) + (-0.2,-0.2) $) -- ++(0,0.4) -- cycle;
+% Mirror 3 - it should be under the beam so we have to draw it first
+%\draw[glass] ($ (samplePos) + (-0.2,0.2) $) rectangle ++(0.4,-0.4);
+%\node[above] at ($ (samplePos) + (0,0.5) $) {M3};
+
+
+% Unwanted frequencies beam blocker
+\draw[beam blocker] ($ (BeamBlocker) + (0.5 * \beamBlockerWidth,0) $)
+	-- ++(-\beamBlockerWidth,0) node[left] {BB};
 
 % Aperture 1
 \draw[aperture] ($ (M2) + (-0.5,\apertureOuterRadius) $)
@@ -115,6 +162,10 @@
 	-- ++(0,-\apertureOuterRadius + \apertureInnerRadius);
 \draw[aperture] ($ (M2) + (-0.5,-\apertureOuterRadius) $)
 	-- ++(0,\apertureOuterRadius - \apertureInnerRadius);
+% aperture 2
+\draw[aperture filldraw]
+	(samplePos) circle (\apertureOuterRadius)
+	(samplePos) circle (\apertureInnerRadius);
 
 % Draw laser focusing lens
 \newcommand*{\LARadius}{0.7}
@@ -340,7 +391,7 @@
 	node[right]{AC1};
 
 % path representing the mirror MC2
-\path[name path = MC2Path] (MC2Edge1) -- (MC2Edge2);
+\path[name path = MC2Path] (MC2FlippedEdge1) -- ++(0,-\MCBFlippedH);
 % ray 1
 \path[name path = toMC21] (MC11) -- ++(-4,0);
 \path[name intersections = {of = MC2Path and toMC21, by = MC21}];
@@ -356,26 +407,10 @@
 \draw[glass] (MC1Edge1) -- (MC1Edge2) -- (MC1Edge3) -- cycle;
 \node[right] at ($ (MC1Edge1) + (0.5,-0.4) $) {MC1};
 
-
-% beam from calibration prism MC2 to parabolic mirror MS2
-% ray 1
-\path[name path=toMS21C] (MC21) -- ++(0,-10);
-\path[name intersections={of=MS2Path and toMS21C, by=MS21C}];
-% ray 2
-\path[name path=toMS22C] (MC22) -- ++(0,-10);
-\path[name intersections={of=MS2Path and toMS22C, by=MS22C}];
-
-\draw[hcl ray] (MC21) -- (MS21C);
-\draw[hcl ray] (MC22) -- (MS22C);
-\begin{scope}
-	\clip (MC21) -- ($ (MS21C) + (0,-1) $) -- ($ (MS22C) + (0,-1) $) -- (MC22)
-		-- cycle;
-	\draw[hcl beam] (MC22) -- \parabolicMirrorDef -- (MC21) -- cycle;
-\end{scope}
-
 % draw the calibration prism MC2
-\draw[glass] (MC2Edge1) -- (MC2Edge2) -- (MC2Edge3) -- cycle;
-\node[below right, shift = {(-0.1,0.1)}] at (MC2Edge3) {MC2};
+\draw[glass] (MC2FlippedEdge1) -- ++(0,-\MCBFlippedH)
+	-- node[below, color = black, opacity=1.0] {MC2}
+	++(\MCBFlippedD,0) -- ++(0,\MCBFlippedH) -- cycle;
 
 % draw scattered beam from MS1 to parabolic mirror MS2
 \draw[scattered ray] (MS21) -- (parabolaFocus);
@@ -391,15 +426,6 @@
 	\clip (parabolaFocus) -- (MS23) -- ++(1,0) -- ($ (MS24) + (1,0) $) -- (MS24)
 		-- cycle;
 	\draw[scattered fill] (parabolaFocus) -- \parabolicMirrorDef -- cycle;
-\end{scope}
-
-% draw calibration beam from parabolic mirror to spectrograph
-\draw[hcl ray] (MS21C) -- (parabolaFocus);
-\draw[hcl ray] (MS22C) -- (parabolaFocus);
-\begin{scope}
-	\clip (parabolaFocus) -- (MS21C) -- ++(1,0) -- ($ (MS22C) + (1,0) $)
-		-- (MS22C) -- cycle;
-	\draw[hcl beam] (parabolaFocus) -- \parabolicMirrorDef -- cycle;
 \end{scope}
 
 % draw the parabolic mirror MS2
@@ -431,8 +457,12 @@
 	-- (samplePosSide);
 
 % mirror 3
-\draw[mirror element] ($ (M3Side) + (-0.3,0.3) $)
-	-- node[above,shift={(0.35cm,-0.05cm)}]{M3} ($ (M3Side) + (0.3,-0.3) $);
+%\draw[mirror element] ($ (M3Side) + (-0.3,0.3) $)
+%	-- node[above,shift={(0.35cm,-0.05cm)}]{M3} ($ (M3Side) + (0.3,-0.3) $);
+\draw[glass] ($ (M3Side) + (-0.2,0.2) $) -- ++(0.4,0)
+	node[above right,shift = {(-0.1cm,-0.1cm)}, color = black, opacity = 1.0]{M3}
+	-- ++(0,-0.4)
+	-- cycle;
 
 % aperture 2
 \draw[aperture] ($ (M3Side) + (\apertureOuterRadius,0.8) $)
