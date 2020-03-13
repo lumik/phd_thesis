@@ -1,0 +1,55 @@
+\begin{tikzpicture}[font=\sffamily]
+
+\tikzset{
+	title/.style = {align = center},%
+	small title/.style = {align = center, font = \footnotesize\sffamily},%
+	desc/.style = {align = center, font = \scriptsize\sffamily},
+	desc arrow/.tip = {Latex[length = 2mm]},%
+	desc pointer/.style = {->, > = desc arrow}%
+};
+
+\node[inner sep=0pt, above right] at (0,0)
+	{\includegraphics[width=\textwidth]%
+		{results_and_discussion/assets/thermostated_holder_drawing/%
+			electrical_schema}};
+
+\node[title] at (1.65,3.8) {%
+	two-channel\\%
+	PID controller\\%
+	Eurotherm\\%
+	3216};
+
+\node[desc] at (4.95,6.3) {%
+	heating\\%
+	$4 - 20$\,mA};
+
+\node[desc] at (4.95,5.15) {%
+	cooling\\%
+	$4 - 20$\,mA};
+
+\node[small title] at (7.5,5.4) {%
+	bipolar switching\\%
+	H bridge};
+
+\node[desc] at (7.5,1.95) {%
+	DC source\\%
+	12\,V/3\,A};
+
+\node[desc] at (7.0,0.3) {temperature measurement};
+
+\node[desc] at (11.925,1.35) {Pt100};
+
+\node[desc] at (13.2,1.35) {sample cell};
+
+\node[small title] at (11.95,2.8) {%
+	Cu block\\%
+	with teflon\\%
+	isolation};
+
+\node[desc] (peltier desc) at (12.2,6.3) {%
+	double thermoelectric\\%
+	Peltier module};
+
+\draw[desc pointer] (peltier desc) -- (12.75,4.35);
+
+\end{tikzpicture}
