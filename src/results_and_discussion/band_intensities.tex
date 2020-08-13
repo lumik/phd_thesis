@@ -1,0 +1,114 @@
+\subsection{Band integral intensity calculation}
+\label{band_intensities}
+
+One of the important spectroscopic information is integral intensity of
+particular Raman bands from the spectrum. The band's shape is usually modeled
+by Gaussian or Lorentzian curve, or as their combination. The combination of
+the Lorentzian $\func{L}$ and Gaussian $\func{G}$ curve can be expressed as
+\begin{equation}
+	\func{S}(\wn; I_\text{m}, \mu, \sigma) =
+		c_\text{L} \cdot \func{L}(\wn; I_\text{m}, \mu, \sigma)
+		+ (1 - c_\text{L}) \cdot \func{G}(\wn; I_\text{m}, \mu, \sigma),
+	\label{\eqnlabel{band_intensities:single_shape}}
+\end{equation}
+where $c_\text{L}$ is the Lorentzian curve fraction coefficient, $I_m$ is the
+height, $\mu$ is the band position, $\sigma$ is the Gaussian root mean square
+width, and $\wn$ is wavenumber. The Gaussian function is taken in the form of
+\begin{equation*}
+	\func{G}(\wn; I_\text{m}, \mu, \sigma) =
+		I_\text{m} e^{-\frac{(\wn - \mu)^2}{2\sigma^2}}.
+\end{equation*}
+
+It is beneficial to select the parameters of the Lorentzian curve to match the
+parameters of the Gaussian curve. This matching is straightforward for the
+height $I_\text{m}$ and position $\mu$ parameters but less obvious for the
+width $\sigma$ parameter. To give the proper meaning to the Lorentzian curve
+fraction coefficient $c_\text{L}$ we decided to make the full width at half
+maximum (FWHM) between the Gaussian and Lorentzian curve equal for the same
+$\sigma$. Therefore we needed to calculate FWHM of the Gaussian curve. Let's
+assume, without loss of generality,
+$I_\text{m} = 1$
+and
+$\mu = 0$,
+and only the positive solution of the quadratic equation
+\begin{align}
+	\frac{1}{2} &= \func{G}(\wn; 1, 0, \sigma)
+		= e^{-\frac{\wn^2}{2\sigma^2}}, \nonumber \\
+	\func{ln}2  &= \frac{\wn^2}{2\sigma^2}, \nonumber \\
+	\wn         &= \sigma\sqrt{2\ln2},
+		\label{\eqnlabel{band_intensities:HWHM}}\\
+	\func{FWHD}_\text{G}(\sigma)
+	            &= 2\wn = 2\sigma\sqrt{2\ln2}. \nonumber
+\end{align}
+
+The matching width parameter of the Lorentzian curve can be calculated as
+\begin{align*}
+	\frac{1}{2} &= \frac{1}{1 + p\wn^2}, \\
+	1 + p\wn^2  &= 2, \\
+	\wn         &= \frac{1}{\sqrt{p}}.
+\end{align*}
+Then with the result from \eqnref{band_intensities:HWHM} we get
+\begin{align*}
+	\sigma\sqrt{2\ln2}
+	            &= \frac{1}{\sqrt{p}}, \\
+  p           &= \frac{1}{2\sigma^2\ln2}.
+\end{align*}
+With this result the final form of the Lorentzian curve is
+\begin{equation*}
+	\func{L}(\wn; I_\text{m}, \mu, \sigma) =
+		\frac{I_m}{1 + \frac{(\wn - \mu)^2}{2\sigma^2\ln2}}.
+\end{equation*}
+This definition of the Lorentzian curve means that with the Lorentzian curve
+fraction coefficient $c_\text{L} = 0.5$ the contributions to FWHM of the
+Lorentzian and the Gaussian curve to the combined band shape are equal.
+
+The integral intensity of the band can be calculated as the sum of the
+contributions of both bands. It obviously doesn't depend on the position of
+the band $\mu$ so we can, without loss of generality, set it to zero during
+further calculations
+\begin{equation}
+\func{I}(I_\text{m}, \sigma) =
+	c_\text{L} \func{I}_\text{L}(I_\text{m}, \sigma)
+	+ (1 - c_\text{L}) \func{I}_\text{G}(I_\text{m}, \sigma),
+\end{equation}
+where
+\begin{align*}
+	\func{I}_\text{G}(I_\text{m}; \sigma)
+		&= I_\text{m}\int_{-\infty}^{\infty}
+			{e^{-\frac{\wn^2}{2\sigma^2}}\text{d}\wn}
+		= \begin{vmatrix}
+			\wn = \sigma\sqrt{2}x \\
+			\text{d}\wn = \sigma\sqrt{2}\text{d}x
+		\end{vmatrix}
+		= I_\text{m}\sigma\sqrt{2}\int_{-\infty}^{\infty}{e^{-x^2}\text{d}x} \\
+		&= I_\text{m}\sigma\sqrt{2\text{\g{p}}}
+\end{align*}
+and
+\begin{align*}
+	\func{I}_\text{L}(I_\text{m}, \sigma)
+		&= \int_{-\infty}^{\infty}
+			{\frac{I_\text{m}}{1 + \frac{\wn^2}{2\sigma^2\ln2}}\text{d}\wn}
+		= \begin{vmatrix}
+			\wn = \sigma\sqrt{2ln2}x \\
+			\text{d}\wn = \sigma\sqrt{2\ln2}\text{d}x
+		\end{vmatrix}
+		= I_\text{m}\sigma\sqrt{2\ln2}\int_{-\infty}^{\infty}
+			{\frac{1}{1 + x^2}\text{d}x} \\
+		&= I_\text{m}\sigma\text{\g{p}}\sqrt{2\ln2}.
+\end{align*}
+
+Raman bands in a typical Raman spectrum of complex samples are overlapped. We
+solved this problem by modeling the band as a combination of more band-shape
+functions from the
+\eqnref{band_intensities:single_shape}
+\begin{equation}
+	\func{S}(\wn; I_{\text{m},1..n}, \mu_{1..n}, \sigma_{1..n}) =
+		\sum_{i = 1}^n = 	\func{S}_i(\wn; I_{\text{m},i}, \mu_i, \sigma_i),
+	\label{\eqnlabel{band_intensities:shape}}
+\end{equation}
+where $n$ is the number of the overlapping bands.
+
+This band shape was fitted to the measured spectra. The slightly enhanced
+Marquardt-Levenberg method was used for the nonlinear regression and
+analytical derivatives was used for gradient computation.
+\MISSING\{description of the modified minimization method\}

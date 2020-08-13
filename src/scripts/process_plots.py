@@ -43,18 +43,22 @@ def fix_include_path(file_name, working_dir, rel_dir):
 
 def process_plots():
 	plot_settings = [
-		# relative directory                filename         outputs
-		['results_and_discussion/assets/', 'focusing.gp', ['F.eps']],
-		['results_and_discussion/assets/spectrograph_dispersion_meas/',
-			'bounds_1200_range.gp', ['bounds_1200_range.eps']],
-		['results_and_discussion/assets/spectrograph_dispersion_meas/',
-			'bounds_2400_range.gp', ['bounds_2400_range.eps']],
+		# relative directory                filename      ps2pdf  outputs
+		['results_and_discussion/assets/', 'focusing.gp', True, ['F.eps']],
 		['results_and_discussion/assets/cyclohexane_calibration/',
-			'cyclohexane_calibration.gp', ['cyclohexane_calibration.eps']],
+			'cyclohexane_calibration.gp', True, ['cyclohexane_calibration.eps']],
+		['results_and_discussion/assets/power_optimization_triplexes/',
+			'power_optimization_triplexes.gp', True, ['power_optimization_triplexes.eps']],
+		['results_and_discussion/assets/power_optimization_triplexes/',
+			'power_optimization_triplexes_pU.gp', False, ['power_optimization_triplexes_pU.pdf']],
 		['results_and_discussion/assets/pt_calibration/',
-			'pt_calibration.gp', ['pt_calibration.eps']],
+			'pt_calibration.gp', True, ['pt_calibration.eps']],
+		['results_and_discussion/assets/spectrograph_dispersion_meas/',
+			'bounds_1200_range.gp', True, ['bounds_1200_range.eps']],
+		['results_and_discussion/assets/spectrograph_dispersion_meas/',
+			'bounds_2400_range.gp', True, ['bounds_2400_range.eps']],
 		['results_and_discussion/assets/spinning_cell_rotation/',
-			'rotation.gp', ['rotation.eps']],
+			'rotation.gp', True, ['rotation.eps']],
 	]
 
 	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -62,13 +66,15 @@ def process_plots():
 	for plot_list in plot_settings:
 		plot_dir = plot_list[0]
 		plot_file_name = plot_list[1]
-		plot_outputs = plot_list[2]
+		use_ps2pdf = plot_list[2]
+		plot_outputs = plot_list[3]
 		working_dir = os.path.normpath(os.path.join(root_dir, plot_dir))
 		rel_dir = os.path.relpath(working_dir, root_dir)
 		create_plots(plot_file_name, working_dir, rel_dir)
 
 		for f in plot_outputs:
-			convert_ps2pdf(f, working_dir, rel_dir)
+			if use_ps2pdf:
+				convert_ps2pdf(f, working_dir, rel_dir)
 			fn_base = os.path.splitext(f)[0]
 			tex_file_name = '{}.tex'.format(fn_base)
 			fix_include_path(tex_file_name, working_dir, rel_dir)
