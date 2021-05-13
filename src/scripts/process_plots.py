@@ -31,11 +31,9 @@ def fix_include_path(file_name, working_dir, rel_dir):
 
 	fn_base = os.path.splitext(file_name)[0]
 	unix_path = os.path.join(rel_dir, fn_base).replace('\\', '/')
-	original_include = 'includegraphics{{{}}}'.format(fn_base)
-	replace_include = 'includegraphics{{{}}}'.format(unix_path)
+	include_re = re.compile(f'(?P<prefix>\\\\includegraphics.*{{)(?P<filename>{fn_base})(?P<suffix>}})')
 	for i, line in enumerate(tex_file):
-		if (line.find('includegraphics')):
-			tex_file[i] = line.replace(original_include, replace_include)
+		tex_file[i] = include_re.sub(f'\\g<prefix>{unix_path}\\g<suffix>', line)
 
 	with open(os.path.join(working_dir, file_name), 'w') as f:
 		f.writelines(tex_file)
@@ -48,9 +46,13 @@ def process_plots():
 		['results_and_discussion/assets/cyclohexane_calibration/',
 			'cyclohexane_calibration.gp', True, ['cyclohexane_calibration.eps']],
 		['results_and_discussion/assets/power_optimization_triplexes/',
-			'power_optimization_triplexes.gp', True, ['power_optimization_triplexes.eps']],
-		['results_and_discussion/assets/power_optimization_triplexes/',
 			'power_optimization_triplexes_pU.gp', False, ['power_optimization_triplexes_pU.pdf']],
+		['results_and_discussion/assets/power_optimization_triplexes/',
+			'power_optimization_triplexes.gp', True, ['power_optimization_triplexes.eps']],
+		['results_and_discussion/assets/power_optimization_triplexes2/',
+			'power_optimization_triplexes2_pU.gp', False, ['power_optimization_triplexes2_pU.pdf']],
+		['results_and_discussion/assets/power_optimization_triplexes2/',
+			'power_optimization_triplexes2.gp', False, ['power_optimization_triplexes2.pdf']],
 		['results_and_discussion/assets/pt_calibration/',
 			'pt_calibration.gp', True, ['pt_calibration.eps']],
 		['results_and_discussion/assets/spectrograph_dispersion_meas/',

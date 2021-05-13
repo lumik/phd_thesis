@@ -7,8 +7,8 @@ of 500\,\g{m}M per nucleobase. We chose 244 nm excitation laser wavelength with
 10, 2, and 1 mW at samples. The 150\,\g{m}L of samples were rotated at
 9600\,rpm during the measurement. The spectral series were measured with 30\,s
 (10 and 2\,mW excitation) and 60\,s (1\,mW excitation) accumulation time per
-spectrum. Beginning of each measurement was slightly delayed to the start of
-the exposure to the laser because the samples needed to be adjusted for the
+spectrum. Beginning of each measurement was slightly delayed from the start of
+the exposure to the laser because the samples needed to be adjusted for
 optimal signal. The adjustment took 26\,s for 10\,mW excitation, 90\,s for
 2\,mW, and 69\,s for 1\,mW excitation.
 
@@ -121,19 +121,92 @@ The results show, that the 10\,mW power gave the best results if we don't take
 into account adjustment of the samples but as you can see in the
 \figref{power_optim:triplexes}
 the signal intensity quickly lowers with the time. The lifetimes can also
-vary significantly in dependence on samples which can lower the reliability of
-the band intensity estimations. It can be seen from the table, that after
-1-minute adjustment of the samples the 10\,mW excitation photodecomposes
+vary significantly in dependence on a sample which can lower the reliability of
+the band intensity estimations. The table shows that, after
+1-minute adjustment of the sample, the 10\,mW excitation photodecomposes
 about 35\% of the sample whereas with the 1\,mW excitation only around 6\% of
-the samples are destroyed. The energies accumulated are calculated as integral
+the sample is destroyed. The energies accumulated are calculated as integral
 to infinity but with lower powers we are effectively able to measure only
 smaller parts of the decay which would clearly favor measurements with higher
-powers. But, the spectra in more complex systems can be also influenced by the
-photoproducts and therefore we decided to use rather lower excitation powers
-like 1\,mW or 0.5\,mW even thought the higher excitation power probably gives
-higher quality spectra because we wanted to be sure that we are measuring only
-desired molecules and that the spectra are not obscured by the interaction of
-the samples with the photoproducts.
+powers.
+
+Further investigation of the spectral decay behavior shows that this simple
+approach doesn't reveal that such a complex system can't be modeled by single
+decay curve. This effect is clearly visible if we subtract the cacodylate
+buffer background from the spectra. The resulting spectrum can be seen in
+\figref{power_optim:triplexes2_pU}.
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/power_optimization_triplexes2/%
+		power_optimization_triplexes2_pU}
+	\caption{Example UV RR spectrum of polyU dissolved in cacodylate buffer with
+	  the cacodylate buffer background subtracted. The fit of shape function
+		(\eqnref{band_intensities:shape})
+		to the band of polyU used in intensity estimation fit is marked by green
+		line together with the area used for the intensity calculation.}
+	\label{\figlabel{power_optim:triplexes2_pU}}
+\end{figure}
+
+The polyU band at 1230\,\icm{} can be then modeled directly without the
+interference of the cacodylate band at 1276\,\icm{}. It can be seen from the
+polyU band intensity dependence plot in
+\figref{power_optim:triplexes2}
+that the background subtraction process slightly obscures the intensity
+normalization so that the fast decay curves can't be modeled here. But we can
+also see a slower decay trend which isn't obvious from the fit to the
+intensities of the polyU band calculated from the spectra without subtracted
+background. This is caused by the fact that it is harder to reliably decouple
+the contribution of the overlapping polyU and cacodylate bands with the
+lowering polyU band intensity.
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/power_optimization_triplexes2/%
+		power_optimization_triplexes2}
+	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
+		normalized to the subtracted spectrum of cacodylate buffer which was used
+		as the internal intensity standard. The values were fitted by exponential
+		decay curves \eqnref{power_optim:decay} and subtracted by the baseline
+		constant $b$ from the fit.}
+	\label{\figlabel{power_optim:triplexes2}}
+\end{figure}
+
+For the purposes of analysis of the optimal measurement conditions we decided
+to just simply ignore the first 3, 3 and 10 spectra for excitations at 1, 2 and
+10\,mW respectively which were visibly deviating from the slow decay curves. We
+used the eqution
+\eqnref{power_optim:decay}
+to estimate the lifetime $\tau$, total accumulated energy fractions $E_0$ and
+energy fractions $E$ accumulated from time $T = 60\pm20$\,s the same way as
+for the samples without subtracted background, see
+\tabref{power_optim:lifetimes_triplexes2}. The baseline constant $b$ was used
+only for the power of 10 mW where it decayed quickly to constant noise caused
+by the fit for almost undetectable band. The table clearly shows that the slow
+decay process depends linearly on excitation power, in other words that the
+total accumulated energy is the same for all the excitation powers and that
+the lifetime is inversely related to the excitation power.
+
+\begin{table}
+	\centering
+	\input{results_and_discussion/assets/power_lifetimes_triplexes2}
+	\caption{Lifetimes $\tau$ of the polyU in dependence on excitation power
+		$P$. $E_0$ are total energies accumulated by detector divided by maximal
+		value accross all the excitation powers $P$ and $E$ are energies
+		accumulated from the time $T = 60\pm20$\,s which was needed for the
+		adjustment of the samples before the acquisition can even start but
+		the sample needs to be irradiated by the excitation laser. The last column
+		contains fractions of the samples $r$ which were not destroyed by
+		photodecomposition after the time $T$.
+	}
+	\label{\tablabel{power_optim:lifetimes_triplexes2}}
+\end{table}
+
+We can see that the system is complex and the proper analysis of the
+underlaying processes is not possible with our current methods. The resulting
+spectra can be influenced by the photoproducts and therefore we decided to use
+rather lower excitation powers like 1\,mW or 0.5\,mW even thought the higher
+excitation power could probably give higher quality spectra.
 
 \begin{itemize}
 	\item from DNA hairpins
