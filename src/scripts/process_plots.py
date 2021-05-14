@@ -43,6 +43,8 @@ def process_plots():
 	plot_settings = [
 		# relative directory                filename      ps2pdf  outputs
 		['results_and_discussion/assets/', 'focusing.gp', True, ['F.eps']],
+		['results_and_discussion/assets/concentration_optimization_triplexes/',
+			'concentration_optimization_triplexes.gp', False, ['concentration_optimization_triplexes.pdf']],
 		['results_and_discussion/assets/cyclohexane_calibration/',
 			'cyclohexane_calibration.gp', True, ['cyclohexane_calibration.eps']],
 		['results_and_discussion/assets/power_optimization_triplexes/',

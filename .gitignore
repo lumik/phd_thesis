@@ -26,6 +26,8 @@ src/title/title.aux
 src/scripts/__pycache__
 src/results_and_discussion/assets/F.tex
 src/results_and_discussion/assets/F.pdf
+src/results_and_discussion/assets/concentration_optimization_triplexes/concentration_optimization_triplexes.pdf
+src/results_and_discussion/assets/concentration_optimization_triplexes/concentration_optimization_triplexes.tex
 src/results_and_discussion/assets/cyclohexane_calibration/cyclohexane_calibration.tex
 src/results_and_discussion/assets/cyclohexane_calibration/cyclohexane_calibration.pdf
 src/results_and_discussion/assets/power_optimization_triplexes/power_optimization_triplexes.pdf
