@@ -16,9 +16,11 @@ set macros
 ranges = "[0:26][-0.05:0.4]"
 
 set xlabel 'time (min)'
-set ylabel 'intensity (a. u.)' offset -1,0
+set ylabel 'intensity (a. u.)'
 set xtics 5
 unset ytics
+
+set lmargin at screen 0.05
 
 plot @ranges\
 	fn_01mW w p title "1\\,mW" pt 2 ps ps lw lw lc 'red',\

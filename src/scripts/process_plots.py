@@ -44,7 +44,7 @@ def process_plots():
 		# relative directory                filename      ps2pdf  outputs
 		['results_and_discussion/assets/', 'focusing.gp', True, ['F.eps']],
 		['results_and_discussion/assets/concentration_optimization_triplexes/',
-			'concentration_optimization_triplexes.gp', False, ['concentration_optimization_triplexes.pdf']],
+			'concentration_optimization_triplexes.gp', True, ['concentration_optimization_triplexes.eps']],
 		['results_and_discussion/assets/cyclohexane_calibration/',
 			'cyclohexane_calibration.gp', True, ['cyclohexane_calibration.eps']],
 		['results_and_discussion/assets/power_optimization_triplexes/',
@@ -54,7 +54,7 @@ def process_plots():
 		['results_and_discussion/assets/power_optimization_triplexes2/',
 			'power_optimization_triplexes2_pU.gp', False, ['power_optimization_triplexes2_pU.pdf']],
 		['results_and_discussion/assets/power_optimization_triplexes2/',
-			'power_optimization_triplexes2.gp', False, ['power_optimization_triplexes2.pdf']],
+			'power_optimization_triplexes2.gp', True, ['power_optimization_triplexes2.eps']],
 		['results_and_discussion/assets/pt_calibration/',
 			'pt_calibration.gp', True, ['pt_calibration.eps']],
 		['results_and_discussion/assets/spectrograph_dispersion_meas/',

@@ -11,8 +11,6 @@ fn_pUfit = 'pUI1mW_01_pUfit.dat'
 fn_pUbands = 'pUI1mW_01_pUbands.dat'
 lw = 2
 lwfit = 4
-lwfit2 = 6
-ps = 2
 
 du = .06  # band assignment line segment length
 zu1 = .02  # first break of the segment - y distance from the beginning
@@ -28,16 +26,19 @@ decay(x, p1, p2, p3) = p1 * exp(-p2 * x) + p3;
 set macros
 ranges = "[700:1800][0.0:1.3]"
 
-set xlabel '$\tilde{\nu}$ (\icm)'
-set ylabel 'intensity (a. u.)' offset -1,0
+set xlabel '$\tilde{\nu}$ (\icm)' offset 0,1.2
+set ylabel 'intensity (a. u.)' offset 1,0
 set tics scale 0.5
-set xtics 200
-#unset ytics
+set xtics 200 offset 0,0.5
+unset ytics
 
 set tmargin at screen 0.95
 set bmargin at screen 0.15
 set rmargin at screen 0.95
 set lmargin at screen 0.05
+
+# cairo terminal somehow makes line spacing larger than eps output.
+set key font ',0.8'
 
 set style arrow 1 nohead ls 1 lw 1.2 lc rgb 'black'
 set style fill transparent solid 0.2 noborder
