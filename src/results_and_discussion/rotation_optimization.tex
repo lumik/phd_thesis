@@ -1,0 +1,88 @@
+\subsection{Spinning cell rotation speed optimization}
+
+All the previously described experiments used the maximal rotation speed of
+the spinning cell.
+Next question was if slower rotation couldn't produce better results.
+Slower rotation could provide more time for reversible changes and damaged
+sample diffusion from the focus.
+Faster rotation can also produce unwanted vibrations in the spectrometer.
+We used the same experimental setup as in previous measurements with 5\,mW of
+excitation power and 500\,mM polyU samples.
+We varied the rotation speed where we tried to measure the sample at slow
+rotation of 4\,Hz and full rotation of 160\,Hz.
+The time needed to adjust the samples was 100\,s for slow rotation case and
+30\,s for fast rotation one.
+We analyzed decay curves using the same methods as in
+\cref{subsec:power_optim}
+where fast decay curve was fitted to first 15 and 25 frames for the slow and
+fast rotation respectively and slow decay curve was fitted for the rest of
+the spectrum.
+Results of the fit can be seen in
+\figref{rotation_optim:fast_decay},
+\figref{rotation_optim:slow_decay}
+and
+\tabref{rotation_optim:lifetimes}.
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/rotation_optimization/%
+		rotation_optimization}
+	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
+		normalized to the integral intensity of cacodylate band at 607\,\icm{}
+		which was used as the internal intensity standard. The values were fitted
+		by exponential decay curves \eqnref{power_optim:decay} and subtracted
+		by the baseline constant $b$ from the fit.}
+	\label{\figlabel{rotation_optim:fast_decay}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/rotation_optimization/%
+		rotation_optimization_kor}
+	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
+		normalized to the subtracted spectrum of cacodylate buffer which was used
+		as the internal intensity standard. The values were fitted by exponential
+		decay curves \eqnref{power_optim:decay} and subtracted by the baseline
+		constant $b$ from the fit.}
+	\label{\figlabel{rotation_optim:slow_decay}}
+\end{figure}
+
+\begin{table}
+	\centering
+	\input{results_and_discussion/assets/rotation_lifetimes}
+	\caption{Lifetimes $\tau$ of slow and fast decay components of the polyU in
+		dependence on rotation frequency $f$. $E_0$ are total energies accumulated
+		by detector divided by maximal value accross all the excitation powers $P$
+		and $E$ are energies accumulated from the time $T = 60\pm20$\,s which was
+		needed for the adjustment of the samples before the acquisition can even
+		start but the sample needs to be irradiated by the excitation laser. The
+		last column contains fractions of the samples $r$ which were not destroyed
+		by photodecomposition after the time $T$.
+	}
+	\label{\tablabel{rotation_optim:lifetimes}}
+\end{table}
+
+Even though the results in this experiment are internaly consistent, we once
+more see different lifetimes in comparison with the results in
+\tabref{power_optim:lifetimes_triplexes}
+and
+\tabref{power_optim:lifetimes_triplexes}.
+This can be caused by the different laser focus setup for the experiments.
+
+The effect of fast rotation is visible only in the fast decay curves.
+Analysis of the results of fits displayed in
+\tabref{rotation_optim:lifetimes}
+shows that the speed of rotation doesn't affect lifetimes of slow nor fast
+decay components but it significantly affects the Raman signal intensity
+gathered from the fast decay component.
+It means that the numbers of damaged molecules are the same for both rotation
+speed scenarios because the lifetimes are the same but more undamaged molecules
+are available for the measurement with fast rotation speed.
+It also means that the speed of rotation has lower impact on the measurements
+with lower excitation laser power where the contribution of the fast decay
+component to the resulting spectra is weaker.
+
+Overall, the fast rotation seems to be better than slower rotation with
+stronger signal and no impact on the sample lifetime.
+Therefore we decided to use the maximal rotation speed in all the experiments
+which used the spinning sample cell.
