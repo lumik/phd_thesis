@@ -11,7 +11,7 @@ Secondly, such a sensitive detectors are susceptible to the cosmic ray
 artifacts which can significantly damage the spectra. This cosmic ray signal
 can be much easily subtracted in the series of spectra taken with the same
 measurement condition then from single spectrum because the subsequent
-spectra should be almost the same and you can replace the spectral regions
+spectra should be almost identical and you can replace the spectral regions
 with cosmic ray signal by the average of the surrounding spectra.
 
 Furthermore, other temporal effects can affect the spectra, like small
@@ -49,15 +49,15 @@ one high quality Raman spectrum of water $I_\text{water}(\wn)$ as a reference.
 Then we measured the same water with 1\,mW excitation in 30 frames with 20\,s
 accumulation time and 10 frames with 60\,s accumulation time which are
 parameters of our typical RRS measurement. We summed all the frames in these
-two measurements to obtain single Raman spectrum $I_20(\wn)$ and $I_60(\wn)$
-respectively which represented 10\,min total accumulation.
+two measurements to obtain single Raman spectrum $I_{20}(\wn)$ and
+$I_{60}(\wn)$ respectively which represented 10\,min total accumulation.
 
 We decided to assess the SNR to estimate the quality of the measured spectra.
 A noise height was estimated by a fit of the high quality water spectrum
-$I_\text{water}(\wn)$ plus constant background which means the model intensity
-function
+$I_\text{water}(\wn)$ plus constant background which resulted in the model
+intensity function
 \begin{equation}
-	I_\text{model}(\wn) = a_0 * I_\text{water}(\wn) + a_1.
+	I_\text{model}(\wn) = a_0 I_\text{water}(\wn) + a_1.
 	\label{\eqnlabel{accum_length:sn_model}}
 \end{equation}
 An example fit can be seen in \figref{accum_length:sn_ratio}.
@@ -101,8 +101,8 @@ see
 
 Finally, we estimated the high frequency $SNR_\text{high}$ from the standard
 deviation $\sigma$ of the original spectrum from the smoothed spectrum
-$I_\text{model}(1637\,\text{cm}^{-1})$
-as
+normalized to intensity if water band at 1637\,\icm{} (which means that the
+normalized intensity maximum at 1637\,\icm{} is equal to 1)
 \begin{equation*}
 	SNR_\text{high} = \frac{1}{\sigma}.
 \end{equation*}
@@ -115,7 +115,7 @@ as
 It can be clearly seen that longer accumulation times of the single frame gives
 better quality spectra in these experimental conditions. It is more obvious
 from the low frequency SNR even though the high frequency SNR difference is
-also significant. Regarding the disadvantages of the disadvantages of the
+also significant. Regarding the disadvantages of the
 longer accumulation discussed at the beginning of this section and speed of
 the sample degradation with lifetimes in the range of minutes we decided that
 the optimal accumulation time is 60\,s.
