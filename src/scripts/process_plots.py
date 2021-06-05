@@ -51,6 +51,8 @@ def process_plots():
 			'concentration_optimization_triplexes.gp', True, ['concentration_optimization_triplexes.eps']],
 		['results_and_discussion/assets/cyclohexane_calibration/',
 			'cyclohexane_calibration.gp', True, ['cyclohexane_calibration.eps']],
+		['results_and_discussion/assets/power_optimization_hairpins/',
+			'power_optimization_hairpins.gp', True, ['power_optimization_hairpins.eps']],
 		['results_and_discussion/assets/power_optimization_triplexes/',
 			'power_optimization_triplexes_pU.gp', False, ['power_optimization_triplexes_pU.pdf']],
 		['results_and_discussion/assets/power_optimization_triplexes/',

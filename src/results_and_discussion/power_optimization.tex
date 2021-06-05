@@ -209,6 +209,57 @@ spectra can be influenced by the photoproducts and therefore we decided to use
 rather lower excitation powers like 1\,mW or 0.5\,mW even thought the higher
 excitation power could probably give higher quality spectra.
 
-\begin{itemize}
-	\item from DNA hairpins
-\end{itemize}
+We also tried to optimize the excitation laser power for the backscattering
+measurements in thermostated cell holder. We used 3\,mL of 125\,\g{m}M polyU
+samples dissolved in 40\,mM cacodylate buffer with pH 6.8. 257\,nm was used as
+an excitation laser wavelength and the samples were stirred by a magnetic
+stirrer. The spectral series was measured in 20\,s accumulation time per
+spectrum. The measurements in thermostated cell holder were easier to set up
+because the backscattering geometry and robust construction of the holder
+were less sensitive to displacements which meant that the adjustments can be
+performed on helper samples and the real samples weren't exposed to the
+laser power before measurement.
+
+The analysis of the results was performed with the same steps as the analysis
+of the measurements with spinning cell using the integral intensity of polyU
+band at 1231\,\icm{} and cacodylate band at 607\,\icm{}. As we used 20 times
+larger volumes of samples and 4 times lower concentrations, we should roughly
+expect 5 times longer lifetimes which means that we could observe only the fast
+decay components, see
+\figref{power_optim:hairpins}
+and
+\tabref{power_optim:lifetimes_hairpins}.
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/power_optimization_hairpins/%
+		power_optimization_hairpins}
+	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
+		normalized to the integral intensity of cacodylate band at 607\,\icm{}
+		which was used as the internal intensity standard. The values were fitted
+		by exponential decay curves \eqnref{power_optim:decay} and subtracted
+		by the baseline constant $b$ from the fit.}
+	\label{\figlabel{power_optim:hairpins}}
+\end{figure}
+
+\begin{table}
+	\centering
+	\input{results_and_discussion/assets/power_lifetimes_hairpins}
+	\caption{Lifetimes $\tau$ of the polyU in dependence on excitation power
+		$P$. $E_0$ are total energies accumulated by detector divided by maximal
+		value accross all the excitation powers.
+	}
+	\label{\tablabel{power_optim:lifetimes_hairpins}}
+\end{table}
+
+It can be seen, that the lifetimes are proportionally longer with lower
+excitation laser power and no further special effects are observable. The
+lifetimes are slightly lower than the expected 5 times longer lifetimes as
+compared to the \tabref{power_optim:lifetimes_triplexes} but almost in the
+range of estimated errors. It can be caused by many effects like underestimated
+errors, different excitation laser wavelength (257\,nm instead of 244\,nm),
+less effective stirring in larger volumes or longer laser path in the samples.
+We can also see that higher intensity gives more reliable results with
+lower errors because of better signal to noise ratio. We decided to perform
+further measurements with 4\,mW of excitation power at 257\,nm and 5\,mW at
+244\,nm.
