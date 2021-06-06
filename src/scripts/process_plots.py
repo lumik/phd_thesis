@@ -79,6 +79,8 @@ def process_plots():
 			'bounds_2400_range.gp', True, ['bounds_2400_range.eps']],
 		['results_and_discussion/assets/spinning_cell_rotation/',
 			'rotation.gp', True, ['rotation.eps']],
+		['results_and_discussion/assets/volume_optimization_hairpins/',
+			'volume_optimization_hairpins.gp', True, ['volume_optimization_hairpins.eps']],
 	]
 
 	root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -63,5 +63,7 @@ src/results_and_discussion/assets/spectrograph_dispersion_meas/bounds_2400_range
 src/results_and_discussion/assets/spinning_cell_rotation/fit.log
 src/results_and_discussion/assets/spinning_cell_rotation/rotation.pdf
 src/results_and_discussion/assets/spinning_cell_rotation/rotation.tex
+src/results_and_discussion/assets/volume_optimization_hairpins/volume_optimization_hairpins.pdf
+src/results_and_discussion/assets/volume_optimization_hairpins/volume_optimization_hairpins.tex
 *.bak
 *.sav
