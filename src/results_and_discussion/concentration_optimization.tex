@@ -66,6 +66,42 @@ because you need to focus closer to the cell wall and floor. 1000\,\g{m}M
 concentration was the highest practical value, higher concentrations had
 excesive absorbance and were hard to set up for the measurement.
 
-\begin{itemize}
-	\item Concentration optimization for DNA hairpins
-\end{itemize}
+The concentration was also optimalized for the measurements in backscattering
+geometry in thermostated cell holder. The 500\,\g{m}L of samples with
+75\,\g{m}M, 250\,\g{mM} and 750\,\g{m}M concentrations were used with 5\,mW of
+excitation laser power. Only fast decay components were investigated. You can
+see the results in
+\figref{conc_optim:hairpins}
+and
+\tabref{conc_optim:lifetimes_hairpins}.
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/concentration_optimization_hairpins/%
+		concentration_optimization_hairpins}
+	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
+		normalized to the integral intensity of cacodylate band at 607\,\icm{}
+		which was used as the internal intensity standard. The values were fitted
+		by exponential decay curves \eqnref{power_optim:decay} and subtracted
+		by the baseline constant $b$ from the fit.}
+	\label{\figlabel{conc_optim:hairpins}}
+\end{figure}
+
+\begin{table}
+	\centering
+	\input{results_and_discussion/assets/concentration_lifetimes_hairpins}
+	\caption{Lifetimes $\tau$ of the polyU in dependence on concentration
+		$c$. $E_0$ are total energies accumulated by detector divided by maximal
+		value across all the concentrations $c$ and normalized to the
+		concentration.
+	}
+	\label{\tablabel{conc_optim:lifetimes_hairpins}}
+\end{table}
+
+The results clearly show that all laser power is not absorbed in the samples
+with extremely low concentrations and therefore the lifetime is longer.
+Unfortunately also the signal of the sample and lifetime itself are
+insufficiently low in this case. We can also see that at least from
+250\,\g{m}M concentration the concentration doesn't affect the lifetime
+unexpectedly which means that higher concentrations are better up to maximal
+practical values which were estimated at 1\,mM for nucleic acids.
