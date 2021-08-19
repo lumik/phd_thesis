@@ -67,8 +67,8 @@ An example fit can be seen in \figref{accum_length:sn_ratio}.
 	\input{results_and_discussion/assets/sn_ratio/sn_ratio}
 	\caption{Signal-to-noise calculation from a fit of high quality spectrum
 		and constant background addition. The original \emph{spectrum} (here we are
-		using the spectrum $I_20(\wn)$ with 20\,s accumulation time) was modeled
-		according to \emph{model} \eqnref{accum_length:sn_model}. The spectra on
+		using the spectrum $I_{20}(\wn)$ with 20\,s accumulation time) was modeled
+		by \emph{model} \eqnref{accum_length:sn_model}. The spectra on
 		the image were then normalized to the \emph{constant} $a_1$.}
 	\label{\figlabel{accum_length:sn_ratio}}
 \end{figure}
@@ -95,13 +95,17 @@ see
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/sn_ratio/sn_ratio_sg}
-	\caption{SN ratio SG}
+	\caption{Signal-to-noise calculation using standard deviation from the
+	  spectrum smoothed by the Savitzky-Golay filter. The spectrum is normalized
+		to the water band at 1637\,\icm{}. The figure shows the original
+		\emph{spectrum} and the spectrum smoothed by the Savitzky-Golay filter
+		(\emph{SG filter}).}
 	\label{\figlabel{accum_length:sn_ratio_sg}}
 \end{figure}
 
 Finally, we estimated the high frequency $SNR_\text{high}$ from the standard
 deviation $\sigma$ of the original spectrum from the smoothed spectrum
-normalized to intensity if water band at 1637\,\icm{} (which means that the
+normalized to intensity of water band at 1637\,\icm{} (which means that the
 normalized intensity maximum at 1637\,\icm{} is equal to 1)
 \begin{equation*}
 	SNR_\text{high} = \frac{1}{\sigma}.
