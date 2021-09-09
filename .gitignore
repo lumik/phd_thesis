@@ -10,10 +10,14 @@ src/phd_thesis.out
 src/phd_thesis.pdf
 src/phd_thesis.synctex
 src/phd_thesis.synctex.gz
+src/phd_thesis.synctex(busy)
 src/phd_thesis.tcp
 src/phd_thesis.toc
 src/phd_thesis.tps
 src/phd_thesis.run.xml
+src/phd_thesis.fdb_latexmk
+src/phd_thesis.fls
+
 src/attachments/attachments.aux
 src/conclusions/conclusions.aux
 src/introduction/introduction.aux
@@ -36,6 +40,12 @@ src/results_and_discussion/assets/concentration_optimization_triplexes/concentra
 src/results_and_discussion/assets/concentration_optimization_triplexes/concentration_optimization_triplexes.tex
 src/results_and_discussion/assets/cyclohexane_calibration/cyclohexane_calibration.tex
 src/results_and_discussion/assets/cyclohexane_calibration/cyclohexane_calibration.pdf
+src/results_and_discussion/assets/interpretation/at/interpretation_at.tex
+src/results_and_discussion/assets/interpretation/at/interpretation_at.pdf
+src/results_and_discussion/assets/interpretation/cac/interpretation_cac.tex
+src/results_and_discussion/assets/interpretation/cac/interpretation_cac.pdf
+src/results_and_discussion/assets/interpretation/gc/interpretation_gc.tex
+src/results_and_discussion/assets/interpretation/gc/interpretation_gc.pdf
 src/results_and_discussion/assets/power_optimization_hairpins/power_optimization_hairpins.pdf
 src/results_and_discussion/assets/power_optimization_hairpins/power_optimization_hairpins.tex
 src/results_and_discussion/assets/power_optimization_triplexes/power_optimization_triplexes.pdf

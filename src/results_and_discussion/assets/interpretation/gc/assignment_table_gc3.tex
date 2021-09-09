@@ -1,0 +1,119 @@
+\scriptsize
+
+\newcommand{\assigngcnotescolumn}[1]{\multicolumn{5}{%
+@{}>{\hsize=\dimexpr\hsize+2\assignwnl+2\assignwnil+3\assignwnspl\relax}X@{}}{#1}}
+\newcommand{\assigngcnotesrow}[2]{%
+\multicolumn{8}{r}{\emph{#1}}
+	& \assigngcnotescolumn{#2}}
+
+\begin{tabularx}{\textwidth}{%
+@{}l@{\hspace{0.1cm}}r%
+@{}r@{}l%
+	@{\hspace{0.2cm}}r@{}l   @{\hspace{0.2cm}}r@{}l%
+	@{\hspace{\assignwnspl}}>{\raggedleft\arraybackslash}p{\assignwnl}%
+	                  @{}>{\raggedright\arraybackslash}p{\assignwnil}%
+	                         @{\hspace{\assignwnspl}}>{\raggedleft\arraybackslash}p{\assignwnl}%
+	                                           @{}>{\raggedright\arraybackslash}p{\assignwnil}%
+	@{\hspace{0.2cm}}X@{}}
+
+\toprule
+
+    & \multicolumn{7}{c}{$\nu$\,(\icm)} & \\
+
+No. &
+& \multicolumn{2}{c}{ss}
+	& \multicolumn{2}{c}{G 5\textdegree{}C}
+	                         & \multicolumn{2}{c}{G 95\textdegree{}C}
+	& \multicolumn{2}{c}{ds 5\textdegree{}C}
+	                         & \multicolumn{2}{c}{ds 95\textdegree{}C}
+	& \\
+
+\midrule
+
+C2  &
+& 1608 &(2.1)
+	& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{--}
+	&&&& \\
+\assigngcnotesrow{assignment:}{%
+	\ch{NH2} scissoring
+	\textcite{Nishimura1986b}\textsuperscript{CMP},
+	\textcite{Nishimura1985b}\textsuperscript{Cyt},
+	\ch{C$5$=C$6$}, \ch{N$3$=C$4$} stretching
+	\textcite{Leulliot1999}\textsuperscript{Ctd}
+} \\
+\addlinespace[\assigntabrowindent]
+
+\multirow{2}{*}[-.5\assigntabrowindent]{G4} &
+& \multirow{2}{*}[-.5\assigntabrowindent]{1602}
+       &\multirow{2}{*}[-.5\assigntabrowindent]{(74)}
+	& 1602 &(12)             & 1598 &(22)
+	& 1603 &(13)             & 1600 &(17) \\
+\addlinespace[\assigntabrowindent]
+
+&&&
+	& 1612 &(15)             & 1607 &(21)
+	& 1617 &(9.9)            & 1615 &(15) \\
+\assigngcnotesrow{assignment:}{%
+	pure exocyclic \ch{NH2} scissoring
+	\textcite{Fodor1985}\textsuperscript{dGuo},
+	\textcite{Mondal2017}\textsuperscript{GMP, meGua}
+} \\
+\assigngcnotesrow{structural information:}{%
+	no shift upon \ch{NH2} deuteration and large shift upon \ch{N$1$H}
+	deuteration implies not \ch{NH2} scissoring but \ch{N$1$H} in-plane bending
+	and ring stretching, sensitive to H-bonding
+	\textcite{Miura1995}\textsuperscript{dG\textsubscript{12}}
+} \\
+\addlinespace[\assigntabrowindent]
+
+G3  &
+& 1642 &(38)
+	& 1645 &(7.5)            & 1645 &(12)
+	& 1643 &(31)             & 1644 &(60) \\
+\assigngcnotesrow{assignment:}{%
+	\ch{C=C} ring stretching
+	\textcite{Nishimura1986b}\textsuperscript{GMP},
+	exocyclic \ch{NH2} scissoring
+	\textcite{Miura1995}\textsuperscript{dG\textsubscript{12}}
+} \\
+\addlinespace[\assigntabrowindent]
+
+C1  &
+& 1651 &(25)
+	& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{--}
+	& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{--} \\
+\assigngcnotesrow{assignment:}{%
+	\ch{C$2$=O} and \ch{C$5$=C$6$} stretching
+	\textcite{Nishimura1986b}\textsuperscript{CMP},
+	\textcite{Nishimura1985b}\textsuperscript{Cyt}
+} \\
+\addlinespace[\assigntabrowindent]
+
+G2  &
+& 1682 &(16)
+	& 1684 &(8.0)            & 1683 &(9.8)
+	& 1693 &(5.9)            & 1697 &(3.7) \\
+\assigngcnotesrow{assignment:}{%
+	\g{n}C6O6/\g{n}C5C6/\g{d}N1H
+	\textcite{Wen1998}\textsuperscript{NA}
+} \\
+\assigngcnotesrow{structural information:}{%
+	\ch{O$6$} H-bond to \ch{H2O}
+	\textcite{Palacky2013}\textsuperscript{NA}
+} \\
+\addlinespace[\assigntabrowindent]
+
+G1  &
+& \multicolumn{2}{c}{--}
+	& 1726 &(3.4)            & 1723 &(0.8)
+	& 1724 &(0.5)            & 1719 &(0.7) \\
+\assigngcnotesrow{structural information:}{%
+	\ch{N$1$H\bond{...}O=C$6$} Hoogsteen hydrogen bond marker
+	\textcite{Miura1995}\textsuperscript{dG\textsubscript{12}},
+	\ch{O$6$} interbase H-bond
+	\textcite{Palacky2013}\textsuperscript{NA}
+} \\
+
+\bottomrule
+
+\end{tabularx}
