@@ -12,20 +12,82 @@
 
 %%%
 
+One of the major goals of this thesis was to summarize the current knowledge
+about resonance Raman measurements of the nucleic acids and apply to a new
+experiments.
+Resonance Raman spectra of building blocks of nucleic acids AMP (250\,\g{m}M),
+TMP (500\,\g{m}M), GMP (375\,\g{m}M) and polyC (500\,\g{m}M) and melting their
+simple complexes poly(dAdT) (500\,\g{m}M), polyG (375\,\g{m}M) and
+polyG$\cdot$polyC (500\,\g{m}M) were measured for that purpose.
+The concentrations of the samples are in nucleic bases.
+
+The Raman spectra were excited at 244\,nm and the samples were measured at
+20\,\textdegree{}C or in the range from 5\,\textdegree{}C to 95\,\textdegree{}C
+with the 5\,\textdegree{}C step. The samples were placed in 1 cm quartz cuvette
+with constant stirring and the spectra were collected in backscattering
+geometry.
+
+The spectra were collected in 60 or 5 subsequent 60\,s frames for measurement
+at one temperature or measurement of melting, respectively.
+The data were then processed using the procedures described in
+\cref{data_treatment}
+which included also subtraction of the cacodylate buffer background.
+
+Melting curves of the spectra were analyzed by means of PCA and the spectrum
+at 5\,\textdegree{}C and 95\,\textdegree{}C was constructed from first 4
+principal components.
+
+The results of the measurements normalized to the same concentrations of
+nucleobases are displayed in
+\cref{%
+	\figlabel{interpretation:cac},%
+	\figlabel{interpretation:at},%
+	\figlabel{interpretation:gc}%
+}.
+It means that the spectra of complexes which contain two types of nucleobases
+were doubled in intensity to make them directly comparable.
+The spectra were decomposed to the combination of Gaussian and Lorentzian curve
+according to the
+\eqnref{band_intensities:shape}
+with experimentally determined
+$c_\text{L} = 0.39$.
+The positions of the bands which result from the fit are shown in the figures
+and summarized together with the estimated intensities in the
+\cref{%
+	\tablabel{interpretation:at},%
+	\tablabel{interpretation:gc}%
+}.
+The precision of the well resolved bands is better that 1\,\icm{} in position
+and 10\,\% in intensity but significantly lowers on overlapped bands.
+Finally the available literature was searched for the band assignments and
+added to the tables.
+This information was then used in the next scientific work in this thesis and
+the table was enhanced also for the information from these works.
+
+Vibration modes were labeled according the pertinent nucleobase.
+Adenosine vibrations are numbered according to
+\textcite{Toyama1994},
+vibrations of other nucleobases are numbered analogously.
+Standard numbering of atoms was used
+\textcite{Bloomfield1999},
+see
+\figref{interpretation:structure}.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/nucleoside_numbering}
 	\caption{Nucleoside atom numbering and Watson-Crieg hydrogen
-		bonding.}
-	\label{\figlabel{interpretation:at_structure}}
+		bonding base on standard numbering of atoms from
+		\textcite{Bloomfield1999}.}
+	\label{\figlabel{interpretation:structure}}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/interpretation/cac/%
 		interpretation_cac}
-	\caption{Cacodylate 244\,nm excitation.}
+	\caption{Spectrum of cacodylate solvent used for background subtraction with
+		244\,nm excitation.}
 	\label{\figlabel{interpretation:cac}}
 \end{figure}
 
@@ -33,7 +95,15 @@
 	\centering
 	\input{results_and_discussion/assets/interpretation/at/%
 		interpretation_at}
-	\caption{Interpretation 244\,nm excitation.}
+	\caption{Spectra of AMP (a), TMP (b), poly(dAdT) (c) and (d) obtained at
+		5\,\textdegree{}C and 95\,\textdegree{}C, repsectively.
+		The spectra were excited at 244\,nm and spectral bands were decomposed
+		according to the
+		\eqnref{band_intensities:shape}
+		with experimentally determined
+		$c_\text{L} = 0.39$.
+		Each spectrum is marked by scaling factor in the right side.
+		The intensities were multiplied by this factor for a better readability.}
 	\label{\figlabel{interpretation:at}}
 \end{figure}
 
@@ -41,8 +111,14 @@
 	\centering
 	\input{results_and_discussion/assets/interpretation/at/%
 		assignment_table_at1}
-	\caption{Assignments of the resonance Raman bands observable in measurements
-	  of nucelic acids.
+	\caption[%
+		Assignments of the resonance Raman bands observable in measurements
+	  of nucelic acids containing adenine (A) and thymine (T) bases.
+	]{
+		\captiontitle{%
+			Assignments of the resonance Raman bands observable in measurements
+			of nucelic acids containing adenine (A) and thymine (T) bases.
+		}%
 		Positions of vibrations are in \icm{}: ss stands for AMP or TMP and ds for
 		poly(dAdT) at 5 and 95\,\textdegree{}C, respectively. Relative intensities
 		in per cents of strongest band from AMP at 1338\,\icm{} are in
@@ -67,7 +143,8 @@
 			DAcAdo -- [8-D]AcAdo,
 			Thy -- thymine,
 			Thd -- thymidine.
-		(continued, 1 of 4)}
+		(continued, 1 of 4)
+	}
 	\label{\tablabel{interpretation:at}}
 \end{table}
 
@@ -78,7 +155,8 @@
 	\caption*{
 	  \tablename{}~\ref*{\tablabel{interpretation:at}}
 		Assignments of the resonance Raman bands observable in measurements
-	  of nucelic acids (continued, 2 of 4).}
+	  of nucelic acids containing adenine (A) and thymine (T) bases
+		(continued, 2 of 4).}
 \end{table}
 
 \begin{table}
@@ -88,7 +166,8 @@
 	\caption*{
 	  \tablename{}~\ref*{\tablabel{interpretation:at}}
 		Assignments of the resonance Raman bands observable in measurements
-	  of nucelic acids (continued, 3 of 4).}
+	  of nucelic acids containing adenine (A) and thymine (T) bases
+		(continued, 3 of 4).}
 \end{table}
 
 \begin{table}
@@ -98,14 +177,24 @@
 	\caption*{
 	  \tablename{}~\ref*{\tablabel{interpretation:at}}
 		Assignments of the resonance Raman bands observable in measurements
-	  of nucelic acids (continued, 4 of 4).}
+	  of nucelic acids containing adenine (A) and thymine (T) bases
+		(continued, 4 of 4).}
 \end{table}
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/interpretation/gc/%
 		interpretation_gc}
-	\caption{Interpretation 244\,nm excitation.}
+	\caption{Spectra of GMP (a), polyC (b), poly(G) (c) and (d) and
+		polyG$\cdot$polyC (e) and (f) obtained at 5\,\textdegree{}C and
+		95\,\textdegree{}C, repsectively.
+		The spectra were excited at 244\,nm and spectral bands were decomposed
+		according to the
+		\eqnref{band_intensities:shape}
+		with experimentally determined
+		$c_\text{L} = 0.39$.
+		Each spectrum is marked by scaling factor in the right side.
+		The intensities were multiplied by this factor for a better readability.}
 	\label{\figlabel{interpretation:gc}}
 \end{figure}
 
@@ -113,8 +202,14 @@
 	\centering
 	\input{results_and_discussion/assets/interpretation/gc/%
 		assignment_table_gc1}
-	\caption{Assignments of the resonance Raman bands observable in measurements
-	  of nucelic acids.
+	\caption[%
+		Assignments of the resonance Raman bands observable in measurements
+	  of nucelic acids containing guanine (G) and cytosine (C) bases.
+	]{%
+		\captiontitle{%
+			Assignments of the resonance Raman bands observable in measurements
+			of nucelic acids containing guanine (G) and cytosine (C) bases.
+		}%
 		Positions of vibrations are in \icm{}:
 			ss stands for GMP or polyC,
 			G for polyG and
@@ -143,7 +238,8 @@
 			dGuo -- deoxyguanosine,
 			Cyt -- cytosine,
 			Ctd -- cytidine.
-		(continued, 1 of 3)}
+		(continued, 1 of 3)
+	}
 	\label{\tablabel{interpretation:gc}}
 \end{table}
 
@@ -154,7 +250,8 @@
 	\caption*{
 	  \tablename{}~\ref*{\tablabel{interpretation:gc}}
 		Assignments of the resonance Raman bands observable in measurements
-	  of nucelic acids (continued, 2 of 3).}
+	  of nucelic acids containing guanine (G) and cytosine (C) bases
+		(continued, 2 of 3).}
 \end{table}
 
 \begin{table}
@@ -164,5 +261,6 @@
 	\caption*{
 	  \tablename{}~\ref*{\tablabel{interpretation:gc}}
 		Assignments of the resonance Raman bands observable in measurements
-	  of nucelic acids (continued, 3 of 3).}
+	  of nucelic acids containing guanine (G) and cytosine (C) bases
+		(continued, 3 of 3).}
 \end{table}
