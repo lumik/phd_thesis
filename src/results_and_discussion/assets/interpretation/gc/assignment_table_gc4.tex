@@ -1,0 +1,64 @@
+\scriptsize
+
+\newcommand{\assigngcnotescolumn}[1]{\multicolumn{5}{%
+@{}>{\hsize=\dimexpr\hsize+2\assignwnl+2\assignwnil+3\assignwnspl\relax}X@{}}{#1}}
+\newcommand{\assigngcnotesrow}[2]{%
+\multicolumn{8}{r}{\emph{#1}}
+	& \assigngcnotescolumn{#2}}
+
+\begin{tabularx}{\textwidth}{%
+@{}l@{\hspace{0.1cm}}r%
+@{}r@{}l%
+	@{\hspace{0.2cm}}r@{}l   @{\hspace{0.2cm}}r@{}l%
+	@{\hspace{\assignwnspl}}>{\raggedleft\arraybackslash}p{\assignwnl}%
+	                  @{}>{\raggedright\arraybackslash}p{\assignwnil}%
+	                         @{\hspace{\assignwnspl}}>{\raggedleft\arraybackslash}p{\assignwnl}%
+	                                           @{}>{\raggedright\arraybackslash}p{\assignwnil}%
+	@{\hspace{0.2cm}}X@{}}
+
+\toprule
+
+    & \multicolumn{7}{c}{$\nu$\,(\icm)} & \\
+
+No. &
+& \multicolumn{2}{c}{ss}
+	& \multicolumn{2}{c}{G 5\textdegree{}C}
+	                         & \multicolumn{2}{c}{G 95\textdegree{}C}
+	& \multicolumn{2}{c}{ds 5\textdegree{}C}
+	                         & \multicolumn{2}{c}{ds 95\textdegree{}C}
+	& \\
+
+\midrule
+
+G2  &
+& 1682 &(16)
+	& 1684 &(8.0)            & 1683 &(9.8)
+	& 1693 &(5.9)            & 1697 &(3.7) \\
+\assigngcnotesrow{assignment:}{%
+	\ch{\g{n} "C6O"}/\ch{\g{n} "C5C6"}/\ch{\g{d} "N1H"}
+	\parencite{Wen1998}\textsuperscript{NA}
+} \\
+\assigngcnotesrow{structural information:}{%
+	\ch{"O6"} H-bond to \ch{H2O}
+	\parencite{Palacky2013}\textsuperscript{NA}
+} \\
+\addlinespace[\assigntabrowindent]
+
+G1  &
+& \multicolumn{2}{c}{--}
+	& 1726 &(3.4)            & 1723 &(0.8)
+	& 1724 &(0.5)            & 1719 &(0.7) \\
+\assigngcnotesrow{structural information:}{%
+	\ch{"N1H" \bond{semisingle} "OC6"} Hoogsteen hydrogen bond marker
+	\parencite{Miura1995}\textsuperscript{dG\textsubscript{12}},
+	\ch{"O6"} interbase H-bond
+	\parencite{Palacky2013}\textsuperscript{NA}
+} \\
+\assigngcnotesrow{}{%
+	\textbf{hyperchromism in polyG
+	(this work)}
+} \\
+
+\bottomrule
+
+\end{tabularx}
