@@ -1,0 +1,201 @@
+\section{Automation of Raman experiment}
+
+Investigation of temperature dependence of Raman spectra is important technique
+for studying of nucleic acids
+\parencite{Klener2021}.
+But high quality results for multivariate analysis can demand high numbers of
+spectra
+\parencite{Palacky2020}.
+Obtaining of large sets of temperature dependent spectra without automation
+would be nearly impossible without appropriate automation.
+Automation also reduces space for human errors and improves precision in
+timing.
+
+Our laboratory is equipped with home-made Raman system suitable for
+temperature measurements.
+The spectrometer uses 90\textdegree scattering geometry, Jobin-Yvon Spex 270M
+monochromator and a liquid nitrogen-cooled CCD detector from Princeton
+Instruments.
+The spectrometer uses neon glow lamp for precise wavenumber calibration.
+The calibration spectrum is taken after each spectrum so that all time-based
+drift in the apparatus can be compensated.
+This approach allows for calibration of wavenumber scale with precision in the
+range of 0.1\,\icm{}.
+
+The temperature of the samples is controlled by a water bath (Neslab). The
+temperature-dependent Raman measurement with this setup meant that the
+scientist needed to manually change temperature and switch between calibration
+and sample measurement modes which required almost continuous presence
+in the laboratory.
+
+Measurements in this work needed to compare temperature dependence of visible
+and UV Raman spectra
+\parencite{Klener2021}
+and therefore it was decided that we automate the measurements with varied
+temperatures on the visible Raman spectrometer.
+This automation enabled also other scientific works in our laboratory
+\parencite{%
+	Mudronova2016,%
+	Bravo2018,%
+	Palacky2020%
+}.
+
+The newly created experiment automation program \emph{SpExpert} can control
+CCD detector, spectrograph, switch between calibration and sample measurement
+position, switch of calibration lamp and temperature of the thermostated
+water bath.
+
+The CCD detector is controlled using WinX/32 automation interface of the
+WinSpec program which controls also the Spex spectrograph which uses Microsoft
+ActiveX protocol.
+
+Communication with water bath is performed through standard COM port using
+protocol with binary commands where the controller program (SpExpert) is
+active communication side and the bath just passively responds to the
+commands from the active side.
+
+Switch between calibration and sample measurement position is controlled by
+8SMC microstep motor driven stage which communicates with PC through USB
+using virtual COM port.
+Virtual com port was used also for K8090 relay card which controls the
+calibration lamp switch.
+
+It means that from the programming point of view, communication with the
+bath, calibration/measurement switch motor and calibration lamp switch were
+similar, using COM port binary messages.
+
+The whole SpExpert program is written in C++ using Qt framework and is
+available from
+\texttt{https://github.com/biomolecules/spexpert} and focuses mainly on
+temperature-based Raman measurements with possibility to use extended range
+mode which means that it is possible to measure with more positions of
+spectrograph grating for each temperature.
+Evolution of temperature with time can be reviewed during measurement right
+from the program screen, see
+\figref{spex_automation:temperature_measurement}.
+
+\begin{figure}
+	\centering
+	\ig{0.7}{results_and_discussion/assets/spex_automation/%
+		spexpert_running_temperature2.jpg}
+	\caption[%
+			SpExpert program during temperature dependent mesurement.
+	]{%
+		\captiontitle{%
+			SpExpert program during temperature dependent mesurement.
+		}%
+		The live view of temperature can be seen.}
+	\label{\figlabel{spex_automation:temperature_measurement}}
+\end{figure}
+
+The program allows precise control of Neslab bath settings like PID
+PID parameters etc.
+(\figref{spex_automation:neslabus}),
+calibration/sample measurement motor settings
+(\figref{spex_automation:stage_control}),
+and calibration lamp switch settings
+(\figref{spex_automation:sprelay}).
+
+\begin{figure}
+	\centering
+	\ig{0.7}{results_and_discussion/assets/spex_automation/%
+		neslabus.jpg}
+	\caption[%
+			Settings of Neslab bath available from SpExpert program.
+	]{%
+		\captiontitle{%
+			Settings of Neslab bath available from SpExpert program.
+		}}
+	\label{\figlabel{spex_automation:neslabus}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\ig{0.7}{results_and_discussion/assets/spex_automation/%
+		stage_control.jpg}
+	\caption[%
+			Settings of calibration/sample measurement motor available from SpExpert
+			program.
+	]{%
+		\captiontitle{%
+			Settings of calibration/sample measurement motor available from SpExpert
+			program.
+		}}
+	\label{\figlabel{spex_automation:stage_control}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\ig{0.7}{results_and_discussion/assets/spex_automation/%
+		sprelay.jpg}
+	\caption[%
+			Settings of calibration lamp switch available from SpExpert program.
+	]{%
+		\captiontitle{%
+			Settings of calibration lamp switch available from SpExpert program.
+		}}
+	\label{\figlabel{spex_automation:sprelay}}
+\end{figure}
+
+SpExpert program also provides wide range of settings for the actual
+experiment, like accumulation times for sample/calibration measurement
+spectra
+(\figref{spex_automation:experiment_setup}),
+temperature step and delay between measurements
+(\figref{spex_automation:temperature_setup}),
+extended spectral range settings
+(\figref{spex_automation:extended_range_setup})
+and parameters of repetitions of the whole experiment
+(\figref{spex_automation:batch_setup}).
+
+\begin{figure}
+	\centering
+	\ig{0.7}{results_and_discussion/assets/spex_automation/%
+		spexpert_experiment_setup.jpg}
+	\caption[%
+			Settings of spectrum acquisition available from SpExpert program.
+	]{%
+		\captiontitle{%
+			Settings of spectrum acquisition available from SpExpert program.
+		}}
+	\label{\figlabel{spex_automation:experiment_setup}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\ig{0.7}{results_and_discussion/assets/spex_automation/%
+		spexpert_temperature_setup.jpg}
+	\caption[%
+			Settings of temperature dependent measurement from SpExpert program.
+	]{%
+		\captiontitle{%
+			Settings of temperature dependent measurement from SpExpert program.
+		}}
+	\label{\figlabel{spex_automation:temperature_setup}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\ig{0.7}{results_and_discussion/assets/spex_automation/%
+		spexpert_extended_range_setup.jpg}
+	\caption[%
+			Settings of extended range available from SpExpert program.
+	]{%
+		\captiontitle{%
+			Settings of extended range available from SpExpert program.
+		}}
+	\label{\figlabel{spex_automation:extended_range_setup}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\ig{0.7}{results_and_discussion/assets/spex_automation/%
+		spexpert_batch_setup.jpg}
+	\caption[%
+			Settings of batch measurement available from SpExpert program.
+	]{%
+		\captiontitle{%
+			Settings of batch measurement available from SpExpert program.
+		}}
+	\label{\figlabel{spex_automation:batch_setup}}
+\end{figure}
