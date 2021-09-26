@@ -87,6 +87,8 @@ def process_plots():
 			'bounds_1200_range.gp', True, ['bounds_1200_range.eps']],
 		['results_and_discussion/assets/spectrograph_dispersion_meas/',
 			'bounds_2400_range.gp', True, ['bounds_2400_range.eps']],
+		['results_and_discussion/assets/spike_removal/',
+			'spikes.gp', True, ['spikes.eps']],
 		['results_and_discussion/assets/spinning_cell_rotation/',
 			'rotation.gp', True, ['rotation.eps']],
 		['results_and_discussion/assets/tel22/',

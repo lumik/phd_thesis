@@ -1,0 +1,81 @@
+\subsection{Cosmic ray signal removal}
+
+Raman scattering is a weak phenomenon and therefore its measurements need to be
+performed using very sensitive detectors.
+Hand in hand with sensitivity is coming also susceptibility to artifacts caused
+by signals originating from different sources than the sample under
+investigation.
+One of the major one is signal caused by cosmic rays which is characteristic
+by sharp lines usually impacting only few pixels of the CCD detector.
+The spectroscopic software WinSpec together with the Princeton Instruments
+CCD detector allowed to clear all the accumulated charge caused by cosmic rays
+before each measurement and set up detection based on differences between
+measured frames and automatic removal of sharp lines from the spectra.
+But these correction weren't sufficient, especially first measured frame
+was often corrupted by sharp lines caused by interaction of cosmic ray
+particles with the CCD detector
+(see \figref{cosmic_spikes:spectrum}).
+
+\begin{figure}
+	\centering
+	\input{results_and_discussion/assets/spike_removal/spikes}
+	\vspace{3mm}
+	\caption[%
+		UVRR pectrum containing cosmic ray signal.
+	]{%
+		\captiontitle{%
+			UVRR pectrum containing cosmic ray signal.
+		}
+		The spectrum was aquired with 5\,mW of 244\,nm excitation laser at sample
+		from 500\,\g{m}M (in phosphates) poly(dAdT) at 20\,\textdegree{}C as the
+		first frame with the 60\,s accumulation time.
+		Two sharp lines originating from cosmic ray interaction with the CCD
+		detector at 1178 and 1679\,\icm{} are clearly visible.
+	}
+	\label{\figlabel{cosmic_spikes:spectrum}}
+\end{figure}
+
+Two programs were used to additional correction of cosmic Ray, both of them
+developed in MatLab programming environment (The Matworks, Natick, MA, USA).
+The first one was \emph{Spikie}
+\parencite{Spikie2011}
+was developed in scope of
+\textcite{Klener2011}
+and was based on detection of the sharp lines inside measured spectrum.
+This program was used mainly for more complicated scenarios where the cosmic
+ray lines interfered strongly with Raman bands of the measured samples.
+
+The second program, \emph{Spycor}
+\parencite{Spycor2018},
+was created as part of this thesis and is based on comparisson of consecutive
+spectra where it counts on the fact that during macroscopic Raman measurement
+the spectra change only slowly with time and that the consecutive spectra are
+similar.
+It calculates standard deviation of specified number of spectra preceeding and
+following the analyzed spectrum, multiplies it by the user defined constant
+and uses it as a threshold for detection of spikes.
+It then replaces the spike by average of the spectra used for the standard
+deviation calibration. The spectrum from
+\figref{cosmic_spikes:spectrum}
+opened in the Spycor program can be seen in
+\figref{cosmic_spikes:spycor}.
+
+\begin{figure}
+	\centering
+	\ig{1}{results_and_discussion/assets/spike_removal/spycor}
+	\vspace{3mm}
+	\caption[%
+		Spycor - program for spike removal.
+	]{%
+		\captiontitle{%
+			Spycor - program for spike removal.
+		}
+		The UVRR spectrum from \figref{cosmic_spikes:spectrum} opened in the
+		Spycor program
+		\parencite{Spycor2018}.
+		The two spikes were identified and replaced by the average spectrum
+		from the consecutive frames.
+	}
+	\label{\figlabel{cosmic_spikes:spycor}}
+\end{figure}
+
