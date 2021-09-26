@@ -47,6 +47,8 @@ def process_plots():
 			'artefact.gp', True, ['artefact.eps']],
 		['results_and_discussion/assets/artefact/',
 			'artefact_amphidinium.gp', True, ['artefact_amphidinium.eps']],
+		['results_and_discussion/assets/background/',
+			'corrected_frame.gp', True, ['corrected_frame.eps']],
 		['results_and_discussion/assets/concentration_optimization_hairpins/',
 			'concentration_optimization_hairpins.gp', True, ['concentration_optimization_hairpins.eps']],
 		['results_and_discussion/assets/concentration_optimization_triplexes/',
