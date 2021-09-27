@@ -1,0 +1,137 @@
+\subsection{Analysis of spectra of chemical system with more components}
+
+Generally, the standard approach used in optical spectroscopic studies of NA
+for analysis of a system with more components is based on variation of some
+parameter which influences the ration between components and observe the
+impact of the change on the spectra.
+For example concentration of ions or pH of the buffer can be modified in
+titration experiment and and their influence on the prefered conformation or
+complex formation can be observed
+\parencite{Klener2015}.
+Or increased temperature causes structural transition of a folded into and
+unfolded state
+\parencite{Klener2021}.
+
+Absorbance at one wavelength (260\,nm as a rule for UV absorption of NA) is
+usually used as the monitored parameter.
+Temperature dependent measurements then models the temperature profile of the
+absorbance by signmoidal curve (typically derived from the Van't Hoff equation)
+with linear asymptotes to take into account the temperature effects outside
+the region of the temperature transition
+\parencite{%
+	Owczarzy1997,%
+	Owczarzy2005,%
+	Mergny2009%
+}.
+
+Changes in RS are richer and influence intensity and positions of numerous
+Raman bands.
+Similar approach can be aplied to individual spectral parameters of Raman
+bands
+\parencite{%
+	Duguid1996,%
+	Mukerji1996,%
+	Mercier1999,%
+	Baumruk2001,%
+	Movileanu2002a,%
+	Knee2008%
+}
+but the results are influenced by uncertainties in the subtraction of the
+background signal, the effects of overlapping bands and other experimental
+errors.
+It means that each individual spectral parameter gives different results which
+makes it difficult to obtain a general picture of the underlying process.
+
+Another alternative are plots of differential spectra for spectral changes
+during subsequent parameter steps
+\parencite{%
+	Duguid1996,%
+	Baumruk2001,%
+	Chan1997,%
+	Movileanu1999,%
+	Movileanu2002%
+}.
+They provide excellent overview of thermally induced changes in individual
+Raman bands but they do not allow to determine parameters of the underlying
+chemical process neither separation of different simultaneous processes.
+
+The advantages of both of the above methods can be provided by a multivariate
+analysis of a series of Raman spectra.
+One of the suitable multivariate analysis mehtod is
+\emph{Principal compotent analysis} (PCA,
+\cite{%
+	Wold1987,%
+	Malinowski2002%
+})
+which reduces the measured spectra to several spectral profiles (loadings) and
+scores which indicate the portion of each profile in the measured spectra.
+The scores can be then fitted by a function based on a underlying chemical
+model and for example thermodynamic parameters for structural transitions
+can be estimated in temperature dependent measurement
+\parencite{Nemecek2013}.
+
+As was described above, PCA converts sets of experimental spectra $Y_i(\nu)$
+into novel sets of mutually independent spectral profiles (loadings)
+$U_j(\nu)$ and scores $P_{ij}$ representing their portions in the original
+spectra
+\begin{equation*}
+	Y_i(\nu) = \sum_{j=1}^M P_{ij}U_j(\nu),
+\end{equation*}
+where $\nu$ is wavenumber, $i \in \{1,\dots,N\}$ enumerates spectra from the
+original spectral series of size $N$ and $M$ is estimated number of
+significant components.
+
+Underlying chemical model for relationships between concentrations of the
+chemical components $c_k(t_i)$ can be fitted to the loading $P_{ij}$
+\begin{equation*}
+	P_{ij}^\text{model} = \sum_{k=1}^{M_\text{c}} c_k(t_i) Q_{ki}(t_i)
+\end{equation*}
+where $t_i$ is the parameter value for spectrum number $i$ (for example
+temperature, concentration of ions or pH),
+$c_k(t_i)$ is concentration of chemical component $k$, which is dependent on
+the parameter $t_i$,
+$k$ enumerates on the number of chemical components $M_\text{c}$ and
+$Q_{ki}(t_i)$ is polynomial in parameter $t_i$
+\begin{equation*}
+	Q_{ki}(t_i) = \sum_{l_k=0}^{L_k} a_{k,l_k} t_i^{l_k},
+\end{equation*}
+where $l$ enumerates on the degree of polynomial $L_k$ for the chemical
+component $k$.
+The underlying chemical model $c_k(t_i)$ explains the spectral changes
+completely only when the polynomial $Q_{ki}(t_i)$ is of degree
+$L_k = 0$, i.e. $Q_{ki}(t_i) = a_k$.
+Higher degrees of the polynomial enhances the chemical model so that it can
+better fit also other processes which are not sufficiently reflected in the
+chemical model, for example
+\textcite{Klener2021}
+applied polynomials of first degree to accomodate for temperature effects on
+folded/unfolded components even outside of the region of temperature transition
+between the folded and unfoled state.
+
+The relationships between $c_k(t_i)$ concentrations of chemical components from
+the chemical model are usually not linear in internal parameters $b_{k,m}$ of
+the model because the chemical model is usually dependent on equilibrium
+constants $K$ in nonlinear manner.
+Moreover, Van't Hoff equation is usually used in the case of temperature
+dependent measurement which introduces exponential dependency of the
+equilibrium constants on entropy and enthalpy.
+
+The least squares regression with the internal model parameters $a_{k,l_k}$ and
+$b_{k,m}$ results in minimization of sum of squares
+\begin{equation*}
+	S(a_{k,l_k},b_{k,m}) = \sum_{i=1}^N{\sum_{j=1}^N{
+		\left[P_{ij} - P_{ij}^\text{model}(a_{k,l_k},b_{k,m})\right]^2
+	}},
+\end{equation*}
+which is as discussed above linear in polynomial parameters $a_{k,l_k}$ and
+nonlinear in parameters $b_{k,m}$.
+Non-linear minimisation is usually much more expensive because it utilizes
+iterative methods of searching for the minimum.
+They are also susceptible to finding only local minima.
+On the other hand, linear least squares regression is “just” solution of set
+of normal equations
+\parencite{NumericalRecipes}.
+It means that the non-linear iterative minimization algorithm can be applied
+to $b_{k,m}$ values, the $a_{k,l_k}$ values are estimated by linear least
+squares for the given $c_k(t_i)$ which are determined by the values of
+$b_{k,m}$.
