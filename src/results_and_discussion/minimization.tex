@@ -1,0 +1,205 @@
+\subsection{Minimization algorythm}
+
+Many data treatment approaches in this thesis needed efficient nonlinear
+minimization algorythm (background subtraction, estimation of band intensities,
+estimation of parameters of chemical model from spectral series).
+Levenberg-Marquardt method
+\parencite{Marquardt1963}
+was used as a basis for the minimization algorithm used in this thesis and
+slight modifications was applied to it to improve its performance.
+
+The Levenberg-Marquardt method is based on Newton method where
+the function $f(\vec{a})$ which needs to be minimized is approximated by its
+Taylor series around $\vec{a_\text{cur}}$ point
+\begin{align*}
+	f(\vec{a}) =& f(\vec{a}_\text{cur})
+		+ \sum_k \left.\frac{\partial{}f}{\partial{}a_k}\right
+			\rvert_{\vec{a}_\text{cur}}(a_k - a_{k,\text{cur}})\\
+		&+ \sum_{k,l} \left.\frac{
+			\partial^2f
+		}{
+			\partial{}a_k\partial{}a_l
+		}\right\rvert_{\vec{a}_\text{cur}}
+		(a_k - a_{k,\text{cur}})(a_l - a_{l,\text{cur}})
+		+ \dots,
+\end{align*}
+which can be written as a quadratic form
+\begin{equation}
+	\chi^2(\vec{a}) \approx
+		\gamma
+		- \vec{d}\cdot\vec{a}
+		+ \frac{1}{2}\vec{a}\cdot{}\mat{D}\cdot\vec{a},
+	\label{\eqnlabel{minimization:chi_approx}}
+\end{equation}
+where $\vec{d}$ is an $M$ vector, $\mat{D}$ is an $M\times{}M$ matrix, and
+$\chi^2(\vec{a})$ is chi-square function
+\begin{equation*}
+	\chi^2(\vec{a}) \equiv \sum_{i=1}^N\left(
+			\frac{y_i - y(x_i;\vec{a})}{\sigma_i}
+	\right)^2,
+\end{equation*}
+where $y_i$ are data points from the measured spectrum,
+$y(x_i;\vec{a})$ are values of the model at these data points and
+$\sigma_i$ are standard deviations of measured points $y_i$.
+
+If the
+\eqnref{minimization:chi_approx}
+is good approximation of the $\chi^2(\vec{a})$ the minimum can be found
+directly by adjusting the currently estimated parameters $\vec{a}_\text{cur}$
+by
+\begin{equation}
+	\vec{a}_\text{min} = \vec{a}_\text{cur}
+		+ \mat{D}^{-1}\cdot(-\vec{\nabla}\chi^2(\vec{a}_\text{cur})).
+	\label{\eqnlabel{minimization:newton_min}}
+\end{equation}
+
+On the other hand, if
+\eqnref{minimization:chi_approx}
+doesn't locally approximate the shape of $\chi^2(\vec{a})$ well, the steepest
+descend method instead of the above described Newton method can be used for
+convergence to the minimum
+\begin{equation}
+	a_\text{min} = a_\text{cur} - k\vec{\nabla}\chi^2(\vec{a_\text{cur}}),
+	\label{\eqnlabel{minimization:gradient_min}}
+\end{equation}
+where $k$ needs to be a sufficiently small constant.
+
+Let's calculate the partial derivatives needed in terms from
+\eqnref{minimization:newton_min} and \eqnref{minimization:gradient_min}:
+\begin{align*}
+	\frac{\partial\chi^2}{\partial{}a_k} &= -2\sum_{i=1}^N{
+		\frac{y_i - y(x_i;\vec{a})}{\sigma_i^2}
+		\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_k}
+	},\\
+	\frac{\partial^2\chi^2}{\partial{}a_k\partial{}a_l} &= 2\sum_{i=1}^N{
+		\frac{1}{\sigma_i^2}\left[
+			\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_k}
+			\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_l}
+			- [y_i - y(x_i;\vec{a})]
+				\frac{\partial^2{}y(x_i;\vec{a})}{\partial{}a_k\partial{}a_l}
+		\right]
+	},
+\end{align*}
+where the second term in the second equation can be neglected because the
+summation over all spectral points $y_i$ is equal 0 if the
+$y(x_i;\vec{a})$ models $y_i$ well. Therefore the simplified formula for
+Hessian can be written as
+\begin{equation*}
+	\frac{\partial^2\chi^2}{\partial{}a_k\partial{}a_l} = 2\sum_{i=1}^N{
+		\frac{1}{\sigma_i^2}
+		\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_k}
+		\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_l}
+	}.
+\end{equation*}
+It can be seen, that this approximation of Hessian doesn't need second
+derivatives of $\chi^2(\vec{a})$ and can be written as the product of two
+Jacobians $\mat{J}$
+\begin{align*}
+	\mat{J} &=
+		\begin{pmatrix}
+			\frac{\partial{}y(x_1;\vec{a})}{\partial{}a_1} & \cdots & \frac{\partial{}y(x_1;\vec{a})}{\partial{}a_M} \\
+			\vdots                                         & \ddots & \vdots \\
+			\frac{\partial{}y(x_N;\vec{a})}{\partial{}a_1} & \cdots & \frac{\partial{}y(x_N;\vec{a})}{\partial{}a_M}
+		\end{pmatrix}\\
+	\mat{W} &=
+		\begin{pmatrix}
+			\frac{1}{\sigma_1^2} \\
+			& \ddots \\
+			&& \frac{1}{\sigma_N^2}
+		\end{pmatrix}\\
+	[\alpha] &= \mat{J}^\mathsf{T}(\mat{W}\mat{J})
+\end{align*}
+
+Let's introduce substitution by defining
+\begin{align}
+	\beta_k &\equiv -\frac{1}{2}\frac{\partial\chi^2}{\partial{}a_k}
+		= \sum_{i=1}^N{
+			\frac{y_i - y(x_i;\vec{a})}{\sigma_i^2}
+			\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_k}
+		}
+		\label{\eqnlabel{minimization:beta}}\\
+	\alpha_{kl} &\equiv \frac{1}{2}
+		\frac{\partial^2\chi^2}{\partial{}a_k\partial{}a_l}
+		= \sum_{i=1}^N{
+			\frac{1}{\sigma_i^2}
+			\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_k}
+			\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_l}
+			\label{\eqnlabel{minimization:alpha}}
+		}
+\end{align}
+and rewrite equations
+\cref{%
+	\eqnlabel{minimization:newton_min},%
+	\eqnlabel{minimization:gradient_min}%
+}
+to forms which are defining the step towards the minimum $\text{\g{d}}a_l$
+\begin{align}
+	\sum_{l=1}^N\alpha_{kl}\text{\g{d}}a_l &= \beta_k,
+	\label{\eqnlabel{minimization:newton_delta}}\\
+	\text{\g{d}}a_l &= k\cdot\beta_l,
+	\label{\eqnlabel{minimization:gradient_delta}}
+\end{align}
+where the matrix $[\alpha]$ which is equal to one-half times the Hessian
+matrix is usually called the \emph{curvature matrix}.
+
+Marquardt combined the
+\cref{%
+	\eqnlabel{minimization:newton_delta},%
+	\eqnlabel{minimization:gradient_delta}%
+},
+together in one equation
+\begin{equation}
+	\sum_{l=1}^N\alpha'_{kl}\text{\g{d}}a_l = \beta_k,
+	\label{\eqnlabel{minimization:lm}}
+\end{equation}
+with
+\begin{equation*}
+	\alpha'_{kl} = \alpha_{kl}(1+\text{\g{d}}_{kl}\lambda),
+\end{equation*}
+where $\text{\g{d}}_{kl}$ is Kronecker delta (equal 1 if $k = l$ and 0
+otherwise) and $\lambda$ is damping factor.
+The new $\alpha'_{kl}$ is diagonally dominant with large $\lambda$ and behaves
+like gradient method and equal to $\alpha_{kl}$ for small lambda and behaves
+like Newton method.
+
+The only unknown is estimation of damping factor $\lambda$.
+\textcite{Marquardt1963}
+suggested this heuristics for its computation using additional parameter called
+multiplication factor $\mu$ and supposing initial guess of parameters $\vec{a}$
+and $\lambda = \lambda_0$:
+\begin{docenum}
+	\item Estimate $\chi^2(\vec{a})$.
+	\item Solve the \eqnref{minimization:lm} for $\text{\g{d}}\vec{a}$ and
+		evaluate $\chi^2(\vec{a} + \text{\g{d}}\vec{a})$.
+		\label{enum:minimization:lm_steps:item:solve}
+	\item If $\chi^2(\vec{a} + \text{\g{d}}\vec{a}) \geq \chi^2(\vec{a})$ update
+		$\lambda$ to $\lambda\cdot\mu$ and go to
+		\cref{enum:minimization:lm_steps:item:solve}.
+		It means that you are probably far from the minimum so switch from Newton
+		to gradient method with large jump.
+	\item If $\chi^2(\vec{a} + \text{\g{d}}\vec{a}) < \chi^2(\vec{a})$ update
+		$\lambda$ to $\lambda/\mu$, update the trial solution $\vec{a}$ to
+		$\vec{a} + \text{\g{d}}\vec{a}$ and go to
+		\cref{enum:minimization:lm_steps:item:solve}.
+		It means that you are probably near to the minimum so try to jump directly
+		to the minimum approximated by quadratic function as per Newton method.
+\end{docenum}
+
+We enhanced the damping factor update algorithm for search in wider range and
+in both directions because the above proposed method was susceptible to fall
+into a local minima.
+The items 3 and 4 update of lambda searched larger region of $\mu^k$ where,
+for example, $k \in \{-10, -9, \dots, 9, 10\}$.
+It was also found, that it is more stable, especially for the cases with more
+complicated models $y(x;\vec{a})$, to calculate Jacobian $\mat{J}$ numerically
+than using analytic derivatives because of the numeric instability of the
+solution.
+
+This regression algorithm was programmed using MatLab programming environment
+(The Mathworks, Natick, MA, USA) and used through out many different
+applications in this work.
+The algorithm was also modified in a way that it was possible to specify
+different weight function than least squares, for example, penalize positive
+differences as was then used in
+\cref{background}.
+\\
