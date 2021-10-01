@@ -1,6 +1,7 @@
 \subsection{Choice of spectrograph parameters}
 
-As a spectrograph, we selected Horiba iHR550 Imaging Spectrometer with aperture
+As a spectrograph, we decided for Horiba iHR550 Imaging Spectrometer with
+aperture
 f/6.4, focal length 550 mm, magnification 1.1 and triple-grating turret so we
 needed to select three gratings with the best parameters for our purpose. One
 grating position we reserved for fluorescence measurements with 300 gr/mm, but
@@ -55,14 +56,16 @@ calculated as
 	\bar{d} = \frac{\tilde{\nu}_2 - \tilde{\nu}_1}{N_w},
 	\label{\eqnlabel{spectrograph_selection:dispersion_est}}
 \end{equation}
-where $N_w = 2048$ is number of camera width pixels. The results of these
-calculations can be seen in
+where $N_w = 2048$ is number of camera width pixels.
+The results based on the dispersion data specified by the vendor can be seen in
 \tabref{spectrograph_selection:dispersion_est}.
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/spectrograph_dispersion_est}
-	\caption{Spectrograph dispersion estimation. Gratings are denoted by number
+	\caption{Estimated Raman-shift ranges that can be captured by CCD detector
+		for particular available excitation wavelengths.
+		Gratings are denoted by number
 		of grooves per mm, $\tilde{\nu}_1$ and $\tilde{\nu}_2$ are lowest and
 		highest detected frequencies in \icm calculated according to
 		\cref{%
@@ -75,9 +78,9 @@ calculations can be seen in
 	\label{\tablabel{spectrograph_selection:dispersion_est}}
 \end{table}
 
-We can see, that if we want to see the full Raman vibration range from the
-low frequency vibrations from 200\,\icm{} to valence hydrogen stretching
-vibrations to 4000\,\icm{} at all possible excitation wavelengths we need to
+We can see, that if we want to cover the full Raman vibration range from the
+low frequency vibrations of 200\,\icm{} to valence hydrogen stretching
+vibrations of 4000\,\icm{} at all possible excitation wavelengths we need to
 select grating with 1200\,gr/mm. For the Raman fingerprint region below
 1800\,\icm{} we need to chose the grating with 2400\,gr/mm.
 
@@ -98,8 +101,7 @@ each spectrum were taken and dependences of the measured range
 ($\Delta\lambda = \lambda_2 - \lambda_1$)
 on these bounds were investigated.
 
-The spectrograph uses a grating to separate different light energies. The
-diffraction of light on the grating follows grating equation
+The diffraction of light on the grating follows grating equation
 \begin{equation}
 	a(\sin\alpha_\text{i} + \sin\alpha_m) = m\lambda,
 	\label{\eqnlabel{spectrograph_selection:grating_equation}}
@@ -239,7 +241,7 @@ and dependences of the spectral ranges on wavelength are plotted in the
 It can be seen from the
 \tabref{spectrograph_selection:detector_length_fits}
 that the detector length estimation difference between grating
-with 1200\,gr/mm and 2400\,gr/mm is slightly larger thant the estimated
+with 1200\,gr/mm and 2400\,gr/mm is slightly larger than the estimated
 standard deviations. It can be attributed to the slight inaccuracy in used
 Ebert angle but the difference is so small that we decided not to pursue its
 further refinement by more complicated nonlinear fit.

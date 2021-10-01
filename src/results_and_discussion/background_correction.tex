@@ -1,12 +1,12 @@
-\subsection{Subtraction of background}
+\subsection{Background subtraction}
 \label{background}
 
 Raman spectra of liquid samples consist usually of many components including
 signal of the analyte under investigation and spectrum of the solvent.
-RR spectroscopy also requires absorbing analyte which means that the spectrum
-is usually acquired from the near proximity of the sample cell wall and the
-spectrum usually contains also signal of quartz.
-The resulting spectrum also contains unspecific background from different
+In case of absorbing analyte the spectrum
+is acquired from the near proximity of the sample cell wall and so it
+usually contains signal of quartz.
+The resulting spectrum can also contain unspecific background from different
 sources like fluorescence from residuals from chemical synthesis and ellastic
 scattering of light from different ligh sources in the laboratory.
 
@@ -37,7 +37,7 @@ simultaneously subtracted.
 The background subtraction process is semiautomatic, where the initial
 background removal draft is found by automated procedure and manual adjustment
 is then possible if needed.
-Tha background subtraction mechanism is based on mean square fit but it allows
+The background subtraction mechanism is based on mean square fit but it allows
 to favor selected regions of the spectra by specifying different weights and
 also can also highly penalize (by customizable factor) regions where the
 subtracted background spectrum has higher signal than the measured spectrum,
@@ -96,7 +96,7 @@ The wavenumber scale shifts can be further smoothed by polynomial fit, see
 \end{figure}
 
 The program has also handy function for temperature measurements where it
-allows to match number from file name containing measured spectrum with
+allows to match number from the file name containing measured spectrum with
 the number from file name containing the background.
 To make the intensities of spectra from temperature measurements comparable
 the major band of background spectra used for intensity normalization
