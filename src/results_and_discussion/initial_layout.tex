@@ -2,70 +2,94 @@
 \label{first_layout}
 
 At first, we built a proof of concept apparatus to test if we selected the
-right optical elements. Optical schema is depicted in
+correct optical elements.
+The optical schema is depicted in
 \figref{initial_layout:apparatus_schema}.
-The laser beam is emitted with horizontal polarization and we decided, that we
-want to guide it through a sample in vertical direction and gather the
-scattered light in right angle geometry. Because of the steric restrictions in
-our laboratory we needed to place the laser in such a way that it produced
-laser beam in the oposit direction then we gathered the scattered light.
-Because of that we needed to guide the beam in the loop using laser mirrors
+The laser beam is emitted with horizontal polarization, and we decided that we
+want to guide it through a sample in the vertical direction and gather the
+scattered light in right-angle geometry.
+Because of the steric restrictions in our laboratory, we needed to place the
+laser in such a way that it produced a laser beam in the opposite direction
+then we gathered the scattered light.
+Because of that, we needed to guide the beam in the loop using laser mirrors
 enhanced for 244\,nm \emph{M1} and \emph{M2} (Thorlabs) to maintain the right
-polarization direction because we wanted to be able to measure not only
-depolarized Raman spectra. The beam was then turned up by another laser mirror
-enhanced for 244\,nm \emph{M3} and hit the bottom of the sample cell, having
-polarization perpendicular to the direction of scattered signal acquisition.
+polarization direction because we wanted to measure not only depolarized Raman
+spectra.
+The beam was then turned up by another laser mirror enhanced for 244\,nm
+\emph{M3} and hit the bottom of the sample cell, having polarization
+perpendicular to the direction of scattered signal acquisition.
 The excitation beam was focused onto the sample by the plano-convex lens
-\emph{L1} with focal length 100\,mm. The most practical place for this lens
-was between M2 and M3 so we couldn't select shorter focal length as is proposed
-in \cref{subsec:focus_optimization}. The excitation laser beam could be attenuated by
-the neutral density filters \emph{ND} with selection of 0.5, 1, 2, 3 and 4
-optical densities (Thorlabs) which were placed inside carousel (Thorlabs) for
-easy switching. We also old single blade shutter which we found in our
-laboratory. The shutter was controlled from the CCD port for external shutter
-by the WinSpec software provided with the detector. We needed to insert
-condenser into the path because the leading edge of output signal from CCD was
-too sharp. The shutter was open during measurement and closed rest of the time
+\emph{L1} with a focal length of 100\,mm.
+The most practical place for this lens was between M2 and M3, so we could not
+select a shorter focal length as is proposed in
+\cref{subsec:focus_optimization}.
+The excitation laser beam could be attenuated by
+the neutral density filters \emph{ND} with a selection of 0.5, 1, 2, 3, and 4
+optical densities (Thorlabs), which were placed inside the carousel (Thorlabs)
+for easy switching.
+We also used an old single-blade shutter that we found in our laboratory.
+The shutter was controlled from the CCD port for external shutter by the
+WinSpec software provided with the detector.
+We needed to insert a condenser into the path because the leading edge of the
+output signal from CCD was too sharp.
+The shutter was open during measurement and closed the rest of the time
 to prevent photodecomposition of samples by the UV laser beam.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/initial_layout_schema}
-	\caption{Top-view schema of the apparatus with side-view inset of the sample
-		space. A laser beam is emitted with horizontal polarization. It is guided
-		through carousel with neutral density (ND) filters and shutter and by laser
-		mirrors M1 -- M3 and laser focusing lens (L1) to the sample cell (S)
-		through apertures A1 and A2. The scattered light is gathered by Cassegrain
-		objective (O) and reflected by the mirror MS1 and focused on the entrance
-		slit of spectrograph by parabolic mirror MS2. Edge filter (EF) suppresses
-		elastically scattered light.}
+	\caption[%
+		Top-view schema of the apparatus with side-view inset of the sample
+		space.%
+	]{%
+		\captiontitle{%
+			Top-view schema of the apparatus with side-view inset of the sample
+			space.%
+		}
+		A laser beam is emitted with horizontal polarization.
+		It is guided through
+			a carousel with neutral density (ND) filters
+			and shutter
+			and by laser mirrors M1 -- M3
+			and laser focusing lens (L1)
+			to the sample cell (S)
+			through apertures A1 and A2.
+		The scattered light is
+			gathered by Cassegrain objective (O),
+			reflected by the mirror MS1
+			and focused on the entrance slit of spectrograph by parabolic mirror MS2.
+			Edge filter (EF) suppresses elastically scattered light.
+	}
 	\label{\figlabel{initial_layout:apparatus_schema}}
 \end{figure}
 
-For proper laser beam path setup we needed visualize the beam because the
-wavelengths in use are outside of visible light range. Business cards showed
-to be the best equipment for the beam visualization because the paper used for
-them usually has strong fluorescence. Excitation beam adjustment procedure
-uses 2 apertures \emph{A1}, \emph{A2} and cross hair reticle printed on the
-paper fixed to the ceiling of the room. At first, the kinematic holder of
-mirror M1 is adjusted so the beam passes through aperture A1. If the beam is
-blocked by some of the other optical elements on it's way to the ceiling
-reticle, we can use business card to detect if it passes through the center
-of the aperture A1. Then the mirror M2 is adjusted for the beam to pass
-through A2 and finally the mirror M3 is adjusted to hit the center of the
-reticle. The procedure can be iteratively repeated if the result is not
-satisfactory but usually the good alignment was achieved after the first
-iteration.
+We needed to visualize the beam for proper laser beam path setup because the
+wavelengths in use are outside of the visible light range.
+Business cards showed to be the best equipment for beam visualization because
+the paper used for them usually has strong fluorescence.
+Excitation beam adjustment procedure uses two apertures \emph{A1}, \emph{A2}
+and crosshair reticle printed on the paper fixed to the ceiling of the room.
+At first, the kinematic holder of mirror M1 is adjusted, so the beam passes
+through aperture A1.
+If the beam is blocked by some of the other optical elements on its way to the
+ceiling reticle, we can use a business card to detect if it passes through the
+center of the aperture A1.
+Then the mirror M2 is adjusted so that the beam passes through A2, and finally,
+the mirror M3 is adjusted to hit the center of the reticle.
+The procedure can be iteratively repeated if the result is not satisfactory but
+the good alignment was usually achieved after the first iteration.
 
-Raman scattered light is no longer monochromatic so we decided to use
+Raman scattered light is no longer monochromatic, so we decided to use
 reflective optics in the light gathering part of the apparatus to avoid
-chromatic aberration. We selected Cassegrain objective \emph{O} (Newport) with
-$f_o = 13$\,mm effective front focal length, back focal length in infinity,
-0.4 numerical aperture and 9.72\,mm diameter of output beam. The elastically
-scattered light is removed by edge filter \emph{EF} (Semrock). The rest of the
-collimated signal is then guided by UV enhanced broadband aluminum mirror
-\emph{MS1} (Newport) to focusing off-axis parabolic mirror \emph{MS2}
-(Newport) with $f_c = 101.6$\,mm effective focal length to the spectrograph
-slit. The spectrograph has f/6.4 aperture whereas the focusing lens with the
-beam diameter determined by objective has aperture $101.6 / 9.72 = f/10.5$
-which means that we slightly under fill the spectrometer's angle of acceptance.
+chromatic aberration.
+We selected Cassegrain objective \emph{O} (Newport) with $f_o = 13$\,mm
+effective front focal length, back focal length in infinity, 0.4 numerical
+aperture, and 9.72\,mm diameter of the output beam.
+The elastically scattered light is removed by edge filter \emph{EF} (Semrock).
+The rest of the collimated signal is then guided by UV enhanced broadband
+aluminum mirror \emph{MS1} (Newport) to focusing off-axis parabolic mirror
+\emph{MS2} (Newport) with $f_c = 101.6$\,mm effective focal length to the
+spectrograph slit.
+The spectrograph has f/6.4 aperture, whereas the focusing lens with the
+beam diameter determined by objective has aperture $101.6 / 9.72 = f/10.5$,
+which means that we slightly underfill the spectrometer's angle of acceptance.
