@@ -1,31 +1,35 @@
 \subsection{Thermostated sample holder}
 
-One of the important characteristics of complexes of biomolecules is their
-behavior with changing temperature. We wanted to enable these type of
-measurements also on the new UV Raman spectrometer. The spinning cell described
-in \cref{spinning_cell} showed to be impractical for the design of temperature
-controlled experiment. Other approach needed to be devised but it was still
-important to minimize the photodecomposition of the samples during measurement.
-We decided that we utilize magnetic stirrer and traditional spectroscopic
-1-cm Raman cells. We had a lot of experience with recirculating liquid
-temperature controllers in our laboratory but we decided to design less
-expensive temperature controlled cell holder based on thermoelectric Peltier
-device.
+One of the essential characteristics of complexes of biomolecules is their
+behavior with changing temperature.
+We wanted to enable these types of measurements also on the new UV Raman
+spectrometer.
+The spinning cell described in
+\cref{spinning_cell}
+showed to be impractical for the design of a temperature=controlled experiment.
+A different approach needed to be devised, but it was still necessary to
+minimize the photodecomposition of the samples during measurement.
+We decided that we utilize a magnetic stirrer and traditional spectroscopic
+1\,cm Raman cells.
+We had much experience with recirculating liquid temperature controllers in our
+laboratory, but we decided to design a less expensive temperature-controlled
+cell holder based on a thermoelectric Peltier device.
 
-The cell holder consisted of copper block surrounding the cell
+The new cell holder consisted of a copper block surrounding the cell
 (\figref{thermostated_holder:core_drawing})
-with front hole suitable for backsacttering measurements. There were also two
-hollows at the top of the block for convenient removal of the cells. We also
-designed adapter for 5-mm cells. The block contained thermocouple Pt100 for
-measurement of temperature sealed by thermal grease to ensure good heat
-transfer.
+with a front hole suitable for backscattering measurements.
+There were also two hollows at the top of the block for convenient removal of
+the cells.
+We also designed an adapter for 5\,mm cells.
+The block contained thermocouple Pt100 for measurement of temperature sealed by
+thermal grease to ensure good heat transfer.
 
-The copper block was placed inside Teflon block which served as an insulation
+The copper block was placed inside a Teflon block which served as insulation
 (\figref{thermostated_holder:insulation_drawing}).
-Insulation layer also contained magnetic stirer (Variomag). The stirrer could
-be used up to 95\,\textcelsius{}, stir the wolumes up to 5\,mL on
-130 -- 1000\,rpm, and was controlled by telemodul external controller. The
-sample cell could be covered inside holder by teflon cover
+The insulation layer also contained a magnetic stirrer (Variomag).
+The stirrer could be used up to 95\,\textcelsius{}, stir volumes up to 5\,mL on
+130 -- 1000\,rpm, and was controlled by an external controller.
+The sample cell could be covered inside the holder by a Teflon cover
 (\figref{thermostated_holder:stand_drawing}).
 
 % inserting more pdf figures created by Inkscape on one page produces warning
@@ -33,65 +37,115 @@ sample cell could be covered inside holder by teflon cover
 % I found suggestion for solution here for using qpdf for that but did not try
 % to apply it:
 % https://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning
-\insertfigure{%
-	Thermostated cell holder copper core.%
-}{results_and_discussion/assets/thermostated_holder_drawing/core}%
-{1}%
-{thermostated_holder:core_drawing}
-{p}
+\begin{figure}
+	\centering
+	\ig{1}{results_and_discussion/assets/thermostated_holder_drawing/core}
+	\caption[%
+		Thermostated cell holder copper core.%
+	]{%
+		\captiontitle{%
+			Thermostated cell holder copper core.%
+		}
+	}
+	\label{\figlabel{thermostated_holder:core_drawing}}
+\end{figure}
 
-\insertfigure{%
-	Teflon insultaion of thermostated cell holder.%
-}{results_and_discussion/assets/thermostated_holder_drawing/insulation}%
-{1}%
-{thermostated_holder:insulation_drawing}
-{p}
+\begin{figure}
+	\centering
+	\ig{1}{results_and_discussion/assets/thermostated_holder_drawing/insulation}
+	\caption[%
+		Teflon insulation of thermostated cell holder.%
+	]{%
+		\captiontitle{%
+			Teflon insulation of thermostated cell holder.%
+		}
+	}
+	\label{\figlabel{thermostated_holder:insulation_drawing}}
+\end{figure}
 
-The temperature was maintained by 2 thermoelectric Peltier modules (TEC1-12710)
-chained in series for better performance where the second module could be
-replaced by copper shim if the performance of one is satisfactory. The
-operation of the Peltier modules was controlled by two channel PID controller
-(Eurotherm 3216) connected to thermocouple placed inside the copper block as
-temperature sensor as described above. The signal of the two channels (heating
-and cooling) of the PID controller were converted to bipolar signal by
-constructed H bridge so the direction and intensity of heat transfer through
-the Peltier modules could be controlled. The electrical overview schema can be
-seen in \figref{thermostated_holder:electrical_schema}.
+The temperature was maintained by two thermoelectric Peltier modules
+(TEC1-12710) chained in series for better performance, where the second module
+could be replaced by copper shim if the performance of one is satisfactory.
+The operation of the Peltier modules was controlled by a two-channel PID
+controller (Eurotherm 3216) connected to the thermocouple placed inside the
+copper block as described above.
+The signals of the two channels (heating and cooling) of the PID controller
+were converted to a bipolar signal by constructed H bridge so the direction
+and intensity of heat transfer through the Peltier modules could be controlled.
+The electrical overview schema can be seen in
+\figref{thermostated_holder:electrical_schema}.
 
 \begin{figure}
 	\centering
 	\input{%
 		results_and_discussion/assets/thermostated_holder_drawing/%
 		electrical_schema}
-	\caption{Electrical schema of the thermostated cell holder.}
+	\caption[%
+		Electrical schema of the thermostated cell holder.%
+	]{%
+		\captiontitle{%
+			Electrical schema of the thermostated cell holder.%
+		}
+	}
 	\label{\figlabel{thermostated_holder:electrical_schema}}
 \end{figure}
 
 An aluminum profile heat sink
 (\figref{thermostated_holder:heat_sink_drawing})
 with two ventilators (Sukon, 2500\,rpm, 17\,W) was attached to the
-thermoelectric modules to increase their efficiency. The aluminum profile was
-insulated from the copper core block by the teflon layer. The whole sample
-holder was attached through the heat sing to a three axis manual stage
-(Thorlabs) by an universal aluminum right-angle adapter
-(\figref{thermostated_holder:stand_drawing}).
+thermoelectric modules to increase efficiency.
+The aluminum profile was insulated from the copper core block by the Teflon
+layer.
+A universal aluminum right-angle adapter
+(\figref{thermostated_holder:stand_drawing})
+mounted the whole sample holder through the heat sink to a three-axis manual
+stage (Thorlabs).
 The adapter supported securing of different sample holders in various
-positions. Overall 3D image of the holder can be seen in the
+positions. Overall 3D image of the holder can be seen in
 \figref{thermostated_holder:3d}.
 
-\insertfigure{%
-	Teflon cover of sample cell (on the right) and universla aluminum right-angle
-	adapter for thermostated sample holder (on the right).%
-}{results_and_discussion/assets/thermostated_holder_drawing/stand}%
-{1}%
-{thermostated_holder:stand_drawing}
-{p}
-\insertfigure{%
-	Thermostated cell holder aluminum profile heat sink.%
-}{results_and_discussion/assets/thermostated_holder_drawing/heat_sink}%
-{1}%
-{thermostated_holder:heat_sink_drawing}
-{p}
+\begin{figure}
+	\centering
+	\ig{1}{results_and_discussion/assets/thermostated_holder_drawing/stand}
+	\caption[%
+		Teflon cover of sample cell and universal aluminum right-angle
+		adapter for thermostated sample holder.%
+	]{%
+		\captiontitle{%
+			Teflon cover of sample cell (on the right) and universal aluminum
+			right-angle adapter for thermostated sample holder (on the right).%
+		}
+	}
+	\label{\figlabel{thermostated_holder:stand_drawing}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\ig{1}{results_and_discussion/assets/thermostated_holder_drawing/stand}
+	\caption[%
+		Teflon cover of sample cell and universal aluminum right-angle
+		adapter for thermostated sample holder.%
+	]{%
+		\captiontitle{%
+			Teflon cover of sample cell (on the right) and universal aluminum
+			right-angle adapter for thermostated sample holder (on the right).%
+		}
+	}
+	\label{\figlabel{thermostated_holder:stand_drawing}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\ig{1}{results_and_discussion/assets/thermostated_holder_drawing/heat_sink}
+	\caption[%
+		Aluminum profile heat sink for the thermostated cell holder.%
+	]{%
+		\captiontitle{%
+			Aluminum profile heat sink for the thermostated cell holder.%
+		}
+	}
+	\label{\figlabel{thermostated_holder:heat_sink_drawing}}
+\end{figure}
 
 \begin{figure}
 	\centering
@@ -101,49 +155,64 @@ positions. Overall 3D image of the holder can be seen in the
 	\LOWQUALITY
 	\includegraphics[width=.49\columnwidth]%
 		{results_and_discussion/assets/thermostated_holder_drawing/3D02}
-	\caption{3D image of thermostated sample holder without thermoelectric
-		Peltier modules, thermocouple and stirrer.}
+	\caption[%
+		The 3D image of thermostated sample holder without thermoelectric
+		Peltier modules, thermocouple, and stirrer.%
+	]{%
+		\captiontitle{%
+			The 3D image of thermostated sample holder without thermoelectric
+			Peltier modules, thermocouple, and stirrer.%
+		}
+	}
 	\label{\figlabel{thermostated_holder:3d}}
 \end{figure}
 
 This design of thermostated sample holder enabled fast control of the
-temperature in range between 5 and 95\,\textcelsius{} of samples with volumes
-in the range between 250 (with the adapter to 0.5-mm sample cells) and
-3000\,\g{m}L. The heating from 5 to 95\,\textcelsius{} took $\sim$15\,min and
-cooling from 95 to 5\,\textcelsius{} was as fast as 25\,min. The worst
-performance of the temperature stabilization was on room temperature because of
-switching between cooling and heating, so the process of stabilization the
-temperature at 20\,\textcelsius{} from 15\,\textcelsius{} or from
-25\,\textcelsius{} took $\sim 4$\,min 30\,s, the other other temperatures
-stabilization took less than 3\,min with the 5\,\textcelsius{} step in the
-range from 5 to 90\,\textcelsius{}. Stabilization from 90 to 95\,\textcelsius{}
-took $\sim 4$\,min because 95\,\textcelsius{} is out of the recommended
-operation range of the used Peltier modules. All the temperatures from above
-was regarded as stabilized with precision of $\pm 0.3$\,\textcelsius{}. The
-temperature then oscillated and continuously approached the setpoint
+temperature in the range between 5 and 95\,\textcelsius{} of samples with
+volumes in the range between 250 (with the adapter to 0.5\,mm sample cells) and
+3000\,\g{m}L.
+The heating from 5 to 95\,\textcelsius{} took $\sim$15\,min and cooling from 95
+to 5\,\textcelsius{} was as fast as 25\,min.
+The worst performance of the temperature stabilization was at room temperature
+because of switching between cooling and heating, so the process of
+stabilizing the temperature at 20\,\textcelsius{} from 15 or
+25\,\textcelsius{} took $\sim 4$\,min 30\,s.
+The stabilization of the rest of the temperatures took less than 3\,min with
+the 5\,\textcelsius{} step in the range from 5 to 90\,\textcelsius{}.
+Stabilization from 90 to 95\,\textcelsius{} took $\sim 4$\,min because
+95\,\textcelsius{} is out of the recommended operating range of the used
+Peltier modules.
+All the temperatures from above were regarded as stabilized with the precision
+of $\pm 0.3$\,\textcelsius{}.
+The temperature then oscillated and continuously approached the setpoint
 temperature and reached the setpoint temperature with $\pm 0.1$\,\textcelsius{}
-precision with another $\sim 1$\,min of waiting. The temperature of liquid
-inside cell followed the temperature measured by thermocouple from the holder
-with approximately 10\,s delay (as measured by independendet thermocouple-based
-thermometer) so we used 5\,min delay for temperature step of at most
-5\,\textcelsius{} as safe interval for temperature stabilization between
-Raman measurements with the exception of stabilization at 20 and
-95\,\textcelsius{} where the safe delay needed to be prolonged to 7\,min.
+precision with another $\sim 1$\,min of waiting.
+The temperature of the liquid inside the cell followed the temperature measured
+by thermocouple from the holder with approximately 10\,s delay (as measured by
+independent thermocouple-based thermometer), so we used 5\,min delay for
+temperature step of at most 5\,\textcelsius{} as a safe interval for
+temperature stabilization between Raman measurements except from stabilization
+at 20 and 95\,\textcelsius{}, where the safe delay needed to be prolonged to
+7\,min.
 
-During 5 years of usage of this holder the performance of heating/cooling of
-the thermostated holder slightly degraded and the holder needed minor
-maintanance. The performance was mainly impaired by degradation of thermal
-grease ensuring reliable results of temperature measurement by the thermocouple
-from inside the holder. The performace of Peltier modules decreases with the
-time. We used one Peltier module at the beginning but after 3 years we added
-the second one to mitigate the decrease of performance loss of the first one.
+During five years of usage of this holder, the performance of heating/cooling
+of the thermostated holder slightly degraded, and the holder needed minor
+maintenance.
+The performance was mainly impaired by degradation of thermal grease, ensuring
+reliable temperature measurement results by the thermocouple from inside the
+holder.
+The performance of Peltier modules decreases with time too.
+We used one Peltier module initially but after three years we added the second
+one to mitigate the performance loss of the first one.
 
-At the beginning, we were slightly concerned, if the fans, used for increase of
-the efficiency of the heat sink, wouldn't affect the stability of the optical
-elements (especially spectrograph and alignment of excitation laser beam) by
-vibrations. But the effect was unobservable. High amount of heat is also
-produced at high temperatures but it could freely dissipate from the sample
-space and the room temperature was maintained by air conditioning. The air
-conditioning also kept low humidity inside the laboratory but for temperatures
-less then 15\,\textcelsius{} the continuous flow of dry air or nitrogen was
-directed to the front surface of the sample cell.
+In the beginning, we were slightly concerned if the fans used to increase the
+efficiency of the heat sink would not affect the stability of the optical
+elements (especially spectrograph and alignment of the excitation laser beam)
+by vibrations.
+However, the effect was unobservable.
+A high amount of heat is also produced at high temperatures, but it could
+freely dissipate from the sample space, and the room temperature was maintained
+by air conditioning.
+The air conditioning also kept low humidity inside the laboratory, but for
+temperatures less then 15\,\textcelsius{} the continuous flow of dry air or
+nitrogen was directed to the front surface of the sample cell.

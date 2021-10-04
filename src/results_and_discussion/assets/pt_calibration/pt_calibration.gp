@@ -15,7 +15,7 @@ set ylabel 'intensity (a. u.)' offset -1,0
 set xtics 500
 unset ytics
 
-plot @ranges fn_pos u 1:(-0.2e7):(0):(2.95e7) with vectors nohead lc 'gray80' notitle,\
+plot @ranges fn_pos u 1:(-0.2e7):(0):(2.95e7) with vectors nohead lc 'gray80' lw 2 notitle,\
 	fn_pt255 w l lw 2 title 'Pt'
 
 set output

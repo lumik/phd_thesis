@@ -1,61 +1,78 @@
 \subsection{Redesign for multiple excitation wavelengths}
 
-At the beginning, the spectrometer allowed to use only 244\,nm as the
-excitation beam wavelength. Next step in spectrometer development was to
-enable more excitation wavelengths provided by the laser as described in
+In the beginning, the spectrometer allowed only 244\,nm as the excitation beam
+wavelength.
+The next step in spectrometer development was to enable more excitation
+wavelengths provided by the laser, as described in
 \cref{subsec:focus_optimization}.
-We decided to use prism optics for that purpose from the same reasons as we
-chose it for guiding the calibration beam, i.e. prisms have very weak
-dependence of reflectance on wavelenght and are not susceptible to aging
-compared to broadband metalic mirrors. On the other side, if we used laser
-mirrors, we will be constrained only to wavelengths which are covered by
-these mirrors (moreover it is more costly to have set of mirrors for each
-excitation wavelength) and all the mirrors needs to be changed when different
-excitation wavelength is used.
+We decided to use prism optics for that purpose for the same reasons applied in
+calibration beam optics selection, i.e., prisms have a very weak
+dependence of reflectance on wavelength and are not susceptible to aging
+compared to broadband metallic mirrors.
+On the other side, if we used laser mirrors, we would be constrained only to
+wavelengths covered by these mirrors (moreover it is more costly to have set of
+mirrors for each excitation wavelength) and all the mirrors would need to be
+changed when the different excitation wavelength was used.
 
 Some method of removal of the unwanted frequencies from the excitation beam
-also needed to be introduced because the laser manufacturer didn't provide
-fundamental line light removal equipment for 229-nm excitation. Pellin-Broca
-prism can be used for that purpose. It has advantage that there always exist
-rotation angle of the prism that the incoming and outgoing light deviates by
-exactly 90\textdegree{} and if you rotate the prism along its axis the position
-of outgoing beam at 90\textdegree{} doesn't change. Moreover, the angle of
-incidence of incoming light is near to Brewster angle so the amount of
-reflected light for p-polarization (our situation) is small.
+also needed to be introduced because the laser manufacturer did not provide a
+fundamental line light removal equipment for 229-nm excitation.
+Pellin-Broca prism can be used for that purpose.
+It has the advantage that there always exists a rotation angle of the prism
+that the incoming and outgoing light deviates by exactly 90\textdegree{}, and
+if the prism is rotated along its axis, the position of the outgoing beam at
+90\textdegree{} does not change.
+Moreover, the angle of incidence of the incoming light is near Brewster's
+angle, so the amount of reflected light for p-polarization (our situation) is
+small.
 
-Overall, the laser mirror M1 was replaced by Pellin-Broca prism (PB) which
-separated the excitation beam from unwanted light (for example from fundamental
-laser lines). The Pellin-Broca prism was placed on precise rotation stage
-which enabled the selection of excitation wavelength which was outgoing in
-right angle direction to the beam from laser. The unwanted light was guided to
-the beam blocker (BB). Mirrors M2 and M3 were replaced then by right angle
-prisms. All these changes are depicted in
+Overall, the laser mirror M1 was replaced by Pellin-Broca prism (PB), which
+separated the excitation beam from unwanted light (for example, from
+fundamental laser lines).
+The Pellin-Broca prism was placed on a precise rotation stage which enabled the
+selection of excitation wavelength, which was outgoing in a right-angle
+direction to the beam from the laser.
+The unwanted light was guided to the beam blocker (BB).
+Mirrors M2 and M3 were replaced then by right angle prisms.
+All these changes are depicted in
 \figref{multiple_excitations:apparatus_schema}.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/multiex_schema}
-	\caption{Top-view schema of the apparatus for multiple excitation wavelengths
-		and with side-view inset of the sample space. The right-angle laser
-		mirrors optimized for 244-nm excitation were replaced by prisms in total
-		reflection mode. M1 was replaced by Pellin-Broca prism PB which separates
-		unwanted frequencies from the excitation beam and sends them to the beam
-		blocker BB. M2 and M3 were replaced by right angle prisms. The prism MC2 is
-		flipped to the position for measurement and calibration lamp is switched
-		off. The explanation of rest of the symbols is the same as in
-		\figref{wavenumber_calibration:apparatus_schema}.}
+	\caption[%
+		Top-view schema of the apparatus for multiple excitation wavelengths
+		and with side-view inset of the sample space.%
+	]{%
+		\captiontitle{%
+			Top-view schema of the apparatus for multiple excitation wavelengths
+			and with side-view inset of the sample space.%
+		}
+		Prisms in total reflection mode replaced the right-angle laser mirrors
+		optimized for 244\,nm excitation.
+		M1 was replaced by Pellin-Broca prism PB, which separates unwanted
+		frequencies from the excitation beam and sends them to the beam blocker BB.
+		Right angle prisms replaced M2 and M3.
+		The prism MC2 is flipped to the position for measurement, and the
+		calibration lamp is switched off.
+		The explanation of the rest of the symbols is the same as in
+		\figref{wavenumber_calibration:apparatus_schema}.
+	}
 	\label{\figlabel{multiple_excitations:apparatus_schema}}
 \end{figure}
 
-New filters for elastically scattered light removal needed to be used for each
-new excitation wavelenght. We chose to support excitations at 257 and 229\,nm
-on top of the 244-nm excitation.
-These excitation wavelengths covered the available range from frequency doubled
-\ch{Ar^+} ion laser and allowed us to take advantage of changes in resonance
-enhancements with different excitation laser frequencies where 229\,nm
-excitation has stronger enhancement of pyrimidine bases and can be used for
-measurements of aromatic amino acids, on the other hand, guanine is
-enhanced the most with 257\,nm.
-The edge filter for 257-nm light removal was bought from Semrock but there was
-no filter available in the market for 229\,nm but Josef Kapitan (Palackeho
-University, Olomouc) kindly provided one (Materion Edge Filter) to us.
+Each new excitation wavelength required a new filter for elastically scattered
+light removal.
+We chose to support excitations at 257 and 229\,nm on top of the 244\,nm
+excitation.
+These excitation wavelengths covered the available range from frequency-doubled
+\ch{Ar^+} ion laser.
+It allowed us to take advantage of changes in resonance enhancements with
+different excitation laser frequencies.
+229\,nm excitation has the stronger enhancement of pyrimidine bases and can be
+used to measure aromatic amino acids.
+On the other hand, guanine is enhanced the most with 257\,nm.
+The edge filter for 257-nm light removal was bought from Semrock, but there was
+no filter available in the market for 229\,nm.
+Josef Kapitan (Palackeho University, Olomouc) kindly provided one (Materion
+Edge Filter) to us.

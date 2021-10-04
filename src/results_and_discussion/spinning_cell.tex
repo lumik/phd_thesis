@@ -1,40 +1,46 @@
 \subsection{Spinning cell}
 \label{spinning_cell}
 
-Next problem which needed to be solved was photodecomposition of samples by
-incoming laser light. Resonance Raman spectroscopy uses excitation light
-with frequency inside electronic absorption band. It means that the
-investigated molecules accept significant part of the power from incoming
-laser beam and this excesive energy can destroy the samples. It also locally
-increases temperature and causes thermal lens effect which distorts laser
-focus. We had to decide between several so far developed and successfully
-employed approaches, as described in
-\cref{introduction_spinning_cell},
+The next problem which needed to be solved was a photodecomposition of samples
+by incoming laser light.
+Resonance Raman spectroscopy uses excitation light with frequency inside the
+electronic absorption band.
+It means that the investigated molecules accept a significant part of the power
+from the incoming laser beam, and this excess energy can destroy the samples.
+It also locally
+increases temperature and causes the thermal lens effect, which distorts laser
+focus.
+We had to decide between several so far developed and successfully employed
+approaches, as described in
+\cref{introduction_sample_placement},
 to minimize these effects.
 
-As we wanted to study also RNAs on our apparatus, which are highly sensitive
-to contamination by ubiquitous RNase H and therefore cleaning of the sample
-cells was factor of major importance for us, we decided to utilize the idea
-of spinning cell to minimize photodecomposition of samples. We designed the
-cell to be also usable with small volumes of the samples, inner radius of 4\,mm
-and hight of 5\,mm. It means that the maximal volume could be $\sim250$\,\g{m}L
-but due to centrifugal force the smaller amount of samples could be measured,
-for example 50\,\g{m}L of sample results in $\sim 4$\g{m}m-thick layer attached
-to the cell walls if the cell is rotated sufficiently fast.
+As we wanted to study RNAs on our apparatus, which are highly sensitive to
+contamination by ubiquitous RNase H and therefore cleaning of the sample cells
+was a factor of major importance for us, we decided to utilize the idea of a
+spinning cell to minimize photodecomposition of samples.
+We designed the cell to be also usable with small volumes of the samples, the
+inner radius of 4\,mm and height of 5\,mm.
+It means that the maximal volume could be $\sim250$\,\g{m}L, but due to
+centrifugal force, the smaller amount of samples could be measured;
+for example, 50\,\g{m}L of sample results in an $\sim 4$\g{m}m thick layer
+attached to the cell wall if the cell is rotated sufficiently fast.
 
-To estimate required rotation speed we modeled the behavior of the water
-inside the cell. We neglected all the complicated effects like surface tension
-and currents inside liquid. We can use conservation of energy, where the sum
-of kinetic energy $E_\text{k}$ and gravitation potential energy $U_\text{g}$ is
-constant total energy $E$. If you consider closed system, the change in
-potential energy can go only to kinetic energy and vice versa so we can write
+To estimate the required rotation speed, we modeled the behavior of the water
+inside the cell.
+We neglected all the complicated effects like surface tension and currents
+inside the liquid.
+We can use energy conservation, where the sum of kinetic energy $E_\text{k}$
+and gravitation potential energy $U_\text{g}$ is constant total energy $E$.
+If we consider a closed system, the change in potential energy can go only to
+kinetic energy and vice versa, so we can write
 \begin{equation*}
 	E_\text{k} = \frac{mr^2\omega^2}{2} = -U_\text{g} = mg(z - z_0),
 \end{equation*}
-where $m$ stands for mass, $\omega$ for angular speed, $z$ for height of
-equipotential surface, $z_0$ for reference height for potential energy and
-$g = 9.80665$\, Nkg$^{-1}$ as gravitation acceleration constant. Solving the
-equation results into
+where $m$ stands for mass, $\omega$ for angular speed, $z$ for the height of
+the equipotential surface, $z_0$ for reference height for potential energy and
+$g = 9.80665$\, Nkg$^{-1}$ as gravitation acceleration constant.
+Solving the equation results into
 \begin{equation}
 	z = z_0 + \frac{r^2\omega^2}{2g}.
 	\label{\eqnlabel{spinning_cell:liquid_surface}}
@@ -45,14 +51,15 @@ The value for $z_0$ can be calculated from the sample volume
 	V = 2\text{\g{p}}h(R^2 - R_2^2)
 		+ 2\text{\g{p}}\int_{R_1}^{R_2}{rz(r)\text{d}r},
 \end{equation*}
-where $R$ is the internal radius of the cell, $h$ is height of the cell, $R_1$
-is radius where the surface of the liquid touches the floor of the cell and
-$R_2$ is the radius where the surface of the liquid meets the ceiling of the
-cell, so it means that $R \geq R2 > R1 \geq 0$. The values of $R_1$ and $R_2$
-can be estimated from the \eqnref{spinning_cell:liquid_surface}.
+where $R$ is the internal radius of the cell, $h$ is the height of the cell,
+$R_1$ is the radius where the surface of the liquid touches the floor of the
+cell, and $R_2$ is the radius where the surface of the liquid meets the ceiling
+of the cell, so it means that $R \geq R2 > R1 \geq 0$.
+The values of $R_1$ and $R_2$ can be estimated from
+\eqnref{spinning_cell:liquid_surface}.
 
-We can estimate the sufficient rotation speed about 4000\,rpm from sample model
-results for 50\,\g{m}L of sample displayed in
+We can estimate the sufficient rotation speed of about 4000\,rpm from sample
+model results for 50\,\g{m}L of a sample displayed in
 \figref{spinning_cell:model}.
 
 \begin{figure}
@@ -85,38 +92,56 @@ results for 50\,\g{m}L of sample displayed in
 		\caption{4000 rpm}
 		\label{\figlabel{spinning_cell:model_4000rpm}}
 	\end{subfigure}
-	\caption{Model of the spinning cell following
-		\eqnref{spinning_cell:liquid_surface}
-		with different rotation speeds using 4\,mm as internal diameter, 5\,mm
-		as height and 50\,\g{m}L of liquid.}
+	\caption[%
+		Model of the spinning cell.%
+	]{%
+		\captiontitle{%
+			Model of the spinning cell following
+			\eqnref{spinning_cell:liquid_surface}
+			with different rotation speeds using 4\,mm as internal diameter, 5\,mm
+			as height, and 50\,\g{m}L of liquid.%
+		}
+	}
 	\label{\figlabel{spinning_cell:model}}
 \end{figure}
 
-The sample holder was inspired by the work of \textcite{Shriver1974} but we
-used FPM o-rings with inner diameter 11\,mm and 1-mm diameter of the rubber as
-displayed in the \figref{spinning_cell:drawing} instead of the nylon cone. The
-o-ring was compressed by the knurled aluminium nut so it effectively centered
-and secured the spinning cell to the holder chuck. The whole cell was secured
-to the driving motor shaft by M2 screws.
+The sample holder was inspired by the work of
+\textcite{Shriver1974},
+but we used FPM o-rings with an inner diameter of 11\,mm and 1\,mm diameter of
+the rubber as displayed in
+\figref{spinning_cell:drawing}
+instead of the nylon cone.
+The knurled aluminum nut compressed the o-ring, effectively centering and
+securing the spinning cell to the holder chuck.
+The cell holder was secured to the driving motor shaft by M2 screws.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/spinning_cell_drawing}
-	\caption{Spinning cell holder. The cell (in blue) is sealed by teflon plug,
-		The knurled nut (light grey) secures the cell to the holder chuck (dark
-		grey) by compressing the o-ring (black). The cell can be secured to the
-		driving motor shaft by M2 screws.}
+	\caption[%
+		Spinning cell holder.%
+	]{%
+		\captiontitle{%
+			Spinning cell holder.%
+		}
+		A Teflon plug seals the cell (in blue), the knurled nut (light grey)
+		secures the cell to the holder chuck (dark grey) by compressing the o-ring
+		(black).
+		The cell is attached to the driving motor shaft by M2 screws.
+	}
 	\label{\figlabel{spinning_cell:drawing}}
 \end{figure}
 
-As a driving motor, we used DC motor (Maxon A-max 110119) controlled by
-home-made power source which could produce from 0V to 9V at output. The
-power supply was equipped with digital voltmeter for the user convenience. The
-capabilities of the motor were measured with attached full cell. Small dot
-was sticked to the cell and photodiod with attached oscillometer was then used
-for rotation frequency measurement. The results of the measurement are shown
-in \figref{spinning_cell:rotation}. The values of rotation speed $\omega$
-as a function of input voltage $U$ were fitted by linear dependence
+As a driving motor, we used a DC motor (Maxon A-max 110119) controlled by a
+homemade power source that could produce from 0\,V to 9\,V at the output.
+The power supply was equipped with a digital voltmeter for user convenience.
+The capabilities of the motor were measured with an attached fully filled cell.
+A tiny dot was stuck to the cell, and a photodiode with an attached
+oscillometer was then used for rotation frequency measurement.
+The results of the measurement are shown in
+\figref{spinning_cell:rotation}.
+The values of rotation speed $\omega$ as a function of input voltage $U$ were
+fitted by linear dependence
 \begin{gather*}
 	\omega = a_1U + a_0,\\
 	a_1 = (1071 \pm 4) \text{V}^{-1}, a_0 = 2 \pm 20.
@@ -125,12 +150,19 @@ as a function of input voltage $U$ were fitted by linear dependence
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/spinning_cell_rotation/rotation}
-	\caption{Spinning cell rotation evaluation. The dependence of rotation
-		speed $\omega$ on the input voltage for the driving motor.}
+	\caption[%
+		Spinning cell rotation evaluation.%
+	]{%
+		\captiontitle{%
+			Spinning cell rotation evaluation.%
+		}
+		The dependence of rotation speed $\omega$ on the input voltage for the
+		driving motor.
+	}
 	\label{\figlabel{spinning_cell:rotation}}
 \end{figure}
 
-The dependence hasn't got any significant constant factor $a_0$ and with the
-maximal power of 9V accepted by the motor, about 9600 rpm is achieved which
-is satisfactory for spinning cell to completely centrifuge the samples to its
-walls.
+The dependence has not got any significant constant factor $a_0$, and with the
+maximal power of 9\,V accepted by the motor, about 9600\,rpm was achieved,
+which was satisfactory for the spinning cell to centrifuge the samples to its
+walls completely.

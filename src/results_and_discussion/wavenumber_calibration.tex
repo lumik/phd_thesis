@@ -1,203 +1,255 @@
 \subsection{Wavenumber calibration}
 \label{wavenumber_calibration}
 
-For correct Raman spectra interpretation we needed precise wavenumber
-calibration. It can be done by measuring spectrum with known line positions
-in the same spectrometer configuration as for the spectrum of the sample and
-then interpolating and extrapolating the wavenumbers from these known line
-positions to all detector pixels. One group of calibration spectra are Raman
-spectra of organic solvents but one can't use pure indene which is widely
-used in visible Raman because it strongly absorbs in UV and its lines can be
-shifted if you dilute it. So other solvents need to be found. Organic
-solvents were used as wavenumber calibration for first UV Raman spectra
-measurements, for example \textcite{Harada1975} calibrated to Raman line of
-\ch{CCl4}. But early, it was clear, that single organic solvent is not
-satisfactory and therefore some teams started to use mixtures of solvents.
-If you use mixture of solvents, you don't know, how the components influece
-each other, they can evaporate in different rate so their ratio can be
-changing which can shift their bands. You can solve this problem by measuring
-the solvents separately but then you prolong the time spend for calibration
-spectra measurement. Some selected solvents are listed in
+For correct Raman spectra interpretation, we needed precise wavenumber
+calibration.
+It can be done by measuring spectrum with known line positions in the same
+spectrometer configuration as for the spectrum of the sample and then
+interpolating and extrapolating the wavenumbers from these known line positions
+to all detector pixels.
+One group of calibration spectra is Raman spectra of organic solvents, but one
+cannot use pure indene, which is widely used in visible Raman because it
+strongly absorbs UV light, and its lines can be shifted if it is diluted.
+So other solvents need to be found.
+Organic solvents were used as wavenumber calibration for the first UV Raman
+spectra measurements.
+For example, \textcite{Harada1975} calibrated to Raman line of \ch{CCl4}.
+However, early, it was clear that a single organic solvent was not
+satisfactory, and therefore some teams started to use mixtures of solvents.
+However, it is unclear how the components influence each other if a mixture of
+solvents is used.
+They can evaporate at different rates, so their ratio can be changing which can
+shift their bands.
+This problem can be solved by measuring the solvents separately, but it
+prolongs the time spent by measuring the calibration spectra.
+Some selected solvents are listed in
 \tabref{wavenumber_calibration:solvents}.
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/wavenumber_calibration_solvents}
-	\caption{%
+	\caption[%
 		Selection of organic solvents which were used for UV Raman spectra
 		wavenumber calibration in literature.%
+	]{%
+		\captiontitle{%
+			Selection of organic solvents which were used for UV Raman spectra
+			wavenumber calibration in literature.%
+		}
 	}
 	\label{\tablabel{wavenumber_calibration:solvents}}
 \end{table}
 
 Some laboratories were not satisfied with the separate calibration and used
-also internal standard to improve the calibration of spectra. For example,
-\textcite{Wen1998} used \ch{Na2SO4} as internal frequency (981\,\icm) standard,
-and Raman frequencies were calibrated to $\pm1 $\,\icm{} using
-\ch{CCl4}/\ch{CH3CN} mixture.
+internal standards to improve spectra' calibration.
+For example,
+\textcite{Wen1998}
+used \ch{Na2SO4} as internal frequency (981\,\icm) standard, and Raman
+frequencies were calibrated to $\pm1 $\,\icm{} using \ch{CCl4}/\ch{CH3CN}
+mixture.
 
 The other approach was also to use the elastically scattered laser line.
- \textcite{Kumamoto2012} calibrated grating dispersion with the laser line
-(0\,\icm), and Raman bands of boron nitride (1370\,\icm) and acetonitrile
-(2249\,\icm).
+\textcite{Kumamoto2012}
+calibrated grating dispersion with the laser line (0\,\icm) and Raman bands of
+boron nitride (1370\,\icm) and acetonitrile (2249\,\icm).
 
 %\input{results_and_discussion/wavenumber_calibration_review}
 
-Calibration to the Raman spectrum of organic solvent has an advantage that
-you don't need to know the exact wavelength of excitation beam typically to
-precision in the order of $10^{-3}$\,nm. The wavelength of the source also
-does not need to be stable to this precision between measurements. You can
-also measure the calibration spectrum from the same place and in the same
-configuration as the sample so there is no danger of some offsets caused by
-changes in the geometrical alignment of spectrometer, for example when you
-move with objective during focusing the light gathering part of the
-spectrometer on the sample or change filters in the gathered light path. The
-big disadvantage of calibration to the Raman spectra of organic solvents is
-that their Raman bands are broad and overlapping and therefore their
-positions can't be determined with sufficiently high precision. We can
-achieve precision of $\pm1$ \,\icm{} for well-resolved dominant and a few
-\icm{} for shoulders or weak bands. Organic solvents also do not usually have
-much bands in the region between 1800 and 2800\,\icm{} and don't have
-sufficiently large number of usable Raman lines especially if you want
-solvents which are usable in deep UV.
+Calibration to the Raman spectrum of organic solvent has the advantage that the
+exact wavelength of excitation beam typically to precision in the order of
+$10^{-3}$\,nm does not need to be known.
+The wavelength of the source also does not need to be stable to this precision
+between measurements.
+The calibration spectrum can also be measured from the same place and in the
+same configuration as the sample, so there is no danger of some offsets caused
+by changes in the geometrical alignment of the spectrometer, for example, when
+the objective is moved while focusing the light gathering part of the
+spectrometer on the sample or filters are changed in the gathered light path.
+The significant disadvantage of calibration to the Raman spectra of organic
+solvents is that their Raman bands are broad and overlapping, and therefore
+their positions cannot be determined with sufficiently high precision.
+We can achieve the precision of $\pm1$ \,\icm{} for well-resolved dominant and
+a few \icm{} for shoulders or weak bands.
+Organic solvents also do not usually have many bands in the region between
+1800 and 2800\,\icm{} and do not have a sufficiently large number of usable
+Raman lines, especially if solvents usable in deep UV are wanted.
 
-We had good experience with the other approach to calibration which uses
-atomic emission spectra of some standard lamp. Usually, as it is also the
-case in our laboraty, the neon lamp is used. But this lamp do not cover deep
-UV range of light so we decided to try some organic solvents for UV Raman
-calibration as they were broadly used as you can see from the
+We had a good experience with the other approach to calibration, which uses
+atomic emission spectra of standard lamps.
+Usually, as is also the case in our laboratory, the neon lamp is used.
+However, this lamp does not cover the deep UV range of light, so we decided to
+try some organic solvents for UV Raman calibration as shown in
 \tabref{wavenumber_calibration:solvents}.
 
-We selected cyclohexane because it has pretty rich Raman spectrum. We also
-wanted to solve the problem, that most of the standard organic solvents
-does not have much bands in the region between 1800 and 2800\,\icm{} so we
-decided that we also use deuterated cyclohexane-d12 which nicely fills that
-region. To our knowledge, the cyclohexane-d12 was not used for calibration of
-UV Raman spectra of nucleic acids before.
+We selected cyclohexane because it has a pretty rich Raman spectrum.
+We also wanted to solve the problem that most standard organic solvents do not
+have many bands between 1800 and 2800\,\icm{}, so we decided to use deuterated
+cyclohexane-d12, which nicely fills that region.
+To our knowledge, the cyclohexane-d12 was not used for calibration of UV Raman
+spectra of nucleic acids before.
 
-The spectra of cyclohexane and cyclohexane-d12 was measured on home-made Raman
-spectrometer using visible excitation of 532\,nm
+The spectra of cyclohexane and cyclohexane-d12 were measured on a homemade
+Raman spectrometer using visible excitation of 532\,nm
 \parencite{Palacky2011}
-and calibrated to the spectrum of neon calibration lamp. At least 3 and
-typically 8 spectra for each Raman line with different grating position were
-taken. The top half of the well resolved peaks was fitted to gaussian
-curve and its precise postion was estimated. All the measured positions were
-then averaged. The results can be seen in
+and calibrated to the spectrum of neon calibration lamp. At least three and
+typically eight spectra for each Raman line with different grating positions
+were taken.
+The top halves of the well-resolved peaks were fitted to the gaussian
+curve, and their precise positions were estimated.
+All the measured positions were then averaged.
+The results can be seen in
 \tabref{wavenumber_calibration:cyclohexane_wavenumbers}.
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/cyclohexane_wavenumbers}
-	\caption{%
-		Estimated wavenumbers $\tilde{\nu}$ of cyclohexane (H) and cyclohexane-d12
-		(D) with the corresponding pixel positions $x$ from UV Raman measurement.%
+	\caption[%
+		Estimated wavenumbers $\tilde{\nu}$ of cyclohexane and cyclohexane-d12.%
+	]{%
+		\captiontitle{%
+			Estimated wavenumbers $\tilde{\nu}$ of cyclohexane (H) and
+			cyclohexane-d12 (D) with the corresponding pixel positions $x$ from UV
+			Raman measurement.%
+		}
 	}
 	\label{\tablabel{wavenumber_calibration:cyclohexane_wavenumbers}}
 \end{table}
 
-Spectrum of cyclohexane and cyclohexane-d12 can be then measured after each
-UV Raman measurement in such a way, that measured sample is replaced by
+The spectrum of cyclohexane and cyclohexane-d12 can then be measured after each
+UV Raman measurement in such a way that the measured sample is replaced by the
 calibration sample so that the calibration samples are measured from the same
 place as the measured sample (with the same grating position of spectrograph).
-The precise pixel positions of their Raman lines was estimated from the
-spectrum in the same way as in the visible Raman measurements. These pixel
-positions can be then matched to known approximate pixel positions of
-cyclohexane and cyclohexane-d12 using appropriate weight function which
-favors matches with more bands then less by moving the measured spectrum along
-the table with calibration spectrum with for example 0.5-px step. The outcome
-of this step is calibration lines wavenumbers in dependence on their pixel
-positions. They can be fitted by 3rd degree polynomial to assign the
-wavenumbers to all the 2048 detector pixels. The spectrum is then linearly
-interpolated to have 1-\icm{} steps. Example UV Raman spectra of cyclohexane
-and cyclohexane-d12 calibrated by our home-made calibration program with
-highlighted band positions can be seen in
+The precise pixel positions of their Raman lines were estimated from the
+spectrum in the same way as in the visible Raman measurements.
+These pixel positions can then be matched to known approximate pixel positions
+of cyclohexane and cyclohexane-d12 using an appropriate weight function which
+favors matches with more bands by moving the measured spectrum in the table
+with calibration spectrum with, for example, 0.5 px step.
+The outcome of this procedure is calibration line wavenumbers and their pixel
+positions.
+They can be fitted by a 3rd-degree polynomial to assign the wavenumbers to all
+the 2048 detector pixels.
+The spectrum is then linearly interpolated to have 1\,\icm{} steps.
+Example UV Raman spectra of cyclohexane and cyclohexane-d12 calibrated by our
+homemade calibration program with highlighted band positions are shown in
 \figref{wavenumber_calibration:cyclohexane_spc}.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/cyclohexane_calibration/%
 cyclohexane_calibration}
-	\caption{%
-		UV Raman spectrum of cyclohexane and cyclohexane-d12 with 244-nm
-		excitation. Grey lines denotes the positions of Raman lines used for
-		calibratin (see
-		\tabref{wavenumber_calibration:cyclohexane_wavenumbers}).%
+	\caption[%
+		UV Raman spectrum of cyclohexane and cyclohexane-d12 with 244\,nm
+		excitation.%
+	]{%
+		\captiontitle{%
+			UV Raman spectrum of cyclohexane and cyclohexane-d12 with 244\,nm
+			excitation.%
+		}
+		Grey lines denote the positions of Raman lines used for calibration (see
+		\tabref{wavenumber_calibration:cyclohexane_wavenumbers}).
 	}
 	\label{\figlabel{wavenumber_calibration:cyclohexane_spc}}
 \end{figure}
 
-As was written above, for sub-\icm{} calibration precision, the different
-method then calibration to organic solvents needs to be used. Some authors
-proposed calibration to atomic lines of mercury lamp, for example
-\textcite{Manoharan1990,Efremov1991} calibrated the spectrograph with the
-253.6-, 312.6-, and 365-nm lines of a low-pressure Hg lamp. The disadvantage
-of usage of low pressure Hg-lamp is that its lines are rather sparse so
-other approaches, which combined the Hg spectrum with other methods were
-proposed. For example, \textcite{Myers1988} calibrated wavenumbers using
-cyclohexane in combination with various \ch{H2} Raman-shifted laser lines and
-mercury emission lines.
+As was written above, a different method for sub-\icm{} calibration precision
+than calibration to organic solvents needs to be used.
+Some authors proposed calibration to atomic lines of a mercury lamp.
+For example,
+\textcite{%
+	Manoharan1990,%
+	Efremov1991%
+}
+calibrated the spectrograph with the 253.6, 312.6, and 365 nm lines of a
+low-pressure Hg lamp.
+The disadvantage of low-pressure Hg-lamp usage is that its lines are relatively
+sparse so other approaches, which combined the Hg spectrum with other methods
+were proposed.
+For example, \textcite{Myers1988} calibrated wavenumbers using cyclohexane
+combined with various \ch{H2} Raman-shifted laser lines and mercury emission
+lines.
 
-We tried to use mercury lamp too but it didn't bring any new precision to the
-calibrated spectra so we tried to search for the different calibration source.
-There was similar effort in \textcite{Wert2014}, who proposed calibration with
-zinc (202.5, 206.2, and 213.9\,nm) and cadmium (214.4, 226.5, and 228.8\,nm)
-standard lamps and Positive Light Indigo-S 210 -- 240\,nm tunable Ti:Sa laser
-if necessary. But we pursued different approach and took inspiration from
+We tried to use a mercury lamp too, but it did not bring any new precision to
+the calibrated spectra, so we searched for the different calibration sources.
+There was a similar effort in
+\textcite{Wert2014},
+who proposed calibration with zinc (202.5, 206.2, and 213.9\,nm) and cadmium
+(214.4, 226.5, and 228.8\,nm) standard lamps and Positive Light
+Indigo-S 210 -- 240\,nm tunable Ti:Sa laser if necessary.
+However, we pursued a different approach and took inspiration from the
 calibration of space instruments which broadly use hollow cathode platinum
-lamp \parencite{Mount1977,Reader1990,Sansonetti1992} for calibration in UV
-spectral range.
+lamps
+\parencite{%
+	Mount1977,%
+	Reader1990,%
+	Sansonetti1992%
+}
+for calibration in UV spectral range.
 
 \emph{Hollow cathode lamps} (HCL) are routinely used in \emph{atomic absorption
-spectroscopy} (AAS) and therefore they are commercially available on the market
-together with power supplies because HCL requires precision current source. We
-used P209 HCL Power Supply (Photron) with P840 Hollow Cathode Lamp -- Pt
-(Photron) which provided stable platinum atomic spectrum right after start. The
-new spectrometer schema with calibration source is in
+spectroscopy} (AAS), and therefore they are commercially available on the
+market together with power supplies because HCL requires a precision current
+source.
+We used P209 HCL Power Supply (Photron) with P840 Hollow Cathode Lamp -- Pt
+(Photron) which provided a stable platinum atomic spectrum right after start.
+The new spectrometer schema with calibration source is in
 \figref{wavenumber_calibration:apparatus_schema}.
-The callibration beam was guided by right-angle prisms in total internal
-reflection mode (MC1 and MC2). We chose prisms instead of mirrors because they
-are much more stable in time and we don't need to have any concerns about their
-aging. Prism MC2 was placed on motorized flip mount so we can easily switch
-between measurement of calibration spectra and Raman spectra from samples.
-The calibration beam was colimated by the lens LC1 with focal length of
-10\,cm (Thorlabs) and could be attenuated by the aperture AC1 which was
-represented by iris diaphragm (Thorlabs).
+Right-angle prisms (MC1 and MC2) guided the calibration beam in total internal
+reflection mode.
+We chose prisms instead of mirrors because they are much more stable in time,
+and we do not need to have any concerns about their aging.
+Prism MC2 was placed on a motorized flip mount to easily switch between
+measurement of calibration spectra and Raman spectra from samples.
+The calibration beam was collimated by the lens LC1 with focal length of
+10\,cm (Thorlabs) and could be attenuated by the aperture AC1 represented by
+the iris diaphragm (Thorlabs).
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/calibration_schema}
-	\caption{Top-view schema of the apparatus with wavenumber calibration lamp
-		and with side-view inset of the sample space. The calibration beam from Pt
-		\emph{hollow cathode lamp} (HCL) is collimated by calibration beam lens
-		LC1 and guided by calibration right-angle prisms in total internal
-		reflection mode (MC1 and MC2) and and focused on the entrance slit of
-		spectrograph by parabolic mirror MS2 the same way as scattered signal from
-		samples. The calibration lamp signal can be attenuated by modifying the
-		size of the calibration beam aperture AC1. The mirror MC2 was placed on
-		motorized flip mount to enable easy insertion for measurement of
-		calibration spectra. The explanation of rest of the symbols is the same as
-		in
-		\figref{initial_layout:apparatus_schema}.}
+	\caption[%
+		Top-view schema of the apparatus with wavenumber calibration lamp
+		and with side-view inset of the sample space.%
+	]{%
+		\captiontitle{%
+			Top-view schema of the apparatus with wavenumber calibration lamp
+			and with side-view inset of the sample space.%
+		}
+		The calibration beam from Pt \emph{hollow cathode lamp} (HCL) is collimated
+		by calibration beam lens LC1 and guided by the calibration right-angle
+		prisms (MC1 and MC2) in total internal reflection mode and and focused on
+		the entrance slit of spectrograph by the parabolic mirror MS2 the same way
+		as the scattered signal from samples.
+		The calibration lamp signal can be attenuated by modifying the size of the
+		calibration beam aperture AC1.
+		The mirror MC2 was placed on a motorized flip mount to enable easy
+		insertion for calibration spectra measurement.
+		The explanation of the rest of the symbols is the same as in
+		\figref{initial_layout:apparatus_schema}.
+	}
 	\label{\figlabel{wavenumber_calibration:apparatus_schema}}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/pt_calibration/pt_calibration}
-	\caption{%
-		UV Raman spectrum of platinum hollow cathode lamp with the same grating
-		position as in
-		\figref{wavenumber_calibration:cyclohexane_spc}.
-		excitation. Grey lines denotes the positions of Raman lines used for
-		calibratin.%
+	\caption[%
+		UV Raman spectrum of platinum hollow cathode lamp.%
+	]{%
+		\captiontitle{%
+			UV Raman spectrum of platinum hollow cathode lamp with the same grating
+			position as in
+			\figref{wavenumber_calibration:cyclohexane_spc}.%
+		}
+		Grey lines denote the positions of Raman lines used for calibration.
 	}
 	\label{\figlabel{wavenumber_calibration:pt_spc}}
 \end{figure}
 
-As you can see in
-\figref{wavenumber_calibration:pt_spc}
-the Pt lamp has many sharp well-resolved lines with reasonable intensity. The
-acquisition of the spectrum is also relatively fast, the spectrum was usually
-acquired as average of 100 of 0.1s scans. Because of these parameters, the
-measured Raman spectra can be calibrated with the precision as high as
-$\pm0.1$\,\icm.
+As can be seen in
+\figref{wavenumber_calibration:pt_spc},
+the Pt lamp has many sharp well-resolved lines with reasonable intensity.
+The spectrum acquisition is also relatively fast; the spectrum was usually
+acquired as an average of 100 of 0.1s scans.
+Because of these parameters, the measured Raman spectra can be calibrated with
+a precision as high as $\pm0.1$\,\icm.

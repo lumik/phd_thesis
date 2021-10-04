@@ -1,61 +1,78 @@
 \subsection{Polarized measurements}
 
 The next possible improvement of the measurement capabilities was to enhance
-the spectrometer for polarized measurements. There were two categories of
-polarizers commercially available for deep UV light, crystalline polarizers and
-wire grid polarizers, so we tried to evaluate both of them. We inserted them
-into the gathered signal beam path right after the edge filter in continous
-rotation mounts with engraved scale marked in 2\textdegree{} increments placed
-on flip mount for easy removal. We rotad the scale so that 0\textdegree{} meant
-vertical polarization and 90\textdegree{} horizontal.
+the spectrometer for polarized measurements.
+There were two categories of polarizers commercially available for deep UV
+light, crystalline polarizers and wire grid polarizers, so we tried to evaluate
+both of them.
+We inserted them into the gathered signal beam path right behind the edge
+filter in continous rotation mounts with an engraved scale marked in
+2\textdegree{} increments placed on a flip mount for easy removal.
+We rotated the scale so that 0\textdegree{} meant vertical polarization and
+90\textdegree{} horizontal.
 
-The most of the crystalline polarizers are not created from materials
-transparent to UV light so we needed to chose from the limited selection,
-where the most appropriate with cost/value considerations at that time were
-\g{a}-BBO Glan-Laser polarizers (Thorlabs). The disadvantage of this solution
-was small clear aperture (1\,cm) and small angular field of view. The
-advantages are good transparency for deep UV light (greater than 60\% from
-210\,nm) and great extinction ratio ($\sim 100000:1$).
+Most crystalline polarizers are not created from materials transparent to UV
+light so we needed to choose from the limited selection, where the most
+appropriate with cost/value considerations at that time were \g{a}-BBO
+Glan-Laser polarizers (Thorlabs).
+The disadvantage of this solution was a small clear aperture (1\,cm) and a
+small angular field of view.
+The advantages are good transparency for deep UV light (greater than 60\% from
+210\,nm) and an excellent extinction ratio ($\sim 100000:1$).
 
 The selection of wire-grid polarizers usable for UV was also limited because
-they have much narrower range of accepted wavelengths. We chose the one using
-dielectric nanowire arrays on silica glass substrate (Meadowlark). It had
-polarized transmission from 60 to 70\% at 245 to 285\,nm respectively and
-extinction ratio greater than 60 in the same range. The advantage of this
-polarizer was larger clear aperture (2.54\,cm) and slightly larger angular
-field of view.
+they have a much narrower range of accepted wavelengths.
+We chose the one using dielectric nanowire arrays on a silica glass substrate
+(Meadowlark).
+It had polarized transmission from 60 to 70\% at 245 to 285\,nm, respectively,
+and an extinction ratio greater than 60 in the same range.
+The advantage of this polarizer was a larger clear aperture (2.54\,cm) and a
+slightly larger angular field of view.
 
-Polarization dependence of the light gathering optics and especially of
-spectrograph grating was shielded by using quartz-wedge depolarizer (Thorlabs).
-The two polarizers were evaluated using Hg lamp as a source of light from
-from sample space. At first, we measured ratio of throughput between vertical
-and horizontal polarization which were mainly different due to polarization
-dependence of spectrograph grating reflectance. Vertical ratio was $~1.65$
-and $~1.41$ times higher ther horizontal for wire-grid and Glan-Laser
-polarizers, respectively. The difference can be caused by the smaller clear
-aperture of the later one.
+Polarization dependence of the light-gathering optics and especially of
+spectrograph grating was shielded by using a quartz-wedge depolarizer
+(Thorlabs).
+The two polarizers were evaluated using a Hg lamp as a source of light from
+sample space.
+At first, we measured the ratio of throughput between vertical and horizontal
+polarization, which were mainly different due to polarization dependence of
+spectrograph grating reflectance.
+The vertical ratio was $~1.65$ and $~1.41$ times higher than horizontal for
+wire-grid and Glan-Laser polarizers, respectively.
+The difference can be caused by the smaller clear aperture of the later one.
 
 Next, the ratio between horizontal and vertical polarization throughput with
-inserted depolarizer was measured. The spectra were accumulated for 0.1\,s
-and intensity was measured at the maximum of peak at 253.6-nm Hg line in
-detector counts. The results are displayed in
+inserted depolarizer was measured.
+The spectra were accumulated for 0.1\,s,
+and intensity was measured at the maximum of the Hg line at 253.6\,nm in
+detector counts.
+The results are displayed in
 \tabref{polarized_measurements:polarizer_evaluation}.
-There is significant difference between intenzity with horizontal and vertical
-polarization for wire-grid polarizer which indicates that there is strong
-dependence of its characteristics on polarizer tilt. There is also higher
-variation in signal for Glan-laser polarizer (especially visible for
-horizontal polarization), which is probably effect of combination of slight
-optics movement during manipulation with polarizer and its limited aperture.
-But the most significant observation is that Glan-laser polarizer has
-$\sim 2.7$ times higher throughput then the wire-grid polarizer at the
-253.6\,nm nevertheless its limited aperture. Therefore we chose Glan-laser
-polarizer for any further polarization measurements.
+There is a significant difference between intensity with horizontal and vertical
+polarization for a wire-grid polarizer, which indicates a strong dependence of
+its characteristics on polarizer tilt.
+There is also a higher variation in signal for the Glan-laser polarizer
+(especially visible for horizontal polarization), which is probably the effect
+of a combination of slight optics movement during manipulation with the
+polarizer and its limited aperture.
+However, the most significant observation is that the Glan-laser polarizer has
+$\sim 2.7$ times higher throughput than the wire-grid polarizer at 253.6\,nm,
+nevertheless its limited aperture.
+Therefore we chose Glan-laser polarizer for any further polarization
+measurements.
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/polarizer_evaluation}
-	\caption{Performace comparison of wire-grid and Glan-laser polarizer. $I$
-	stands for intenzity of 253.6-nm Hg line at maximum in detector counts and
-	subscripts v and h stand for vertical and horizontal polarizer orientation.}
+	\caption[%
+		Performace comparison of wire-grid and Glan-laser polarizer.%
+	]{%
+		\captiontitle{%
+			Performace comparison of wire-grid and Glan-laser polarizer.%
+		}
+		$I$ stands for intensity of 253.6\,nm Hg line at maximum detector counts,
+		and subscripts v and h stand for vertical and horizontal polarizer
+		orientation.
+	}
 	\label{\tablabel{polarized_measurements:polarizer_evaluation}}
 \end{table}
