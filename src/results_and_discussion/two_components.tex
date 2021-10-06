@@ -118,12 +118,13 @@ the equilibrium constants on entropy and enthalpy.
 
 The least-squares regression with the internal model parameters $a_{k,l_k}$ and
 $b_{k,m}$ minimizes the sum of squares
-\begin{equation*}
-	S(a_{k,l_k},b_{k,m}) = \sum_{i=1}^N{\sum_{j=1}^N{
+\begin{equation}
+	S(a_{k,l_k},b_{k,m}) = \sum_{i=1}^N{\sum_{j=1}^M{
 		\left[P_{ij} - P_{ij}^\text{model}(a_{k,l_k},b_{k,m})\right]^2
 	}},
-\end{equation*}
-which is, as discussed above ,linear in polynomial parameters $a_{k,l_k}$ and
+	\label{\eqnlabel{two_comp:sos}}
+\end{equation}
+which is, as discussed above, linear in polynomial parameters $a_{k,l_k}$ and
 nonlinear in parameters $b_{k,m}$.
 Nonlinear minimization is usually much more expensive because it utilizes
 iterative methods of searching for the minimum.
