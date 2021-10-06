@@ -1,13 +1,13 @@
 \subsection{Minimization algorithm}
 \label{minimization}
 
-Many data treatment approaches in this thesis needed efficient nonlinear
+In this thesis, many data treatment approaches needed efficient nonlinear
 minimization algorithm (background subtraction, estimation of band intensities,
 estimation of parameters of chemical model from spectral series).
-Levenberg-Marquardt method
+The Levenberg-Marquardt method
 \parencite{Marquardt1963}
-was used as a basis for the minimization algorithm used in this thesis and
-slight modifications was applied to it to improve its performance.
+was used as a basis for the minimization algorithm used in this thesis, and
+slight modifications were applied to improve its performance.
 
 The Levenberg-Marquardt method is based on Newton method where
 the function $f(\vec{a})$ which needs to be minimized is approximated by its
@@ -43,9 +43,9 @@ where $y_i$ are data points from the measured spectrum,
 $y(x_i;\vec{a})$ are values of the model at these data points and
 $\sigma_i$ are standard deviations of measured points $y_i$.
 
-If the
+If
 \eqnref{minimization:chi_approx}
-is good approximation of the $\chi^2(\vec{a})$ the minimum can be found
+is a good approximation of the $\chi^2(\vec{a})$, the minimum can be found
 directly by adjusting the currently estimated parameters $\vec{a}_\text{cur}$
 by
 \begin{equation}
@@ -56,7 +56,7 @@ by
 
 On the other hand, if
 \eqnref{minimization:chi_approx}
-doesn't locally approximate the shape of $\chi^2(\vec{a})$ well, the steepest
+does not locally approximate the shape of $\chi^2(\vec{a})$ well, the steepest
 descend method instead of the above described Newton method can be used for
 convergence to the minimum
 \begin{equation}
@@ -65,7 +65,7 @@ convergence to the minimum
 \end{equation}
 where $k$ needs to be a sufficiently small constant.
 
-Let's calculate the partial derivatives needed in terms from
+Let us calculate the partial derivatives needed in terms from
 \eqnref{minimization:newton_min} and \eqnref{minimization:gradient_min}:
 \begin{align*}
 	\frac{\partial\chi^2}{\partial{}a_k} &= -2\sum_{i=1}^N{
@@ -82,7 +82,7 @@ Let's calculate the partial derivatives needed in terms from
 	},
 \end{align*}
 where the second term in the second equation can be neglected because the
-summation over all spectral points $y_i$ is equal 0 if the
+summation over all spectral points $y_i$ is equal to 0 if the
 $y(x_i;\vec{a})$ models $y_i$ well. Therefore the simplified formula for
 Hessian can be written as
 \begin{equation*}
@@ -92,7 +92,7 @@ Hessian can be written as
 		\frac{\partial{}y(x_i;\vec{a})}{\partial{}a_l}
 	}.
 \end{equation*}
-It can be seen, that this approximation of Hessian doesn't need second
+It can be seen that this approximation of Hessian does not need second
 derivatives of $\chi^2(\vec{a})$ and can be written as the product of two
 Jacobians $\mat{J}$
 \begin{align*}
@@ -108,10 +108,10 @@ Jacobians $\mat{J}$
 			& \ddots \\
 			&& \frac{1}{\sigma_N^2}
 		\end{pmatrix}\\
-	[\alpha] &= \mat{J}^\mathsf{T}(\mat{W}\mat{J})
+	[\alpha] &= \mat{J}^\mathsf{T}(\mat{W}\mat{J}).
 \end{align*}
 
-Let's introduce substitution by defining
+Let us introduce substitution by defining
 \begin{align}
 	\beta_k &\equiv -\frac{1}{2}\frac{\partial\chi^2}{\partial{}a_k}
 		= \sum_{i=1}^N{
@@ -141,7 +141,7 @@ to forms which are defining the step towards the minimum $\text{\g{d}}a_l$
 	\label{\eqnlabel{minimization:gradient_delta}}
 \end{align}
 where the matrix $[\alpha]$ which is equal to one-half times the Hessian
-matrix is usually called the \emph{curvature matrix}.
+matrix, is usually called the \emph{curvature matrix}.
 
 Marquardt combined the
 \cref{%
@@ -160,13 +160,13 @@ with
 where $\text{\g{d}}_{kl}$ is Kronecker delta (equal 1 if $k = l$ and 0
 otherwise) and $\lambda$ is damping factor.
 The new $\alpha'_{kl}$ is diagonally dominant with large $\lambda$ and behaves
-like gradient method and equal to $\alpha_{kl}$ for small lambda and behaves
-like Newton method.
+like the gradient method and is equal to $\alpha_{kl}$ for small $\lambda$ and
+behaves like the Newton method.
 
-The only unknown is estimation of damping factor $\lambda$.
+The only unknown is an estimation of the damping factor $\lambda$.
 \textcite{Marquardt1963}
-suggested this heuristics for its computation using additional parameter called
-multiplication factor $\mu$ and supposing initial guess of parameters $\vec{a}$
+suggested a heuristic for its computation using an additional parameter
+called multiplication factor $\mu$ and supposing initial guess of parameters $\vec{a}$
 and $\lambda = \lambda_0$:
 \begin{docenum}
 	\item Estimate $\chi^2(\vec{a})$.
@@ -186,21 +186,22 @@ and $\lambda = \lambda_0$:
 		to the minimum approximated by quadratic function as per Newton method.
 \end{docenum}
 
-We enhanced the damping factor update algorithm for search in wider range and
-in both directions because the above proposed method was susceptible to fall
-into a local minima.
+We enhanced the damping factor update algorithm for search in a wider range and
+both directions because the above-proposed method was susceptible to falling
+into a local minimum.
 The items 3 and 4 update of lambda searched larger region of $\mu^k$ where,
 for example, $k \in \{-10, -9, \dots, 9, 10\}$.
-It was also found, that it is more stable, especially for the cases with more
+It was also found that it is more stable, especially for the cases with more
 complicated models $y(x;\vec{a})$, to calculate Jacobian $\mat{J}$ numerically
 than using analytic derivatives because of the numeric instability of the
 solution.
 
-This regression algorithm was programmed using MatLab programming environment
-(The Mathworks, Natick, MA, USA) and used through out many different
-applications in this work.
-The algorithm was also modified in a way that it was possible to specify
-different weight function than least squares, for example, penalize positive
+This regression algorithm was programmed using the MATLAB programming
+environment
+\parencite{Matlab}
+and used throughout many different applications in this work.
+The algorithm was also modified so that it was possible to specify
+different weight functions than least squares, for example, penalize positive
 differences as was then used in
 \cref{background}.
 \\

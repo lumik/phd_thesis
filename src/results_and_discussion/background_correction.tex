@@ -1,46 +1,48 @@
 \subsection{Background subtraction}
 \label{background}
 
-Raman spectra of liquid samples consist usually of many components including
-signal of the analyte under investigation and spectrum of the solvent.
-In case of absorbing analyte the spectrum
-is acquired from the near proximity of the sample cell wall and so it
-usually contains signal of quartz.
+Raman spectra of liquid samples usually consist of many components, including
+the signal of the analyte under investigation and the spectrum of the solvent.
+In the case of absorbing analyte, the spectrum
+is acquired from the near proximity of the sample cell wall, and so it
+usually contains a signal of quartz.
 The resulting spectrum can also contain unspecific background from different
-sources like fluorescence from residuals from chemical synthesis and ellastic
-scattering of light from different ligh sources in the laboratory.
+sources like fluorescence from residuals from chemical synthesis and elastic
+scattering of light from different light sources in the laboratory.
 
 Therefore the background subtraction procedure took several steps.
-Each spectrum was acquired as a series of frames and all frames were stored
+Each spectrum was acquired as a series of frames, and all frames were stored
 for further analysis.
-The spectrum of solvent, buffer and sample cell together with the intensity
+The spectrum of solvent, buffer, and sample cell together with the intensity
 normalization to the subtracted buffer signal was performed on each frame in
-the first step using \emph{Bgcor} program
-\parencite{Bgcor2017},
+the first step using the \emph{Bgcor} program
+\parencite{Bgcor2017}
+(written in \cite{Matlab}),
 developed as part of this thesis. The unspecific background was then removed
 from each spectrum using background subtraction in frames decomposed to
 spectral components by PCA
 \parencite{Palacky2011}.
-The thirds step consisted of extrapolation to zero time where the frames
-were decomposed by PCA to spectral components and spectrum at zero time was
-reconstructed from singificant ones.
-The last optional step which was performed only when a series of spectra was
-taken, for example temperature dependent measurement was to subtract the
+The thirds step consisted of extrapolation to zero time, where PCA decomposed
+the frames to spectral components, and the spectrum at zero time
+was reconstructed from significant ones.
+The last optional step performed only when a series of spectra was
+taken, for example, temperature-dependent measurement was to subtract the
 background once more using PCA the same way as in step two but currently
 applied to the whole series of the extrapolated spectra from the third step.
 This section focuses mainly on the first step -- the subtraction of the
-solvent, buffer and sample cell together with the intensity normalization.
+solvent, buffer, and sample cell, together with the intensity normalization.
 
-Bgcor program allows to specify at most 3 background components which can be
-used for subtraction. Moreover, unspecific polynomial background can be
+Bgcor program allows specifying at most three background components that can
+be used for subtraction.
+Moreover, the unspecific polynomial background can be
 simultaneously subtracted.
-The background subtraction process is semiautomatic, where the initial
-background removal draft is found by automated procedure and manual adjustment
+The background subtraction process is semiautomatic, where an automated
+procedure finds the initial background removal draft, and manual adjustment
 is then possible if needed.
-The background subtraction mechanism is based on mean square fit but it allows
+The background subtraction mechanism is based on mean square fit, but it allows
 to favor selected regions of the spectra by specifying different weights and
 also can also highly penalize (by customizable factor) regions where the
-subtracted background spectrum has higher signal than the measured spectrum,
+subtracted background spectrum has a higher signal than the measured spectrum,
 see
 \figref{background:bgcor_main}.
 
@@ -57,26 +59,27 @@ see
 		\parencite{Bgcor2017}.
 		The automated subtraction draft was performed on the spectral region below
 		1140\,\icm{}, negative bands in difference spectra were penalized by the
-		factor of 100, the wavenumber scale was automatically adjusted by the
-		postion of cacodylate band at 2932\,\icm{} and the resulting spectrum
+		factor of 100, the wavenumber scale was automatically adjusted at the
+		position of the cacodylate band at 2932\,\icm{}, and the resulting spectrum
 		intensity was normalized to the subtraction factor of the cacodylate
 		spectrum.
-		Cacodylate spectrum was used as \emph{bg1}, spectrum of water as \emph{bg2}
-		and spectrum of quartz sample cell as \emph{bg3}.
-		The spectrum was aquired with 5\,mW of 257\,nm excitation laser at sample
-		from 500\,\g{m}M (in phosphates) poly(dAdT) at 10\,\textdegree{}C as the
-		first frame with the 60\,s accumulation time.
+		A cacodylate spectrum was used as \emph{bg1}, a spectrum of water as
+		\emph{bg2}, and a spectrum of quartz sample cell as \emph{bg3}.
+		The spectrum was acquired with 5\,mW of 257\,nm excitation laser at the
+		sample from 500\,\g{m}M (in phosphates) poly(dAdT) at 10\,\textdegree{}C as
+		the first frame with the 60\,s accumulation time.
 	}
 	\label{\figlabel{background:bgcor_main}}
 \end{figure}
 
-One of the backgrounds can be used also for intensity normalization and
-fine tuning of wavenumber scale if requested.
-The correction of wavenumber scale is performed by fit of gaussian curve with
-polynomial background to a selected band and shift of the wavenumber axis so
-that the band position from background spectrum matches the one from the
-measured spectrum.
-The wavenumber scale shifts can be further smoothed by polynomial fit, see
+If requested, one of the backgrounds can also be used for intensity
+normalization and fine-tuning of the wavenumber scale.
+The correction of the wavenumber scale is performed by a fit (see
+\cref{minimization})
+of the gaussian curve with a polynomial background to a selected band and shift
+of the wavenumber axis so that the band position from the background spectrum
+matches the one from the measured spectrum.
+The wavenumber scale shifts can also be further smoothed by polynomial fit, see
 \figref{background:bgcor_xshift}.
 
 \begin{figure}
@@ -88,23 +91,24 @@ The wavenumber scale shifts can be further smoothed by polynomial fit, see
 		\captiontitle{%
 			Bgcor -- wavenumber scale correction.
 		}
-		Overview of wavenumber scale correction of the spectrum from the
+		Overview of wavenumber scale correction of the spectrum from
 		\figref{background:bgcor_main}.
-		The shifts were smoothed to linear trend.
+		A linear trend was used for shifts approximation.
 	}
 	\label{\figlabel{background:bgcor_xshift}}
 \end{figure}
 
-The program has also handy function for temperature measurements where it
-allows to match number from the file name containing measured spectrum with
-the number from file name containing the background.
-To make the intensities of spectra from temperature measurements comparable
-the major band of background spectra used for intensity normalization
+The program also has a handy function for temperature measurements where it
+allows to match a number from the file name containing the measured spectrum
+with the number from a file name containing the background.
+Intensities of background spectra from temperature measurements were corrected
+for deviations of conditions between measurements.
+The major band of each background spectrum used for intensity normalization
 (cacodylate band at 606\,\icm{} in most of the measurements) was modeled as
 described in
 \cref{band_intensities}.
-The resulting intensities were than fitted by polynome and the values from fit
-was used to normalize the intensities of the background spectra.
+The resulting intensities were then fitted by a polynomial, and the values from
+fit were used to normalize the intensities of the background spectra.
 
 All the Bgcor settings can be seen in
 \figref{background:bgcor_settings}.
@@ -119,14 +123,14 @@ All the Bgcor settings can be seen in
 			Bgcor -- settings.
 		}
 		Overview of all the settings for the background correction for the spectrum
-		from the
+		from
 		\figref{background:bgcor_main}.
 	}
 	\label{\figlabel{background:bgcor_settings}}
 \end{figure}
 
-\Figref{background:bgcor_main} shows that the spectrum contains also unspecific
-fluorescence background which was subtracted by method described in
+\Figref{background:bgcor_main} shows that the spectrum also contains unspecific
+fluorescence background, which was subtracted by the method described in
 \textcite{Palacky2011}.
 The resulting spectrum can be seen in
 \figref{background:corrected_frame}.
@@ -136,10 +140,10 @@ The resulting spectrum can be seen in
 	\input{results_and_discussion/assets/background/corrected_frame}
 	\vspace{3mm}
 	\caption[%
-		Single frame with corrected background.
+		Single frame with a corrected background.
 	]{%
 		\captiontitle{%
-			Single frame with corrected background.
+			Single frame with a corrected background.
 		}
 		The spectrum from
 		\figref{background:bgcor_main}
@@ -151,8 +155,8 @@ The resulting spectrum can be seen in
 \end{figure}
 
 Finally, the spectrum was extrapolated to zero time $t$ (to the middle of the
-first spectrum accumulation) by using \emph{Textrapol} program
-\parencite{Textrapol2017}.
+first spectrum accumulation) by using the \emph{Textrapol} program
+\parencite{Textrapol2017} (developped in \cite{Matlab}).
 The output from the program can be seen in
 \figref{background:textrapol}.
 
@@ -170,10 +174,10 @@ The output from the program can be seen in
 		The UVRR spectrum opened in the Textrapol program
 		\parencite{Textrapol2017}.
 		The spectral series of 12 consecutive frames with 5\,min acquisition time
-		aquired with 5\,mW of 257\,nm excitation laser at sample
+		acquired with 5\,mW of 257\,nm excitation laser at the sample
 		from 500\,\g{m}M (in phosphates) polyC at 20\,\textdegree{}C.
-		The resulting spectrum was extrapolated to the half of the accumulation of
-		the first frame. Only the first principal component is shown but first
+		The resulting spectrum was extrapolated to half of the accumulation of
+		the first frame. Only the first principal component is shown, but the first
 		two principal components were used.
 	}
 	\label{\figlabel{background:textrapol}}

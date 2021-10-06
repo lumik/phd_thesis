@@ -1,19 +1,19 @@
 \subsection{Cosmic ray signal removal}
 \label{subsec:spike_removal}
 
-Raman scattering is a weak phenomenon and therefore its measurements need to be
-performed using very sensitive detectors.
-Hand in hand with a sensitivity is coming also a susceptibility to artifacts
+Raman scattering is a weak phenomenon, and therefore its measurements need to
+be performed using very sensitive detectors.
+Hand in hand with sensitivity also comes susceptibility to artifacts
 caused by signals originating from different sources than the sample under
 investigation.
-One of the major one is signal caused by cosmic rays which is characteristic
-by sharp lines usually impacting only few pixels of the CCD detector.
-The spectroscopic software WinSpec together with the Princeton Instruments
-CCD detector allowed to clear all the accumulated charge caused by cosmic rays
-before each measurement and set up detection based on differences between
+Among the major ones is signal caused by cosmic rays, which is characteristic
+by sharp lines usually impacting only a few pixels of the CCD detector.
+The spectroscopic software WinSpec, together with the Princeton Instruments
+CCD detector, allowed to clear all the accumulated charge caused by cosmic rays
+before each measurement and set up spike detection based on differences between
 measured frames and automatic removal of sharp lines from the spectra.
-But these correction weren't sufficient, especially first measured frame
-was often corrupted by sharp lines caused by interaction of cosmic ray
+However, these corrections wer not sufficient, especially first measured frame
+was often corrupted by sharp lines caused by the interaction of cosmic ray
 particles with the CCD detector
 (see \figref{cosmic_spikes:spectrum}).
 
@@ -22,41 +22,42 @@ particles with the CCD detector
 	\input{results_and_discussion/assets/spike_removal/spikes}
 	\vspace{3mm}
 	\caption[%
-		UVRR pectrum containing cosmic ray signal.
+		UVRR spectrum containing cosmic ray signal.
 	]{%
 		\captiontitle{%
-			UVRR pectrum containing cosmic ray signal.
+			UVRR spectrum containing cosmic ray signal.
 		}
-		The spectrum was aquired with 5\,mW of 244\,nm excitation laser at sample
-		from 500\,\g{m}M (in phosphates) poly(dAdT) at 20\,\textdegree{}C as the
-		first frame with the 60\,s accumulation time.
+		The spectrum was acquired with 5\,mW of 244\,nm excitation laser at the
+		sample from 500\,\g{m}M (in phosphates) poly(dAdT) at 20\,\textdegree{}C as
+		the	first frame with the 60\,s accumulation time.
 		Two sharp lines originating from cosmic ray interaction with the CCD
 		detector at 1178 and 1679\,\icm{} are clearly visible.
 	}
 	\label{\figlabel{cosmic_spikes:spectrum}}
 \end{figure}
 
-Two programs were used to additional correction of cosmic Ray, both of them
-developed in MatLab programming environment (The Mathworks, Natick, MA, USA).
-The first one was \emph{Spikie}
-\parencite{Spikie2011}
-was developed in scope of
+Two programs were used for additional correction of cosmic ray signal, both
+developed in MATLAB programming environment
+\parencite{Matlab}.
+The first one, \emph{Spikie}
+\parencite{Spikie2011},
+was developed in the scope of
 \textcite{Klener2011}
-and was based on detection of the sharp lines inside measured spectrum.
+and was based on the detection of the sharp lines inside the measured spectrum.
 This program was used mainly for more complicated scenarios where the cosmic
 ray lines interfered strongly with Raman bands of the measured samples.
 
 The second program, \emph{Spycor}
 \parencite{Spycor2018},
-was created as part of this thesis and is based on comparisson of consecutive
-spectra where it counts on the fact that during macroscopic Raman measurement
+was created as part of this thesis and is based on a comparison of consecutive
+spectra where it counts on the fact that during macroscopic Raman measurement,
 the spectra change only slowly with time and that the consecutive spectra are
 similar.
-It calculates standard deviation of specified number of spectra preceeding and
-following the analyzed spectrum, multiplies it by the user defined constant
-and uses it as a threshold for detection of spikes.
-It then replaces the spike by average of the spectra used for the standard
-deviation calibration. The spectrum from
+It calculates the standard deviation of a specified number of spectra preceding
+and following the analyzed spectrum, multiplies it by a user-defined constant,
+and uses it as a threshold for spike detection.
+It then replaces the spike by an average of the spectra used for the standard
+deviation calculation. The spectrum from
 \figref{cosmic_spikes:spectrum}
 opened in the Spycor program can be seen in
 \figref{cosmic_spikes:spycor}.
