@@ -27,11 +27,11 @@ set lmargin at screen 0.05
 # 750uM  1.227509e+01, 9.818752e-02, 1.969036e-01
 
 plot @ranges\
-	fn_01mW w p title "75\\,\g{m}M" pt 2 ps ps lw lw lc 'red',\
+	fn_01mW w p title "75\\,\\g{m}M" pt 2 ps ps lw lw lc 'red',\
 	decay(x, 9.264898e-01, 7.453779e-01, 0) w l lc 'black' notitle, \
-	fn_02mW w p title "250\\,\g{m}M" pt 4 ps ps lw lw lc 'green',\
+	fn_02mW w p title "250\\,\\g{m}M" pt 4 ps ps lw lw lc 'green',\
 	decay(x, 3.736711e+00, 3.041190e-01, 0) w l lc 'black' notitle, \
-	fn_04mW w p title "750\\,\g{m}M" pt 6 ps ps lw lw lc 'blue',\
+	fn_04mW w p title "750\\,\\g{m}M" pt 6 ps ps lw lw lc 'blue',\
 	decay(x, 1.227509e+01, 9.818752e-02, 0) w l lc 'black' notitle
 
 set output

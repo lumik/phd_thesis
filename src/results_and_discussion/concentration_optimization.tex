@@ -1,15 +1,16 @@
 \subsection{Concentration optimization}
 
 The next step was to determine the optimal concentration of the measured NA
-sample in respect to its photodamage.
-First, we tried to estimate the dependence of the lifetime on concentration. We
-used the same sample preparation as described in
+sample with respect to its photodamage.
+First, we tried to estimate the dependence of the lifetime on concentration.
+We used the same sample preparation as described in
 \cref{subsec:power_optim}
 but with variable concentration of samples of 500\,\g{m}M and 1000\,\g{m}M per
-nucleobase and 1\,mW of excitation laser power. We also used the same data
-treatment as in the previous section. We weren't able to detect fast decay
-component for 500\,\g{m}M samples in this measurement so we tried to compare
-at least the slow decay components the same way as in the previous section.
+nucleobase and 1\,mW of excitation laser power.
+We also used the same data treatment as in the previous section.
+We could not detect the fast decay component for 500\,\g{m}M samples in this
+measurement, so we compared the slow decay components the same way as the
+previous section.
 The results can be seen in
 \figref{conc_optim:triplexes}
 and
@@ -19,22 +20,38 @@ and
 	\centering
 	\input{results_and_discussion/assets/concentration_optimization_triplexes/%
 		concentration_optimization_triplexes}
-	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
-		normalized to the subtracted spectrum of cacodylate buffer which was used
-		as the internal intensity standard. The values were fitted by exponential
-		decay curves \eqnref{power_optim:decay} and subtracted by the baseline
-		constant $b$ from the fit.}
+	\caption[%
+		Decrease of the integral intensity of the polyU band at 1231\,\icm{} for
+		different concentrations in background-corrected spectra.%
+	]{%
+		\captiontitle{%
+			Decrease of the integral intensity of the polyU band at 1231\,\icm{} for
+			different concentrations in background-corrected spectra.%
+		}
+		The intensity was normalized to the subtracted spectrum of cacodylate
+		buffer, which was used as the internal intensity standard.
+		The values were fitted by exponential decay curves
+		\eqnref{power_optim:decay}.
+		The baseline constant $b$ from the fit was subtracted from the plots.
+	}
 	\label{\figlabel{conc_optim:triplexes}}
 \end{figure}
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/concentration_lifetimes_triplexes}
-	\caption{Lifetimes $\tau$ of the polyU in dependence on concentration
-		$c$. $E_0$ are total energies accumulated by detector divided by maximal
-		value accross all the excitation powers $P$ and $E$ are energies
-		accumulated from the time $T = 60\pm20$\,s which was needed for the
-		adjustment of the samples before the acquisition can even start but
+	\caption[%
+		Lifetimes of the polyU in dependence on concentration
+		estimated from the background-corrected spectra.%
+	]{%
+		\captiontitle{%
+			Lifetimes $\tau$ of the polyU in dependence on concentration $c$
+			estimated from the background-corrected spectra.%
+		}
+		$E_0$ are total energies accumulated by detector divided by the maximal
+		value accross all the excitation powers $P$, and $E$ are energies
+		accumulated from the time $T = 60\pm20$\,s, which was needed for the
+		adjustment of the samples before the acquisition can even start, but
 		the sample needs to be irradiated by the excitation laser. The last column
 		contains fractions of the samples $r$ which were not destroyed by
 		photodecomposition after the time $T$.
@@ -42,37 +59,42 @@ and
 	\label{\tablabel{conc_optim:lifetimes_triplexes}}
 \end{table}
 
-First of all, it is important to notice that there is variation in the
-estimated lifetime between this measurement and results from previous section
-\tabref{power_optim:lifetimes_triplexes2}. The difference between these two
-measurements was that we used larger slit width (70 \g{m}M instead of 50 \g{m}m
-used in the previous section) which could have impact on the decay curve
-because as we showed in the previous section the photodecomposition process
-is very complex and involves changes in the sample absorbance which can have
-large impact on the focus because of the anomalous dispersion.
+First of all, it is crucial to notice that there is variation in the
+estimated lifetime between this measurement and results from the previous
+section (see
+\tabref{power_optim:lifetimes_triplexes2}).
+The difference between these two measurements was that we used larger slit
+width (70 \g{m}m instead of 50 \g{m}m used in the previous section), which
+could have an impact on the decay curve because, as we showed in the previous
+section, the photodecomposition process is very complex and involves changes in
+the sample absorbance which can have a significant impact on the focus because
+of the anomalous dispersion.
 
-The second observation is, that the lifetime seems to depend almost linearly on
-the concentration which is proportional to the number of nucleotides in the
-sample. This means that in our right angle experimental configuration all the
-excitation laser energy is absorbed in the sample for both concentrations and
-that the number of photodecomposed molecules is proportional to the absorbed
-energy in this concentration range and the excitation laser power density
-doesn't significantly influence the photodecomposition process.
+The second observation is that the lifetime seems to depend almost linearly on
+the concentration, proportional to the number of nucleotides in the sample.
+This means that in our right angle experimental configuration, all the
+excitation laser energy is absorbed in the sample for both concentrations, and
+the number of photodecomposed molecules is proportional to the absorbed
+energy in this concentration range.
+It also implies that the excitation laser power density does not significantly
+influence the photodecomposition process in the used range of the laser powers.
 
 This analysis means that samples can endure longer measurements on higher
-concentrations. On the other hand, higher concentrations are also less cost
-effective because they require more samples and it is harder to adjust focus
-for them, the spectra are also more influenced by the signal of the sample cell
-because you need to focus closer to the cell wall and floor. 1000\,\g{m}M
-concentration was the highest practical value, higher concentrations had
-excesive absorbance and were hard to set up for the measurement.
+concentrations.
+On the other hand, higher concentrations are also less cost-effective because
+they require larger amounts of samples and it is harder to adjust focus for
+them.
+The spectra are also more influenced by the signal of the sample cell
+because the laser beam needs to be focused closer to the cell wall and floor.
+1000\,\g{m}M concentration was the highest practical value; higher
+concentrations had excessive absorbance and were hard to set up for the measurement.
 
-Later,
-the concentration was also optimalized for the measurements in backscattering
-geometry in thermostated cell holder. The 500\,\g{m}L of samples with
-75\,\g{m}M, 250\,\g{mM} and 750\,\g{m}M concentrations were used with 5\,mW of
-excitation laser power. Only fast decay components were investigated. You can
-see the results in
+Later, the concentration was also optimized for the measurements in
+backscattering geometry in thermostated cell holder.
+The 500\,\g{m}L of samples with 75\,\g{m}M, 250\,\g{m}M and 750\,\g{m}M
+concentrations were used with 5\,mW of excitation laser power.
+Only fast decay components were investigated.
+The results can be seen in
 \figref{conc_optim:hairpins}
 and
 \tabref{conc_optim:lifetimes_hairpins}.
@@ -81,34 +103,53 @@ and
 	\centering
 	\input{results_and_discussion/assets/concentration_optimization_hairpins/%
 		concentration_optimization_hairpins}
-	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
-		normalized to the integral intensity of cacodylate band at 607\,\icm{}
-		which was used as the internal intensity standard. The values were fitted
-		by exponential decay curves \eqnref{power_optim:decay} and subtracted
-		by the baseline constant $b$ from the fit.}
+	\caption[%
+		Decrease of the integral intensity of the polyU band at 1231\,\icm{}
+		for different concentrations in raw spectra using
+		backscattering geometry.%
+	]{%
+		\captiontitle{%
+			Decrease of the integral intensity of the polyU band at 1231\,\icm{}
+			for different concentrations in raw spectra using
+			backscattering geometry.%
+		}
+		It was normalized to the integral intensity of cacodylate band at
+		607\,\icm{}, which was used as the internal intensity standard.
+		The values were fitted	by exponential decay curves
+		\eqnref{power_optim:decay}.
+		The baseline constant $b$ from the fit was subtracted from the plots.
+	}
 	\label{\figlabel{conc_optim:hairpins}}
 \end{figure}
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/concentration_lifetimes_hairpins}
-	\caption{Lifetimes $\tau$ of the polyU in dependence on concentration
-		$c$. $E_0$ are total energies accumulated by detector divided by maximal
-		value across all the concentrations $c$ and normalized to the
+	\caption[%
+		Lifetimes of the polyU in dependence on concentration
+		estimated from raw spectra in backscattering geometry.%
+	]{%
+		\captiontitle{%
+			Lifetimes $\tau$ of the polyU in dependence on concentration $c$
+			estimated from raw spectra in backscattering geometry.%
+		}
+		$E_0$ are total energies accumulated by the detector divided by the
+		maximal value across all the concentrations $c$ and normalized to the
 		concentration.
 	}
 	\label{\tablabel{conc_optim:lifetimes_hairpins}}
 \end{table}
 
 The results clearly show that all laser power is not absorbed in the samples
-with extremely low concentrations and therefore the lifetime is longer.
-Unfortunately also the signal of the sample and lifetime itself are
-insufficiently low in this case. We can also see that at least from
-250\,\g{m}M concentration the concentration doesn't affect the lifetime
-unexpectedly which means that higher concentrations are better up to maximal
-practical values which were estimated at 1\,mM for nucleic acids.
+with extremely low concentrations, and therefore the lifetime is longer.
+Unfortunately, also the signal of the sample and lifetime itself are
+insufficiently low in this case.
+We can also see that the concentration, at least from 250\,\g{m}M, does not
+unexpectedly affect the lifetime, which means that higher concentrations are
+better up to maximal practical values, estimated to 1\,mM for nucleic acids.
 
-For some measurements, it can be also beneficial to measure samples with the
+It can also be beneficial for some measurements to measure samples with the
 same concentration as in UV absorption measurements so that these two can
-complement each other under the same measurement conditions. Therefore the
-lower concentrations than 1\,mM were usually chosen in this study.
+complement each other under the same measurement conditions.
+Therefore the lower concentrations than 1\,mM were usually chosen in this
+study.

@@ -32,10 +32,10 @@ decay(x, p1, p2, p3) = p1 * exp(-p2 * x) + p3;
 set macros
 ranges = "[400:1800][0.5:1.2]"
 
-set xlabel '$\tilde{\nu}$ (\icm)' offset 0,1.2
-set ylabel 'intensity (a. u.)' offset 1,0
-set tics scale 0.5
-set xtics 200 offset 0,0.5
+set xlabel '$\tilde{\nu}$ (\icm)' offset 0,0
+set ylabel 'intensity (a. u.)' offset 0,0
+set tics scale 0.7
+set xtics 200 offset 0,0.0
 unset ytics
 
 set tmargin at screen 0.95
@@ -44,7 +44,7 @@ set rmargin at screen 0.95
 set lmargin at screen 0.05
 
 # cairo terminal somehow makes line spacing larger than eps output.
-set key font ',0.8'
+set key font ',0.8' spacing 2.5
 
 set style arrow 1 nohead ls 1 lw 1.2 lc rgb 'black'
 set style fill transparent solid 0.2 noborder
@@ -55,8 +55,8 @@ plot @ranges\
 	fn_pUfit w l notitle lw lwfit lc rgb '#558b4513',\
 	fn_pU_cacfit w l notitle lw lwfit lc rgb '#88ff0000',\
 	fn_pUfit1 u 1:2:3 w filledcurves notitle lw lwfit lc rgb '#228b22',\
-	fn_pUfit1 u 1:2 w l title 'polyU band' lw lwfit lc rgb '#88228b22',\
-	fn_cacfit u 1:2 w l title 'cacodylate band' lw lwfit lc rgb '#88ff0000',\
+	fn_pUfit1 u 1:2 w l title 'polyU band~~' lw lwfit lc rgb '#88228b22',\
+	fn_cacfit u 1:2 w l title 'cacodylate band~~' lw lwfit lc rgb '#88ff0000',\
 	fn_cacfit1 u 1:2:3 w filledcurves notitle lw lwfit lc rgb 'red',\
 	fn_cacfit1 u 1:2 w l notitle lw lwfit lc rgb '#88ff0000',\
 	fn_cacfit2 u 1:2 w l notitle lw lwfit lc rgb '#88ff0000',\

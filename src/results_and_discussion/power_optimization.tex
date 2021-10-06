@@ -2,49 +2,59 @@
 \label{subsec:power_optim}
 
 Firstly, we tried to establish the optimal laser power for excitation in
-right-angle geometry using spinning cell. We used commercial samples of polyU
-(Sigma) dissolved in 80 mM cacodylate buffer with ph 6.4 to the concentration
-of 500\,\g{m}M per nucleobase. We chose 244 nm excitation laser wavelength with
-10, 2, and 1 mW at samples. The 150\,\g{m}L of samples were rotated at
-9600\,rpm during the measurement. The spectral series were measured with 30\,s
-(10 and 2\,mW excitation) and 60\,s (1\,mW excitation) accumulation time per
-spectrum. Beginning of each measurement was slightly delayed from the start of
+right-angle geometry using a spinning cell.
+We used commercial samples of polyU (Sigma) dissolved in 80\,mM cacodylate
+buffer with ph 6.4 to the concentration of 500\,\g{m}M per nucleobase.
+We chose 244\,nm excitation laser wavelength with 10, 2, and 1 mW at samples.
+The 150\,\g{m}L of the sample was rotated at 9600\,rpm during the measurement.
+The spectral series were measured with 30\,s (10 and 2\,mW excitation) and
+60\,s (1\,mW excitation) accumulation time per spectrum.
+The beginning of each measurement was slightly delayed from the start of
 the exposure to the laser because the samples needed to be adjusted for
-optimal signal. The adjustment took 26\,s for 10\,mW excitation, 90\,s for
-2\,mW, and 69\,s for 1\,mW excitation.
+optimal signal.
+The adjustment took 26\,s for 10\,mW excitation, 90\,s for 2\,mW, and 69\,s
+for 1\,mW excitation.
 
 Further analysis was performed on the integral intensity of measured Raman
-bands. The band shapes were modeled as described in
+bands.
+The band shapes were modeled as described in
 \cref{band_intensities}
 with the experimentally estimated Lorentzian curve fraction coefficient
-$c_\text{L} = 0.5$, which visually gave the best band shape fit. The
-linear function $a_0 + a_1\wn$ was added to the shape function
+$c_\text{L} = 0.5$, which visually gave the best band shape fit.
+The linear function $a_0 + a_1\wn$ was added to the shape function
 \eqnref{band_intensities:shape}
 as the model of the spectral background.
 
 The analysis was performed on the polyU integral intensity represented by
-it's band at 1231\,\icm{} compared to the intensity of cacodylate band at
+its band at 1231\,\icm{} compared to the intensity of the cacodylate band at
 607\,\icm{} to account for the excitation laser power and sample adjustment
 variations during the measurement.
 \Figref{power_optim:triplexes_pU}
-clearly shows that the polyU band contains also shoulder at 1248\,\icm{} and
-is overlapping with cacodylate band at 1276\,\icm. The band was therefore
-modeled by the shape function
+clearly shows that the polyU band also contains a shoulder at 1248\,\icm{}, and
+is overlapping with the cacodylate band at 1276\,\icm.
+Therefore, the band was modeled by the shape function
 (\eqnref{band_intensities:shape})
-with three components but it's intensity was calculated as a sum of the pulyU
-bands without the cacodylate one. The cacodylate band was modeled as having
-two components, at 607 and 640\,\icm, but only the first one was used for the
-integral intensity calculation.
+with three components, but its intensity was calculated as a sum of the pulyU
+bands without the cacodylate one.
+The cacodylate band was modeled as having two components, at 607 and 640\,\icm,
+but only the first one was used for the integral intensity calculation.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/power_optimization_triplexes/%
 		power_optimization_triplexes_pU}
-	\caption{Example UV RR spectrum of polyU dissolved in cacodylate buffer. The
-		fits of shape functions (\eqnref{band_intensities:shape}) to the bands of
-		polyU and cacodylate used in intensity estimation fit are marked by green
-		and red line respectively and the areas used for intensity calculation are
-		filled with the corresponding colors.}
+	\caption[%
+		Example UV RR spectrum of polyU dissolved in cacodylate buffer.%
+	]{%
+		\captiontitle{%
+			Example UV RR spectrum of polyU dissolved in cacodylate buffer.%
+		}
+		The fits of shape functions
+		(\eqnref{band_intensities:shape})
+		to the bands of polyU and cacodylate used in intensity estimation fit are
+		marked by green, and red lines, respectively, and the areas used for
+		intensity calculation are filled with the corresponding colors.
+	}
 	\label{\figlabel{power_optim:triplexes_pU}}
 \end{figure}
 
@@ -55,32 +65,42 @@ exponential decay curve
 	I = I_0 \text{e}^{-\lambda t} + b,
 	\label{\eqnlabel{power_optim:decay}}
 \end{equation}
-where $I_0$ is initial intensity, $\lambda$ is decay constant and $b$ is
-baseline constant. The normalized results (subtracted by $b$) can be seen in
-\figref{power_optim:triplexes}
+where $I_0$ is initial intensity, $\lambda$ is the decay constant, and $b$ is
+the baseline constant.
+The normalized results (subtracted by $b$) can be seen in
+\figref{power_optim:triplexes}.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/power_optimization_triplexes/%
 		power_optimization_triplexes}
-	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
-		normalized to the integral intensity of cacodylate band at 607\,\icm{}
-		which was used as the internal intensity standard. The values were fitted
-		by exponential decay curves \eqnref{power_optim:decay} and subtracted
-		by the baseline constant $b$ from the fit.}
+	\caption[%
+		Decrease of the integral intensity of polyU band at 1231\,\icm{} for
+		different excitation laser powers in raw spectra.%
+	]{%
+		\captiontitle{%
+			Decrease of the integral intensity of polyU band at 1231\,\icm{} for
+			different excitation laser powers in raw spectra.%
+		}
+		It was normalized to the integral intensity of the cacodylate band at
+		607\,\icm{}, which was used as the internal intensity standard.
+		The values were fitted by exponential decay curves
+		\eqnref{power_optim:decay}
+		and the baseline constant $b$ from the fit was subtracted from the plots.
+	}
 	\label{\figlabel{power_optim:triplexes}}
 \end{figure}
 
-We can see, that the lines intersect almost at the same point which is
-expected outcome but that this point is not at 0\,s. This is caused by the fact
-that the time axis denotes the ends of the spectrum accumulation whereas the
-intensity comes from the whole time period of the spectrum acqusition which
-is even more enhanced by the fact, that the intensity of the band lowers
-during the measurement. The lifetimes $\tau$ can be calculated from decay
-constants $\lambda$ from the equation
+We can see, that the lines intersect almost at the same point, which is
+expected outcome, but this point is not at 0\,s.
+This is caused by the fact that the time axis denotes the ends of the spectrum
+accumulation, whereas the intensity comes from the whole time period of the
+spectrum acquisition, which is even more enhanced by the fact that band's
+intensity lowers during the measurement.
+The lifetimes $\tau$ can be calculated from decay constants $\lambda$ from
 \eqnref{power_optim:decay}
 \begin{equation}
-	\tau = \frac{1}{\lambda}
+	\tau = \frac{1}{\lambda}.
 	\label{\eqnlabel{power_optim:lifetime}}
 \end{equation}
 We can also calculate total accumulated relative energy from the decay curve
@@ -95,9 +115,9 @@ and energy accumulated from time $T_0$ by
 	E_r	= \int_{T_0}^{\infty}{I_0 \text{e}^{-\lambda t}\text{d}t}
 		= \frac{I_0}{\lambda} \text{e}^{-\lambda T_0}.
 \end{equation*}
-Energy fractions can be then calculated by dividing the relative energies by
+Energy fractions can then be calculated by dividing the relative energies by
 the maximal total relative energy. The resulting lifetimes, total accumulated
-energy fractions $E_0$ and energy fractions $E$ accumulated from time
+energy fractions $E_0$, and energy fractions $E$ accumulated from time
 $T = 60\pm20$\,s, which was regarded as reasonable approximate for the time
 needed for adjustment of the sample before measurement could start, can be
 seen in
@@ -106,58 +126,76 @@ seen in
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/power_lifetimes_triplexes}
-	\caption{Lifetimes $\tau$ of the polyU in dependence on excitation power
-		$P$. $E_0$ are total energies accumulated by detector divided by maximal
-		value accross all the excitation powers $P$ and $E$ are energies
-		accumulated from the time $T = 60\pm20$\,s which was needed for the
-		adjustment of the samples before the acquisition can even start but
-		the sample needs to be irradiated by the excitation laser. The last column
-		contains fractions of the samples $r$ which were not destroyed by
-		photodecomposition after the time $T$.
+	\caption[%
+		Lifetimes of polyU in dependence on excitation power estimated from raw
+		spectra.%
+	]{%
+		\captiontitle{%
+			Lifetimes $\tau$ of the polyU in dependence on excitation power $P$
+			estimated from raw spectra.%
+		}
+		$E_0$ are total energies accumulated by detector divided by maximal value
+		across all the excitation powers $P$, and $E$ are energies accumulated from
+		time $T = 60\pm20$\,s, which was needed for the adjustment of the
+		samples before the acquisition can even start, but the sample needs to be
+		irradiated by the excitation laser.
+		The last column contains fractions of the samples $r$ which were not
+		destroyed by photodecomposition after the time $T$.
 	}
 	\label{\tablabel{power_optim:lifetimes_triplexes}}
 \end{table}
 
-The results show, that the 10\,mW power gave the best results if we don't take
-into account adjustment of the samples but as you can see in the
-\figref{power_optim:triplexes}
-the signal intensity quickly lowers with the time. The lifetimes can also
-vary significantly in dependence on a sample which can lower the reliability of
-the band intensity estimations. The table shows that, after
-1-minute adjustment of the sample, the 10\,mW excitation photodecomposes
-about 35\% of the sample whereas with the 1\,mW excitation only around 6\% of
-the sample is destroyed. The energies accumulated are calculated as integral
-to infinity but with lower powers we are effectively able to measure only
-smaller parts of the decay which would clearly favor measurements with higher
-powers.
+The results show that the 10\,mW power gave the best results if we do not take
+into account adjustment of the samples, but as you can see in
+\figref{power_optim:triplexes},
+the signal intensity quickly lowers with time.
+The lifetimes can also vary significantly in dependence on a sample which can
+lower the reliability of the band intensity estimations.
+The table shows that, after 1-minute adjustment of the sample, the 10\,mW
+excitation photodecomposes about 35\% of the sample, whereas, with the 1\,mW
+excitation, only around 6\% of the sample is destroyed.
+The accumulated energies are calculated as integral to infinity, but we can
+effectively measure only smaller portions of the decay with lower powers,
+favoring measurements with higher powers.
 
 Further investigation of the spectral decay behavior shows that this simple
-approach doesn't reveal that such a complex system can't be modeled by single
-decay curve. This effect is clearly visible if we subtract the cacodylate
-buffer background from the spectra. The resulting spectrum can be seen in
+approach does not reveal that a single decay curve cannot model such a complex
+system.
+This effect is clearly visible if we subtract the cacodylate buffer background
+from the spectra.
+The resulting spectrum can be seen in
 \figref{power_optim:triplexes2_pU}.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/power_optimization_triplexes2/%
 		power_optimization_triplexes2_pU}
-	\caption{Example UV RR spectrum of polyU dissolved in cacodylate buffer with
-	  the cacodylate buffer background subtracted. The fit of shape function
+	\caption[%
+		Example UV RR spectrum of polyU dissolved in cacodylate buffer with
+	  the cacodylate buffer background subtracted.%
+	]{%
+		\captiontitle{%
+			Example UV RR spectrum of polyU dissolved in cacodylate buffer with
+			the cacodylate buffer background subtracted.%
+		}
+		The fit of shape function
 		(\eqnref{band_intensities:shape})
-		to the band of polyU used in intensity estimation fit is marked by green
-		line together with the area used for the intensity calculation.}
+		to the band of polyU used in intensity estimation fit is marked by a green
+		line together with the area used for the intensity calculation.
+	}
 	\label{\figlabel{power_optim:triplexes2_pU}}
 \end{figure}
 
-The polyU band at 1230\,\icm{} can be then modeled directly without the
-interference of the cacodylate band at 1276\,\icm{}. It can be seen from the
-polyU band intensity dependence plot in
+The polyU band at 1230\,\icm{} can then be modeled directly without the
+interference of the cacodylate band at 1276\,\icm{}.
+It can be seen from the polyU band intensity dependence plot in
 \figref{power_optim:triplexes2}
 that the background subtraction process slightly obscures the intensity
-normalization so that the fast decay curves can't be modeled here. But we can
-also see a slower decay trend which isn't obvious from the fit to the
-intensities of the polyU band calculated from the spectra without subtracted
-background. This is caused by the fact that it is harder to reliably decouple
+normalization so that the fast decay curves cannot be modeled here.
+However, we can also see a slower decay trend which is not evident from the fit
+to the intensities of the polyU band calculated from the spectra without
+subtracted background.
+This is caused by the fact that it is harder to reliably decouple
 the contribution of the overlapping polyU and cacodylate bands with the
 lowering polyU band intensity.
 
@@ -165,101 +203,144 @@ lowering polyU band intensity.
 	\centering
 	\input{results_and_discussion/assets/power_optimization_triplexes2/%
 		power_optimization_triplexes2}
-	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
-		normalized to the subtracted spectrum of cacodylate buffer which was used
-		as the internal intensity standard. The values were fitted by exponential
-		decay curves \eqnref{power_optim:decay} and subtracted by the baseline
-		constant $b$ from the fit.}
+	\caption[%
+		Decrease of the integral intensity of the polyU band at 1231\,\icm{}
+		for different excitation powers in background-corrected spectra.%
+	]{%
+		\captiontitle{%
+			Decrease of the integral intensity of the polyU band at 1231\,\icm{}
+			for different excitation powers in background-corrected spectra.%
+		}
+		The intensity was normalized to the subtracted spectrum of cacodylate
+		buffer, which was used as the internal intensity standard.
+		The values were fitted by exponential decay curves
+		\eqnref{power_optim:decay}.
+		The baseline constant $b$ from the fit was subtracted from the plots.
+	}
 	\label{\figlabel{power_optim:triplexes2}}
 \end{figure}
 
-For the purposes of analysis of the optimal measurement conditions we decided
-to just simply ignore the first 3, 3 and 10 spectra for excitations at 1, 2 and
-10\,mW respectively which were visibly deviating from the slow decay curves. We
-used the eqution
+For analysis of the optimal measurement conditions, we ignored the first 3, 3,
+and 10 spectra for excitations at 1, 2, and 10\,mW, respectively, which visibly
+deviated from the slow decay curves.
+We used
 \eqnref{power_optim:decay}
-to estimate the lifetime $\tau$, total accumulated energy fractions $E_0$ and
+to estimate the lifetime $\tau$, total accumulated energy fractions $E_0$, and
 energy fractions $E$ accumulated from time $T = 60\pm20$\,s the same way as
-for the samples without subtracted background, see
-\tabref{power_optim:lifetimes_triplexes2}. The baseline constant $b$ was used
-only for the power of 10 mW where it decayed quickly to constant noise caused
-by the fit for almost undetectable band. The table clearly shows that the slow
-decay process depends linearly on excitation power, in other words that the
-total accumulated energy is the same for all the excitation powers and that
-the lifetime is inversely related to the excitation power.
+for the samples without subtracted background (see
+\tabref{power_optim:lifetimes_triplexes2}).
+The baseline constant $b$ was used only for the power of 10 mW, where it
+decayed quickly to constant noise caused by the fit for an almost undetectable
+band.
+The table clearly shows that the slow decay process depends linearly on
+excitation power.
+In other words, the total accumulated energy is the same for all the
+excitation powers, and that the lifetime is inversely related to the excitation
+power.
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/power_lifetimes_triplexes2}
-	\caption{Lifetimes $\tau$ of the polyU in dependence on excitation power
-		$P$. $E_0$ are total energies accumulated by detector divided by maximal
-		value accross all the excitation powers $P$ and $E$ are energies
-		accumulated from the time $T = 60\pm20$\,s which was needed for the
-		adjustment of the samples before the acquisition can even start but
-		the sample needs to be irradiated by the excitation laser. The last column
-		contains fractions of the samples $r$ which were not destroyed by
-		photodecomposition after the time $T$.
+	\caption[%
+		Lifetimes of the polyU in dependence on excitation power estimated from
+		the background-corrected spectra.%
+	]{%
+		\captiontitle{%
+			Lifetimes $\tau$ of the polyU in dependence on excitation power $P$
+			estimated from the background-corrected spectra.%
+		}
+		$E_0$ are total energies accumulated by detector divided by maximal value
+		across all the excitation powers $P$, and $E$ are energies accumulated from
+		the time $T = 60\pm20$\,s, which was needed for the adjustment of the
+		samples before the acquisition can even start, but the sample needs to
+		be irradiated by the excitation laser.
+		The last column contains fractions of the samples $r$ that were not
+		destroyed by photodecomposition after time $T$.
 	}
 	\label{\tablabel{power_optim:lifetimes_triplexes2}}
 \end{table}
 
-We can see that the system is complex and the proper analysis of the
-underlaying processes is not possible with our current methods. The resulting
-spectra can be influenced by the photoproducts and therefore we decided to use
-rather lower excitation powers like 1\,mW or 0.5\,mW even thought the higher
-excitation power could probably give higher quality spectra.
+We can see that the system is complex, and our current methods cannot correctly
+analyze the underlying processes.
+Photoproducts can influence the resulting spectra, and therefore we
+decided to use relatively lower excitation powers like 1\,mW or 0.5\,mW even
+though the higher excitation power could probably give higher quality spectra.
 
 We also tried to optimize the excitation laser power for the backscattering
-measurements in thermostated cell holder. We used 3\,mL of 125\,\g{m}M polyU
-samples dissolved in 40\,mM cacodylate buffer with pH 6.8. 257\,nm was used as
-an excitation laser wavelength and the samples were stirred by a magnetic
-stirrer. The spectral series was measured in 20\,s accumulation time per
-spectrum. The measurements in thermostated cell holder were easier to set up
+measurements in thermostated cell holder.
+We used 3\,mL of 125\,\g{m}M polyU samples dissolved in 40\,mM cacodylate
+buffer with pH 6.8.
+257\,nm was used as an excitation laser wavelength and a magnetic stirred
+stirred the samples.
+The spectral series was measured in 20\,s accumulation time per
+spectrum.
+The measurements in the thermostated cell holder were easier to set up
 because the backscattering geometry and robust construction of the holder
-were less sensitive to displacements which meant that the adjustments can be
-performed on helper samples and the real samples weren't exposed to the
+were less sensitive to displacements which meant that the adjustments could be
+performed on helper samples and, the real samples weren't exposed to the
 laser power before measurement.
 
 The analysis of the results was performed with the same steps as the analysis
-of the measurements with spinning cell using the integral intensity of polyU
-band at 1231\,\icm{} and cacodylate band at 607\,\icm{}. As we used 20 times
+of the measurements with a spinning cell using the integral intensity of the
+polyU band at 1231\,\icm{} and the cacodylate band at 607\,\icm{}.
+As we used 20 times
 larger volumes of samples and 4 times lower concentrations, we should roughly
-expect 5 times longer lifetimes which means that we could observe only the fast
-decay components, see
+expect 5 times longer lifetimes, which means that we could observe only the
+fast decay components, (see
 \figref{power_optim:hairpins}
 and
-\tabref{power_optim:lifetimes_hairpins}.
+\tabref{power_optim:lifetimes_hairpins}).
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/power_optimization_hairpins/%
 		power_optimization_hairpins}
-	\caption{Decrease of integral intensity of polyU band at 1231\,\icm{}
-		normalized to the integral intensity of cacodylate band at 607\,\icm{}
-		which was used as the internal intensity standard. The values were fitted
-		by exponential decay curves \eqnref{power_optim:decay} and subtracted
-		by the baseline constant $b$ from the fit.}
+	\caption[%
+		Decrease of the integral intensity of the polyU band at 1231\,\icm{}
+		for different excitation laser powers in raw spectra using
+		backscattering geometry.%
+	]{%
+		\captiontitle{%
+			Decrease of the integral intensity of the polyU band at 1231\,\icm{}
+			for different excitation laser powers in raw spectra using
+			backscattering geometry.%
+		}
+		It was normalized to the integral intensity of the cacodylate band at
+		607\,\icm{}, which was used as the internal intensity standard.
+		The values were fitted by exponential decay curves
+		\eqnref{power_optim:decay}.
+		The baseline constant $b$ from the fit was subtracted from the plots.
+	}
 	\label{\figlabel{power_optim:hairpins}}
 \end{figure}
 
 \begin{table}
 	\centering
 	\input{results_and_discussion/assets/power_lifetimes_hairpins}
-	\caption{Lifetimes $\tau$ of the polyU in dependence on excitation power
-		$P$. $E_0$ are total energies accumulated by detector divided by maximal
-		value accross all the excitation powers.
+	\caption[%
+		Lifetimes of the polyU in dependence on excitation power
+		estimated from raw spectra in backscattering geometry.%
+	]{%
+		\captiontitle{%
+			Lifetimes $\tau$ of the polyU in dependence on excitation power $P$
+			estimated from raw spectra in backscattering geometry.%
+		}
+		$E_0$ are total energies accumulated by detector divided by maximal value
+		across all the excitation powers $P$.
 	}
 	\label{\tablabel{power_optim:lifetimes_hairpins}}
 \end{table}
 
-It can be seen, that the lifetimes are proportionally longer with lower
-excitation laser power and no further special effects are observable. The
-lifetimes are slightly lower than the expected 5 times longer lifetimes as
-compared to the \tabref{power_optim:lifetimes_triplexes} but almost in the
-range of estimated errors. It can be caused by many effects like underestimated
-errors, different excitation laser wavelength (257\,nm instead of 244\,nm),
-less effective stirring in larger volumes or longer laser path in the samples.
+It can be seen that the lifetimes are proportionally longer with lower
+excitation laser power and no further special effects are observable.
+The lifetimes are slightly lower than the expected 5 times longer lifetimes as
+compared to the
+\tabref{power_optim:lifetimes_triplexes}
+but almost in the range of estimated errors.
+It can be caused by many effects like underestimated errors, different
+excitation laser wavelength (257\,nm instead of 244\,nm), less effective
+stirring in larger volumes, or longer laser path in the samples.
 We can also see that higher intensity gives more reliable results with
-lower errors because of better signal to noise ratio. We decided to perform
-further measurements with 4\,mW of excitation power at 257\,nm and 5\,mW at
-244\,nm.
+lower errors because of a better S/N ratio.
+We decided to perform further measurements with 4\,mW of excitation power at
+257\,nm and 5\,mW at 244\,nm.

@@ -1,93 +1,106 @@
 \subsection{The course of the signal accumulation}
 
 A Raman spectrum is usually acquired as a consecutive series of spectra,
-further called \emph{frames}, which are taken at the same experimental
-conditions and with the constant accumulation time. This approach has many
-reasons. Amongst the most important is that measurement of Raman spectra
-requires highly sensitive detectors which means that you easily reach the
-detector saturation with stronger signal.
+further called \emph{frames}, taken at the same experimental conditions and
+with the constant accumulation time.
+This approach has many reasons.
+Amongst the most important is that measurement of Raman spectra requires highly
+sensitive detectors which means that detector saturation can be easily reached
+with a stronger signal.
 
-Secondly, such a sensitive detectors are susceptible to the cosmic ray
-artifacts which can significantly damage the spectra. This cosmic ray signal
-can be much easily subtracted in the series of spectra taken with the same
-measurement condition then from single spectrum because the subsequent
-spectra should be almost identical and you can replace the spectral regions
-with cosmic ray signal by the average of the surrounding spectra.
+Secondly, such sensitive detectors are susceptible to cosmic ray artifacts,
+which can significantly damage the spectra, see
+\cref{subsec:spike_removal}.
+It is easier to subtract the cosmic ray signal in the series of spectra taken
+with the same measurement condition than from a single spectrum because the
+subsequent spectra should be almost identical, and the average of the
+surrounding spectra can replace the spectral regions with cosmic ray signal.
 
-Furthermore, other temporal effects can affect the spectra, like small
+Furthermore, other temporal effects can affect the spectra, like slight
 temperature variations, mechanical movements etc.
 
-RRS is also affected by photodecomposition and increasing presence of
+RRS is also affected by photodecomposition and an increasing presence of
 photoproducts which can directly or indirectly influence the measured spectra.
-Direct presence of signal of photoproducts in the detected spectra is usually
-negligible because Raman scattering of the photoproducts isn't usually
-resonantly enhanced but indirect effects through chemical interactions of
-photoproducts with the system under investigation are always possible.
+The direct presence of a signal of photoproducts in the detected spectra is
+usually negligible because Raman scattering of the photoproducts is not usually
+resonantly enhanced.
+However, indirect effects through chemical interactions of photo products with
+the system under investigation are always possible.
 
-So, obviously, measurement of more frames with shorter accumulation time would
-be favored for better understanding of all these processes during accumulation
-of the spectrum.
+So, measurement of more frames with a shorter accumulation time would be
+favored for better monitoring of all these processes during the accumulation of
+the spectrum.
 
-But there are also opposite effects that support longer measurements. The most
-dominant is the ratio between the signal from the sample and noise.
-The noise in the
-spectra can have a number of origins but dominant are those
-connected with accquiring the signal on the CCD detector. The first one is low
-frequency (almost constant) background which is usually used in
-\emph{signal-to-noise} (SNR) calculation. Best results with the most linear
-response to the intensity of the gathered light are achieved with a signal in
-the range $\approx 10 - 80\,\%$ of the maximal signal limit.
-The second component is high frequency noise which lowers the quality of the
-spectra, reliability of the band position detection or can even hide some
+However, there are also opposite effects that support longer measurements.
+The most dominant is the ratio between the signal from the sample and noise.
+The noise in the spectra can have many origins, but dominant are those
+connected with acquiring the signal on the CCD detector.
+The first one is low-frequency (almost constant) background which is usually
+used in \emph{signal-to-noise ratio} (SNR) calculation.
+Best results with the most linear response to the intensity of the gathered
+light are achieved with a signal in the range $\approx 10 -- 80\,\%$ of the
+maximal signal limit.
+The second component is high-frequency noise which lowers the quality of the
+spectra, reliability of the band position detection, or can even hide some
 spectral features completely.
 
-We tried to estimate some guiding principle about the balance between a number
-of frames and an accumulation time. We measured background spectrum of
-deionized water with high laser power (100\,mW) which meant short accumulation
-times (5\,s) taken in 100 frames. All these frames were then averaged to obtain
-one high quality Raman spectrum of water $I_\text{water}(\wn)$ as a reference.
+We tried to estimate some guiding principles about a balance between a number
+of frames and an accumulation time.
+We measured the background spectrum of deionized water with high laser power
+(100\,mW), which meant short accumulation times (5\,s) taken in 100 frames.
+All these frames were then averaged to obtain one high quality Raman spectrum
+of water $I_\text{water}(\wn)$ as a reference.
 Then we measured the same water with 1\,mW excitation in 30 frames with 20\,s
 accumulation time and 10 frames with 60\,s accumulation time which are
-parameters of our typical RRS measurement. We summed all the frames in these
-two measurements to obtain single Raman spectrum $I_{20}(\wn)$ and
-$I_{60}(\wn)$, respectively, which represented 10\,min total accumulation.
+parameters of our typical RRS measurement. We summed all the frames to obtain a
+single Raman spectrum $I_{20}(\wn)$ and $I_{60}(\wn)$, so both of them
+represented 10 min total accumulation.
 
 We decided to assess the SNR to estimate the quality of the measured spectra.
-The noise height was estimated by a fit of the high quality water spectrum
-$I_\text{water}(\wn)$ plus constant background which resulted in the model
+The noise height was estimated by a fit of the high-quality water spectrum
+$I_\text{water}(\wn)$ plus constant background, which resulted in the model
 intensity function
 \begin{equation}
 	I_\text{model}(\wn) = a_0 I_\text{water}(\wn) + a_1.
 	\label{\eqnlabel{accum_length:sn_model}}
 \end{equation}
-An example fit can be seen in \figref{accum_length:sn_ratio}.
+An example fit can be seen in
+\figref{accum_length:sn_ratio}.
 
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/sn_ratio/sn_ratio}
-	\caption{Signal-to-noise calculation from a fit of high quality spectrum
-		and constant background addition. The original \emph{spectrum} (here we are
-		using the spectrum $I_{20}(\wn)$ with 20\,s accumulation time) was modeled
-		by \emph{model} \eqnref{accum_length:sn_model}. The spectra on
-		the image were then normalized to the \emph{constant} $a_1$.}
+	\caption[%
+		Signal-to-noise ratio calculation from a fit of the high-quality spectrum
+		and constant background addition.%
+	]{%
+		\captiontitle{%
+			Signal-to-noise ratio calculation from a fit of the high-quality spectrum
+			and constant background addition.%
+		}
+		The original \emph{spectrum} (here, we are using the spectrum $I_{20}(\wn)$
+		with 20\,s accumulation time) was modeled by \emph{model}
+		\eqnref{accum_length:sn_model}.
+		The spectra on the image were then normalized to the \emph{constant} $a_1$.
+	}
 	\label{\figlabel{accum_length:sn_ratio}}
 \end{figure}
 
-The low frequency SNR was then estimated as
+The low-frequency SNR was then estimated as
 \begin{equation*}
-	SNR_\text{low} = \frac{I_\text{model}(1637)}{a_1}.
+	SNR_\text{low} = \frac{I_\text{model}(1637)}{a_1},
 \end{equation*}
 which leads to
 \begin{align*}
-	SNR_{\text{low},20} &= 1.3841 \pm 0.0004 \\
-	SNR_{\text{low},60} &= 2.6112 \pm 0.0026
+	SNR_{\text{low},20} &= 1.3841 \pm 0.0004, \\
+	SNR_{\text{low},60} &= 2.6112 \pm 0.0026,
 \end{align*}
 
-We also estimated the high frequency noise. We subtracted the constant $a_1$
-from the measured spectra and normalized them to the maximum of the
-$I_\text{model}(1637\,\text{cm}^{-1})$
-so that we have a comparison of the noise size to the size of this band. We
-than calculated spectrum $I_\text{SG}$ smoothed by Savitzky-Golay filter
+We also estimated the high-frequency noise.
+We subtracted the constant $a_1$ from the measured spectra and normalized them
+to the maximum of the $I_\text{model}(1637\,\text{cm}^{-1})$ to compare the
+noise size to the size of this band.
+We then calculated spectrum $I_\text{SG}$ smoothed by Savitzky-Golay filter
 \parencite{Savitzky1964},
 see
 \figref{accum_length:sn_ratio_sg}.
@@ -95,31 +108,38 @@ see
 \begin{figure}
 	\centering
 	\input{results_and_discussion/assets/sn_ratio/sn_ratio_sg}
-	\caption{Signal-to-noise calculation using standard deviation from the
-	  spectrum smoothed by the Savitzky-Golay filter. The spectrum is normalized
-		to the water band at 1637\,\icm{}. The figure shows the original
-		\emph{spectrum} and the spectrum smoothed by the Savitzky-Golay filter
-		(\emph{SG filter}).}
+	\caption[%
+		Signal-to-noise ratio calculation using standard deviation from the
+	  spectrum smoothed by the Savitzky-Golay filter.
+	]{%
+		\captiontitle{%
+			Signal-to-noise ratio calculation using standard deviation from the
+			spectrum smoothed by the Savitzky-Golay filter.
+		}
+		The spectrum is normalized to the water band at 1637\,\icm{}.
+		The figure shows the original \emph{spectrum} and the spectrum smoothed by
+		the Savitzky-Golay filter (\emph{SG filter}).
+	}
 	\label{\figlabel{accum_length:sn_ratio_sg}}
 \end{figure}
 
-Finally, we estimated the high frequency $SNR_\text{high}$ from the standard
+Finally, we estimated the high-frequency $SNR_\text{high}$ from the standard
 deviation $\sigma$ of the original spectrum from the smoothed spectrum
-normalized to intensity of water band at 1637\,\icm{} (which means that the
-normalized intensity maximum at 1637\,\icm{} is equal to 1)
+normalized to the intensity of the water band at 1637\,\icm{} (which means that
+the normalized intensity maximum at 1637\,\icm{} is equal to 1),
 \begin{equation*}
-	SNR_\text{high} = \frac{1}{\sigma}.
+	SNR_\text{high} = \frac{1}{\sigma},
 \end{equation*}
-
 \begin{align*}
-	SNR_{\text{high},20} &= 240 \\
-	SNR_{\text{high},60} &= 297
+	SNR_{\text{high},20} &= 240, \\
+	SNR_{\text{high},60} &= 297.
 \end{align*}
 
-It can be clearly seen that longer accumulation times of the single frame gives
-better quality spectra in these experimental conditions. It is more obvious
-from the low frequency SNR even though the high frequency SNR difference is
-also significant. Regarding the disadvantages of the
-longer accumulation discussed at the beginning of this section and speed of
-the sample degradation with lifetimes in the range of minutes we decided that
+It can be seen that longer single-frame accumulation times give better quality
+spectra in these experimental conditions.
+The difference is larger in the low-frequency SNR even though the
+high-frequency SNR difference is also significant.
+Regarding the disadvantages of the
+longer accumulation discussed at the beginning of this section and the speed of
+the sample degradation with lifetimes in the range of minutes, we decided that
 the optimal accumulation time is 60\,s.

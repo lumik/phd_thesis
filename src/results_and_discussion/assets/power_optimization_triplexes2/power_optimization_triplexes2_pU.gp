@@ -26,10 +26,10 @@ decay(x, p1, p2, p3) = p1 * exp(-p2 * x) + p3;
 set macros
 ranges = "[700:1800][0.0:1.3]"
 
-set xlabel '$\tilde{\nu}$ (\icm)' offset 0,1.2
-set ylabel 'intensity (a. u.)' offset 1,0
-set tics scale 0.5
-set xtics 200 offset 0,0.5
+set xlabel '$\tilde{\nu}$ (\icm)' offset 0,0.0
+set ylabel 'intensity (a. u.)' offset 0,0
+set tics scale 0.7
+set xtics 200 offset 0,0.0
 unset ytics
 
 set tmargin at screen 0.95
@@ -38,7 +38,7 @@ set rmargin at screen 0.95
 set lmargin at screen 0.05
 
 # cairo terminal somehow makes line spacing larger than eps output.
-set key font ',0.8'
+set key font ',0.8' spacing 2.5
 
 set style arrow 1 nohead ls 1 lw 1.2 lc rgb 'black'
 set style fill transparent solid 0.2 noborder
@@ -47,7 +47,7 @@ set style line 1 lc rgb '#0060ad' lt 1 lw lw  # spectrum
 plot @ranges\
 	fn w l notitle ls 1,\
 	fn_pUfit u 1:2:3 w filledcurves notitle lw lwfit lc rgb '#228b22',\
-	fn_pUfit u 1:2 w l title 'polyU band' lw lwfit lc rgb '#88228b22',\
+	fn_pUfit u 1:2 w l title 'polyU band~~' lw lwfit lc rgb '#88228b22',\
 	fn_pUbands u 1:($2 + $5 + cyu):(0):(zu1) w vectors arrowstyle 1 notitle,\
 	fn_pUbands u 1:($2 + $5 + cyu + zu1):($3):($4 + zu2 - zu1) w vectors arrowstyle 1 notitle,\
 	fn_pUbands u ($1 + $3):($2 + $4 + $5 + cyu + zu2):(0):(du - zu2) w vectors arrowstyle 1 notitle,\
