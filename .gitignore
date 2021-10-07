@@ -23,6 +23,8 @@ src/abstracts/cs/abstrakt.out
 src/abstracts/cs/abstrakt.pdf
 src/abstracts/cs/abstrakt.synctex
 src/abstracts/cs/abstrakt.synctex(busy)
+src/abstracts/cs/abstrakt.tcp
+src/abstracts/cs/abstrakt.tps
 src/abstracts/cs/pdfa.xmpi
 
 src/abstracts/en/abstract.aux
@@ -30,6 +32,8 @@ src/abstracts/en/abstract.out
 src/abstracts/en/abstract.pdf
 src/abstracts/en/abstract.synctex
 src/abstracts/en/abstract.synctex(busy)
+src/abstracts/en/abstract.tcp
+src/abstracts/en/abstract.tps
 src/abstracts/en/pdfa.xmpi
 
 src/attachments/attachments.aux
