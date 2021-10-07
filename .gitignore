@@ -18,6 +18,20 @@ src/phd_thesis.run.xml
 src/phd_thesis.fdb_latexmk
 src/phd_thesis.fls
 
+src/abstracts/cs/abstrakt.aux
+src/abstracts/cs/abstrakt.out
+src/abstracts/cs/abstrakt.pdf
+src/abstracts/cs/abstrakt.synctex
+src/abstracts/cs/abstrakt.synctex(busy)
+src/abstracts/cs/pdfa.xmpi
+
+src/abstracts/en/abstract.aux
+src/abstracts/en/abstract.out
+src/abstracts/en/abstract.pdf
+src/abstracts/en/abstract.synctex
+src/abstracts/en/abstract.synctex(busy)
+src/abstracts/en/pdfa.xmpi
+
 src/attachments/attachments.aux
 src/conclusions/conclusions.aux
 src/introduction/introduction.aux
