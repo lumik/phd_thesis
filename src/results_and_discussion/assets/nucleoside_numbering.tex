@@ -7,7 +7,7 @@
 	\node [below = 0 of Thymine] {Thymine};
 	\node [right = of Thymine, shift = {(0,0.0cm)}] (Adenine) {
 		\chemfig{
-			[:90]N3*6(-C4*5(-N9(-sugar)-C8(-H)=N7-)=C5-C6(-@{AH6}H_2 N)=@{AN1}N1-C2(-H)=)
+			[:90]N3*6(-C4*5(-N9(-sugar)-C8(-H)=N7-#(,2.5mm))=C5-C6(-@{AH6}H_2 N)=@{AN1}N1-C2(-H)=)
 		}
 	};
 	\node [below = -0.7cm of Adenine] {Adenine};
@@ -22,13 +22,13 @@
 \begin{tikzpicture}[font=\sffamily]
 	\node (Cytosine) {
 		\chemfig{
-			N1*6([:30](-sugar)-C2(=@{CO2}O)-@{CN3}N3=C4(-@{CH4}NH_2)-C5(-H)=C6(-H)-)
+			N1*6([:30](-sugar)-C2(=@{CO2}O)-@{CN3}N3=C4(-N@{CH4}H_2)-C5(-H)=C6(-H)-)
 		}
 	};
 	\node [below = 0 of Cytosine] {Cytosine};
 	\node [right = of Cytosine, shift = {(0,0.0cm)}] (Guanine) {
 		\chemfig{
-			[:90]N3*6(-C4*5(-N9(-sugar)-C8(-H)=N7-)=C5-C6(=@{GO6}O)-N1(-@{GH1}H)-C2(-@{GH2}H_2 N)=)
+			[:90]N3*6(-C4*5(-N9(-sugar)-C8(-H)=N7-#(,2.5mm))=C5-C6(=@{GO6}O)-N1(-@{GH1}H)-C2(-@{GH2}H_2 N)=)
 		}
 	};
 	\node [below = -0.7cm of Adenine] {Guanine};
